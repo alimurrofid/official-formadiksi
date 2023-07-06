@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
 });
+
+Route::prefix('dashboard')->group (function () {
+    Route::get('/', function () {
+        return view('dashboard.home');
+    })->name('dashboard.home');
+
+    Route::get('/passion', function () {
+        return view('dashboard.passion');
+    })->name('dashboard.passion');
+
+});
+
+
+    Route::get('/form', function () {
+        return view('form.index');
+    })->name('passion-create');
