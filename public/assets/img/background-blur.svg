@@ -1,0 +1,17 @@
+<svg width="1920" height="1216" viewBox="0 0 1920 1216" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_193_32)">
+<circle cx="657.723" cy="360.557" r="163.259" transform="rotate(13.5895 657.723 360.557)" fill="#FFB547"/>
+<ellipse cx="966.733" cy="264" rx="144.576" ry="148.178" transform="rotate(13.5895 966.733 264)" fill="#F500BF"/>
+<circle cx="791.385" cy="563.686" r="169.338" transform="rotate(13.5895 791.385 563.686)" fill="#00FFD1"/>
+<circle cx="493.588" cy="429.889" r="272.243" transform="rotate(13.5895 493.588 429.889)" fill="#FFA6A6"/>
+<rect x="1269.5" y="84.5997" width="499.202" height="247.324" transform="rotate(13.5895 1269.5 84.5997)" fill="#8F00FF" fill-opacity="0.63"/>
+<path d="M1461.84 311.04L1347.37 503.591L1495.13 671.959L1276.63 622.594L1162.16 815.144L1141.59 592.084L923.088 542.72L1128.87 454.226L1108.3 231.166L1256.06 399.534L1461.84 311.04Z" fill="#00FFD1" style="mix-blend-mode:darken"/>
+</g>
+<defs>
+<filter id="filter0_f_193_32" x="-178.717" y="-315.4" width="2333.44" height="1530.54" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_193_32"/>
+</filter>
+</defs>
+</svg>

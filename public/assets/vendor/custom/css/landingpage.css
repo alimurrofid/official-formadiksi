@@ -1,0 +1,724 @@
+:root {
+    --black: #1e293b;
+    --red: #dc2626;
+    --red-light: #ff0000;
+    --purple: #6366f1;
+    --text-gray: #64748b;
+    --body-bg: #ffffff;
+}
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+} */
+html {
+    scroll-behavior: smooth;
+    /* height: 4000px; */
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+/* === Navbar === */
+
+.navbar-transparent {
+    background-color: transparent !important;
+    backdrop-filter: blur(10px);
+}
+
+.nav-item {
+    margin: 0 0.5rem;
+}
+.nav-link {
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1rem;
+}
+.nav-link:hover {
+    color: var(--red);
+}
+/* .nav-link:hover::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid var(--red);
+    margin: auto;
+    padding-bottom: 3px;
+    margin-bottom: -8px;
+} */
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-item {
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+.dropdown-item:hover {
+    background-color: transparent;
+    color: var(--red);
+}
+/* .dropdown-item:hover::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 3px solid var(--red);
+    margin: auto;
+    padding-bottom: 3px;
+    margin-bottom: -6px;
+} */
+
+/* === Hero === */
+
+.hero {
+    background-image: url(../../../img/bg-blur.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grup {
+    text-align: center;
+}
+.hero-title {
+    font-size: 4.8rem;
+    font-family: Poppins;
+    font-weight: 600;
+    color: var(--black);
+}
+.hero-title span {
+    background: linear-gradient(91deg, #dc2626 0%, #ffd717 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* === Work Plan === */
+#work-plan {
+    padding-top: 50rem;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.head-title {
+    color: var(--black);
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.sub-title {
+    color: var(--text-gray);
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* === Card Workplan=== */
+/* #work-plan .container{
+    background-color: #f163ac;
+} */
+.card-workplan {
+    width: 26rem;
+    height: 9.7rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 4px 10px 0px rgba(71, 85, 105, 0.15);
+    margin: 1rem 0rem;
+    display: flex;
+    align-items: center;
+    /* background-color: #3db3c8; */
+}
+
+.card-body-workplan {
+    display: flex;
+    align-items: center;
+    margin: 0.7rem 0.7rem;
+    padding: 0;
+    /* background-color: #a5c83d; */
+}
+
+.wrap-img-workplan {
+    display: flex;
+    justify-content: center;
+    margin-right: 0.7rem;
+    /* background-color: aquamarine; */
+}
+.wrap-title-workplan {
+    /* background-color: aliceblue; */
+}
+.img-workplan {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    /* background-color: #ffffff; */
+}
+.title-workplan {
+    color: var(--black);
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.text-workplan {
+    color: var(--text-gray);
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: justify;
+    text-justify: newspaper;
+}
+.swipper-navBtn {
+    color: var(--body-bg);
+    height: 40px;
+    width: 40px;
+    background-color: var(--purple);
+    border-radius: 50%;
+}
+.swipper-navBtn::before,
+.swipper-navBtn::after {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* === Article === */
+#article {
+    /* padding-top: 50rem; */
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+/* === Card Article === */
+
+.card-article {
+    position: relative;
+    min-width: 26rem;
+    height: 33.8rem;
+    border-radius: 1.125rem;
+    box-shadow: 1px 4px 10px 0px rgba(71, 85, 105, 0.15);
+    /* background-color: beige; */
+}
+.card-body-article {
+    position: absolute;
+    /* background-color: wheat; */
+}
+.wrap-img-article {
+    margin: 1.5rem;
+    min-width: 23rem;
+    height: 15rem;
+    overflow: hidden;
+    border-radius: 0.875rem;
+    /* background-color: aqua; */
+}
+
+.img-article {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s ease-in-out;
+}
+.img-article:hover {
+    transform: scale(1.1);
+}
+
+.card-article .card-body-article a {
+    text-decoration: none;
+}
+.category-article {
+    height: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: whitesmoke; */
+}
+.category-article .bi-grid {
+    margin-left: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--purple);
+}
+.category-article .text-category {
+    font-family: poppins;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-gray);
+    padding-top: 1rem;
+    margin-left: 0.5rem;
+}
+.title-article {
+    color: var(--black);
+    font-family: Poppins;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0.5rem 1.5rem 0.3rem;
+    /* background-color: aliceblue; */
+}
+.text-article {
+    margin: 0 1.5rem 1rem;
+    color: #334155;
+    text-align: justify;
+    font-family: Inter;
+    font-size: 1.12rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.footer-text {
+    height: 1.5rem;
+    margin: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    /* background-color: whitesmoke; */
+}
+.footer-text .bi-calendar4 {
+    font-size: 1.4rem;
+    color: var(--text-gray);
+}
+.footer-text .text-footer-date {
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-gray);
+    margin-left: 0.5rem;
+    padding-top: 1.1rem;
+}
+.footer-text a {
+    margin-left: auto;
+    display: flex;
+    padding-top: 0.7rem;
+}
+.footer-text a .text-footer-readmore {
+    color: var(--purple);
+    font-family: Poppins;
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-top: 0.4rem;
+}
+.footer-text a .bi-arrow-right-short {
+    font-size: 1.89rem;
+    color: var(--purple);
+    transition: 0.3s ease-in-out;
+    transform: translateX(0);
+}
+.footer-text a:hover .bi-arrow-right-short {
+    transform: translateX(8px);
+    color: var(--red-light);
+}
+
+/* === View More === */
+.more-article {
+    height: 2.2rem;
+    color: var(--purple);
+    /* background-color: aliceblue; */
+}
+.more-article p {
+    padding-top: 0.2rem;
+}
+.more-article .bi-arrow-right {
+    font-size: 1.7rem;
+    transition: 0.3s ease-in-out;
+    transform: translateX(0px);
+}
+.more-article:hover .bi-arrow-right {
+    transform: translateX(10px);
+    color: var(--red-light);
+}
+
+/* === Question === */
+.wrap-question {
+    display: flex;
+    justify-content: center;
+    /* background-color: aliceblue; */
+}
+.wrap-text-question {
+    max-width: 41rem;
+    /* background-color: antiquewhite; */
+}
+.text-question {
+    color: var(--text-gray);
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: justify;
+}
+.btn-question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 11rem;
+    height: 2.9rem;
+    border-radius: 0.7rem;
+    background: var(--red);
+    color: #fff;
+    font-family: Poppins;
+    font-size: 1.05rem;
+    transition: 0.3s ease-in-out;
+}
+.btn-question:hover {
+    background: var(--red-light);
+    color: #fff;
+    box-shadow: 1px 4px 10px 0px rgba(255, 0, 0, 0.5);
+}
+.img-question {
+    width: 30rem;
+    /* background-color: aquamarine; */
+}
+
+/* === FAQ === */
+.accordion {
+    width: 100%;
+    max-width: 45rem;
+    margin: 0 auto;
+}
+.accordion-item {
+    border: none;
+}
+
+.accordion-button:is(.collapsed) {
+    border: 1px solid #e2e8f0;
+    font-family: poppins;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--black);
+    border-radius: 0.7rem !important;
+    box-shadow: 2px 4px 5px 0px rgba(71, 85, 105, 0.15);
+}
+.accordion-button:not(.collapsed) {
+    border-radius: 0.7rem 0.7rem 0 0;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    box-shadow: 2px 0px 5px 0px rgba(71, 85, 105, 0.15);
+    font-family: poppins;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--black);
+}
+
+.accordion-body {
+    font-family: poppins;
+    font-weight: 400;
+    font-size: 1rem;
+    border: 1px solid #e2e8f0;
+    border-top: none;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 2px 4px 5px 0px rgba(71, 85, 105, 0.15);
+}
+
+/* === Footer === */
+footer {
+    box-shadow: 0px -2px 25px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 15rem;
+    margin-bottom: 0;
+}
+.desc-forum {
+    text-align: justify;
+    font-family: Poppins;
+    font-size: 0.88rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: var(--text-gray);
+}
+.footer-heading {
+    font-family: Poppins;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--black);
+}
+.footer-title {
+    font-family: Poppins;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    color: #78808a;
+}
+.footer-copyright {
+    background-color: var(--red);
+    height: 52px;
+    width: 100%;
+    text-align: center;
+}
+.footer-copyright p {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 0.9rem;
+}
+/* ========== Responsive styles large desktops, less than 1400px ========== */
+@media (max-width: 1399.98px) {
+    .card-workplan {
+        height: 9.2rem;
+    }
+    .img-workplan {
+        width: 90px;
+        height: 90px;
+    }
+    .title-workplan {
+        font-size: 0.9rem;
+    }
+    .text-workplan {
+        font-size: 0.68rem;
+    }
+    .swipper-navBtn {
+        height: 38px;
+        width: 38px;
+    }
+    .swipper-navBtn::before,
+    .swipper-navBtn::after {
+        font-size: 1.3rem;
+    }
+}
+
+/* ========== Responsive styles desktops, less than 1200px ========== */
+@media (max-width: 1199.98px) {
+    /* === Card Workplan=== */
+    .card-workplan {
+        height: 8.4rem;
+    }
+    .img-workplan {
+        width: 80px;
+        height: 80px;
+    }
+    .title-workplan {
+        font-size: 0.74rem;
+    }
+    .text-workplan {
+        font-size: 0.6rem;
+    }
+
+    /* === Card Article=== */
+    .card-article {
+        height: 30rem;
+    }
+
+    /* === Question === */
+    .wrap-question {
+        display: flex;
+        flex-wrap: wrap-reverse;
+    }
+    .wrap-text-question {
+        max-width: 100%;
+    }
+
+    .img-question {
+        margin-bottom: 1.5rem;
+    }
+
+    /* === Footer === */
+    iframe {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* ========== Responsive styles tablets, less than 992px ========== */
+@media (max-width: 991.98px) {
+    /* === Card Workplan=== */
+    .card-workplan {
+        height: 8rem;
+    }
+    .img-workplan {
+        width: 80px;
+        height: 80px;
+    }
+    .title-workplan {
+        font-size: 0.9rem;
+    }
+    .text-workplan {
+        font-size: 0.68rem;
+    }
+    .swipper-navBtn {
+        height: 35px;
+        width: 35px;
+    }
+    .swipper-navBtn::before,
+    .swipper-navBtn::after {
+        font-size: 1.2rem;
+    }
+
+    /* === Card Article=== */
+    .card-article {
+        height: 31rem;
+    }
+
+    /* === Question === */
+
+    .btn-question {
+        width: 10rem;
+        height: 2.7rem;
+        font-size: 0.9rem;
+        margin: auto;
+    }
+
+    /* === Footer === */
+    iframe {
+        width: 150px;
+        height: 150px;
+    }
+    footer img {
+        width: 180px;
+    }
+    .footer-heading {
+        font-size: 1rem;
+    }
+    .desc-forum {
+        font-size: 0.8rem;
+    }
+}
+/* ========== Responsive styles landscape phones, less than 768px ========== */
+@media (max-width: 767.98px) {
+    /* === Hero === */
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero .grup .btn {
+        font-size: 0.7rem;
+    }
+
+    /* === Work Plan === */
+    #work-plan {
+        padding-top: 42rem;
+    }
+
+    .head-title {
+        font-size: 1.7rem;
+    }
+
+    .sub-title {
+        font-size: 0.8rem;
+    }
+
+    /* === Card workplan=== */
+
+    .img-workplan {
+        width: 83px;
+        height: 83px;
+    }
+    .title-workplan {
+        font-size: 1rem;
+    }
+    .text-workplan {
+        font-size: 0.8rem;
+    }
+
+    /* === Card Article=== */
+    .card-article {
+        height: 33rem;
+    }
+
+    /* === Footer === */
+    iframe {
+        width: 250px;
+        height: 250px;
+    }
+    footer img {
+        width: 220px;
+    }
+    .desc-forum {
+        font-size: 0.88rem;
+    }
+    .footer-heading {
+        font-size: 1.1rem;
+    }
+    .footer-title {
+        font-size: 0.9rem;
+    }
+}
+
+/* ========== Responsive styles portrait phones, less than 576px ========== */
+@media (max-width: 575.98px) {
+    /* === Hero === */
+    .hero {
+        height: 70vh;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero .grup .btn {
+        font-size: 0.5rem;
+    }
+
+    /* === Work Plan === */
+    #work-plan {
+        padding-top: 28rem;
+    }
+
+    .head-title {
+        font-size: 1.5rem;
+    }
+
+    .sub-title {
+        font-size: 0.8rem;
+    }
+
+    /* === Card Workplan=== */
+
+    .card-workplan {
+        height: 7.9rem;
+    }
+    .card-body-workplan {
+        margin: 0.6rem 0.6rem;
+    }
+    .wrap-img-workplan {
+        margin-right: 0.6rem;
+    }
+    .img-workplan {
+        width: 80px;
+        height: 80px;
+    }
+    .title-workplan {
+        font-size: 0.9rem;
+    }
+    .text-workplan {
+        font-size: 0.6rem;
+    }
+
+    /* === Card Article=== */
+    .card-article {
+        height: 33.8rem;
+        min-width: 20rem;
+        min-height: 37rem;
+    }
+    .wrap-img-article {
+        min-width: 17rem;
+    }
+
+    /* === Question === */
+    .wrap-question {
+        min-width: 22rem;
+    }
+    .img-question {
+        width: 22rem;
+    }
+
+    /* === Footer === */
+    .footer-copyright p {
+        font-size: 0.9rem;
+    }
+}

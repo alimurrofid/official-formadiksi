@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('landingpage');
 });
 
+Route::get('/ex', function () {
+    return view('experiment');
+});
+
 Route::prefix('dashboard')->group (function () {
     Route::get('/', function () {
         return view('dashboard.home');
