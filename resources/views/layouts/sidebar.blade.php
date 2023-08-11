@@ -62,6 +62,9 @@
                         <a href="{{route('dashboard.passion')}}">Data</a>
                     </li>
                     <li class="submenu-item">
+                        <a href="{{route('faq.index')}}">FAQ</a>
+                    </li>
+                    <li class="submenu-item">
                         <a href="#">Item</a>
                     </li>
                 </ul>

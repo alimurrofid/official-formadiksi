@@ -34,6 +34,14 @@ class FaqSeeder extends Seeder
                 Neque, laboriosam modi fuga ut vero laborum itaque hic explicabo suscipit id
                 expedita sapiente?',
             ],
+            [
+                'question' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ?',
+                'answer' => 'Cras vitae felis vel mauris gravida scelerisque eget vitae nulla. Nam semper pharetra ultricies. Suspendisse potenti. Pellentesque congue, erat ut cursus mollis, metus elit semper mi, vitae venenatis tortor velit non ligula. Integer et posuere lorem. Fusce imperdiet, nisl quis accumsan placerat, nunc sem rutrum neque, in venenatis nisl felis a turpis. Nunc suscipit porta varius. Maecenas eget nibh aliquet, varius risus eget, elementum eros. Proin risus eros, tempor a luctus eu, rhoncus quis metus. Cras pharetra ac est pretium dictum. Mauris metus ex, aliquet quis diam vel, ultricies mollis lorem. Mauris.',
+            ],
+            [
+                'question' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ?',
+                'answer' => 'egestas ligula ac sollicitudin mattis. Phasellus viverra leo quam, vel accumsan purus feugiat vel. Nullam diam ex, dapibus condimentum justo at, condimentum consectetur ante. Quisque massa neque, ornare non nisi nec, gravida semper est. Etiam sed egestas diam. Donec nec massa tempus, vestibulum mauris a, varius arcu. Maecenas quis ante dignissim, placerat magna quis, fermentum turpis. Ut pellentesque purus nisi, sagittis tempus eros rutrum non. Suspendisse vehicula magna ac pretium congue.',
+            ],
         ]);
     }
 }
