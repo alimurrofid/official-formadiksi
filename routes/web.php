@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FaqController;
+use Database\Factories\FaqFactory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,13 +17,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('landingpage');
-});
+})->name('landingpage');
+
+Route::resource('faq', FaqController::class);
+// Route::get('/faq', function () {
+//     return view('dashboard.faq');
+// });
+
+Route::get('/', [FaqController::class, 'landingpage']);
 
 Route::get('/ex', function () {
     return view('experiment');
 });
 
-Route::prefix('dashboard')->group (function () {
+Route::prefix('dashboard')->group(function () {
     Route::get('/', function () {
         return view('dashboard.home');
     })->name('dashboard.home');
@@ -29,10 +38,9 @@ Route::prefix('dashboard')->group (function () {
     Route::get('/passion', function () {
         return view('dashboard.passion');
     })->name('dashboard.passion');
-
 });
 
 
-    Route::get('/form', function () {
-        return view('form.index');
-    })->name('passion-create');
+Route::get('/form', function () {
+    return view('form.index');
+})->name('passion-create');

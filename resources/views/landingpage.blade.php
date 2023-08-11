@@ -381,55 +381,22 @@
             <div class="container  mt-5">
                 <!-- Accordion -->
                 <div class="accordion " id="accordionExample">
+                    @foreach($faq as $f)
                     <div class="accordion-item mb-3">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                Kapan pencairan semester ganjil 2023/2024 ?
+                                data-bs-target="#collapse{{$f->id}}" aria-expanded="false" aria-controls="collapse{{$f->id}}">
+                                {{$f->question}}
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapse{{$f->id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <p> Pencarian biasanya paling cepat satu bulan setelah masuk perkuliahan tapi tergantung
-                                    juga dengan pengajuan kampus. Jadi dimohon bersabar untuk menantikan pencairan
-                                    semester ganjil 2023/2024. Berdoa saja semoga cepat dicairkan.
+                                <p> {{$f->answer}}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item mb-3">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Apakah ada beasiswa untuk mahasiswa baru ?
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p> repellat repellendus! Soluta ad magnam nesciunt id doloremque nemo quasi ex
-                                    esse, veniam fugiat illum aliquam vitae, praesentium incidunt dicta, necessitatibus
-                                    mollitia a tempora explicabo? Fugiat eveniet vel minima inventore animi fuga
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item mb-3">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Kapan pendaftaran Cafung Formadiksi Polinema dibuka ?
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                consectetur dignissimos et ex enim mollitia, praesentium incidunt quis aliquid. Ab,
-                                recusandae impedit. Commodi dignissimos beatae eius quidem iure quaerat ullam ad ab?
-                                Neque, laboriosam modi fuga ut vero laborum itaque hic explicabo suscipit id
-                                expedita sapiente?
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <!-- End Accordion -->
             </div>
