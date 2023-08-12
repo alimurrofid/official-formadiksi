@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\QuestionController;
 use Database\Factories\FaqFactory;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::get('/', function () {
 })->name('landingpage');
 
 Route::resource('faq', FaqController::class);
+Route::resource('question', QuestionController::class);
 // Route::get('/faq', function () {
 //     return view('dashboard.faq');
 // });

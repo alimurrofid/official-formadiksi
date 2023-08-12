@@ -361,7 +361,7 @@
                         pertanyaan,
                         aspirasi, kritik, dan saran anda. Agar membantu Formadiksi Polinema untuk terus berkembang dan
                         memberikan manfaat yang lebih besar bagi mahasiswa Polinema.</p>
-                    <a href="" class="btn btn-question mt-3">Send Question <i class="bi bi-send ms-1"></i></a>
+                    <a href="{{ route('question.create') }}" class="btn btn-question mt-3">Send Question <i class="bi bi-send ms-1"></i></a>
                 </div>
                 <img class="img-question" src="{{ asset('assets/img/mailbox.png') }}" alt="">
             </div>
