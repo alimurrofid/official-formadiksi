@@ -14,7 +14,7 @@ class QuestionSeeder extends Seeder
     public function run(): void
     {
         //
-        DB::table('faq')->insert([
+        DB::table('question')->insert([
             [
                 'email' => 'example@mail.com',
                 'nama' => 'John Doe',

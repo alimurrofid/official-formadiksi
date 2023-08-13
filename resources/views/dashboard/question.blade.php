@@ -34,6 +34,10 @@
                         Add Data</a>
                     <a href="/exportexcel" class="btn btn-success icon icon-left">
                         Export Excel</a>
+                    <form action="{{ route('question.delete-all') }}" method="POST" id="delete-form">
+                        @csrf
+                        <button type="button" onclick="confirmDelete()" class="btn btn-danger icon icon-left">Hapus Semua Pertanyaan</button>
+                    </form>
                     <div class="search">
                         <form action="{{ route('question-search') }}" method="GET">
                         <input type="text" class="search-input" placeholder="Search..." name="search" {{ Request::get('search') }}/>
@@ -104,5 +108,20 @@
 
         </section>
     </div>
-
+    <script>
+        function confirmDelete() {
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Anda yakin ingin menghapus semua pertanyaan?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Saya Yakin Hapus Semua',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-form').submit();
+                }
+            });
+        }
+    </script>
 @endsection

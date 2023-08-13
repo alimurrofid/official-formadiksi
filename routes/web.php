@@ -24,6 +24,7 @@ Route::resource('faq', FaqController::class);
 Route::resource('question', QuestionController::class);
 Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
 Route::get('/questions',[QuestionController::class,'index'])->name('question-search');
+Route::post('/question/delete-all', [QuestionController::class,'deleteAll'])->name('question.delete-all');
 // Route::get('/faq', function () {
 //     return view('dashboard.faq');
 // });

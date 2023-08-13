@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png">
 
     <link rel="stylesheet" href="{{asset('assets/css/shared/iconly.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
 
