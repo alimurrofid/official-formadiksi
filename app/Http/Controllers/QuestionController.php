@@ -80,6 +80,12 @@ class QuestionController extends Controller
         //
     }
 
+    public function deleteAll()
+    {
+        Question::truncate();
+        return redirect()->route('question.index');
+    }
+
     /**
      * Remove the specified resource from storage.
      */
