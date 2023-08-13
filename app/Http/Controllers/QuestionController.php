@@ -2,21 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\QuestionExport;
 use App\Models\Question;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
 use App\Models\Faq;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $question = Question::all();
-        return view('dashboard.question', compact('question'));
+        if ($request->has('search')) {
+            $question = Question::where(function ($query) use ($request) {
+                $query->where('email', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('nama', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('pertanyaan', 'LIKE', '%' . $request->search . '%');
+            })->get();
+            return view('dashboard.question', compact('question'));
+        } else {
+            $question = Question::all();
+            return view('dashboard.question', compact('question'));
+        }
+    }
+
+    public function exportexcel(){
+        return Excel::download(new QuestionExport, 'question.xlsx');
     }
 
     /**

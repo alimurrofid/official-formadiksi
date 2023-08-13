@@ -32,6 +32,16 @@
                     <a href="{{ route('faq.create') }}" class="btn icon icon-left btn-primary"><i
                             data-feather="user-plus"></i>
                         Add Data</a>
+                    <a href="/exportexcel" class="btn btn-success icon icon-left">
+                        Export Excel</a>
+                    <div class="search">
+                        <form action="{{ route('question-search') }}" method="GET">
+                        <input type="text" class="search-input" placeholder="Search..." name="search" {{ Request::get('search') }}/>
+                        <button type="submit" class="search-icon">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        </form>
+                    </div>
                 </div>
 
                 <!-- table -->
@@ -53,10 +63,11 @@
                                     <td>{{ $q->pertanyaan }}</td>
                                     <td>
                                         @php
-                                            $pertanyaan = str_replace(' ','%20',$q->pertanyaan,);
+                                            $pertanyaan = str_replace(' ', '%20', $q->pertanyaan);
                                         @endphp
-                                        <a href="mailto:{{ $q->email }}?subject=Question%20from%20web%20official%20Formadiksi&body=pertanyaan%3A%20{{ $pertanyaan }}%3F%0D%0Ajawaban%3A%20" class="btn icon btn-warning m-1"
-                                            title="jawab"><i class="bi bi-pencil-square"></i></a>
+                                        <a href="mailto:{{ $q->email }}?subject=Question%20from%20web%20official%20Formadiksi&body=pertanyaan%3A%20{{ $pertanyaan }}%3F%0D%0Ajawaban%3A%20"
+                                            class="btn icon btn-warning m-1" title="jawab"><i
+                                                class="bi bi-pencil-square"></i></a>
                                         <form action="{{ route('question.destroy', $q->id) }}" method="post">
                                             @csrf
                                             @method('delete')
@@ -68,7 +79,7 @@
                                 </tr>
                             @endforeach
 
-                                {{-- <tr>
+                            {{-- <tr>
                                 <td class="text-bold-500">Ashley Boul</td>
                                 <td>$15/hr</td>
                                 <td class="text-bold-500">Animation</td>
