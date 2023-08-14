@@ -20,6 +20,20 @@ Route::get('/', function () {
 Route::get('/ex', function () {
     return view('experiment');
 });
+Route::get('/content', function () {
+    return view('content
+    ');
+});
+
+Route::get('/article', function () {
+    return view('article
+    ');
+});
+Route::get('/so', function () {
+    return view('organizationStructure
+    ');
+});
+
 
 Route::prefix('dashboard')->group (function () {
     Route::get('/', function () {

@@ -1,3 +1,4 @@
+// === Swipper === //
 var swiper = new Swiper(".slide-container", {
     slidesPerView: 3,
     // spaceBetween: 30,
@@ -44,6 +45,7 @@ var swiper = new Swiper(".slide-container", {
         },
     },
 });
+
 
 // var swiper = new Swiper(".slide-container", {
 //     slidesPerView: 3,

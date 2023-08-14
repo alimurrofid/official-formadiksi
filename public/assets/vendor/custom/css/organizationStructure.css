@@ -1,0 +1,96 @@
+:root {
+    --black: #1e293b;
+    --red: #dc2626;
+    --red-light: #ff0000;
+    --purple: #6366f1;
+    --text-gray: #64748b;
+    --body-bg: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 4000px;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.head-title {
+    color: var(--black);
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 2.8rem;
+    padding-top: 6rem;
+    font-style: normal;
+    line-height: normal;
+}
+
+.sub-title {
+    max-width: 70rem;
+    color: var(--black, #1e293b);
+    text-align: center;
+    font-family: Poppins;
+    font-size: 2.1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 auto;
+    /* background-color: beige; */
+}
+.bagan-so{
+    display: block;
+    width: 100%;
+    max-width: 70rem;
+    padding: 2rem 0;
+    margin: 0 auto;
+}
+.wrap-img-so{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* ========== Responsive styles large desktops, less than 1400px ========== */
+@media (max-width: 1399.98px) {
+}
+/* ========== Responsive styles desktops, less than 1200px ========== */
+@media (max-width: 1199.98px) {
+    .head-title {
+        font-size: 2.5rem;
+    }
+    
+    .sub-title {
+        font-size: 1.8rem;
+    }
+}
+/* ========== Responsive styles tablets, less than 992px ========== */
+@media (max-width: 991.98px) {
+    .head-title{
+        font-size: 2rem;
+    }
+    .sub-title{
+        font-size: 1.3rem;
+    }
+}
+/* ========== Responsive styles tablets, less than 768px ========== */
+@media (max-width: 767.98px) {
+    .head-title{
+        font-size: 1.6rem;
+    }
+    .sub-title{
+        font-size: 0.99rem;
+    }
+}
+/* ========== Responsive styles mobiles, less than 576px ========== */
+@media (max-width: 575.98px) {
+
+    .head-title{
+        font-size: 1.4rem;
+    }
+    .sub-title{
+        font-size: 0.87rem;
+    }
+}
+

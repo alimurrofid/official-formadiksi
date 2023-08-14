@@ -54,10 +54,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Berita</a>
+                        <a class="nav-link" href="#article">Berita</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Aspirasi</a>
+                        <a class="nav-link" href="#question">Aspirasi</a>
                     </li>
 
                 </ul>
@@ -361,7 +361,47 @@
                         pertanyaan,
                         aspirasi, kritik, dan saran anda. Agar membantu Formadiksi Polinema untuk terus berkembang dan
                         memberikan manfaat yang lebih besar bagi mahasiswa Polinema.</p>
-                    <a href="" class="btn btn-question mt-3">Send Question <i class="bi bi-send ms-1"></i></a>
+                    {{-- <a href="" class="btn btn-question mt-3">Send Question <i class="bi bi-send ms-1"></i></a> --}}
+                    <!-- Button trigger for Form Modal -->
+                    <button type="button" class="btn btn-question mt-3" data-bs-toggle="modal"
+                        data-bs-target="#questionModal">
+                        Send Question <i class="bi bi-send ms-1"></i>
+                    </button>
+
+                    <!-- Form Modal -->
+                        <div class="modal fade" id="questionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title" id="questionModalLabel">Send Question</h1>
+                                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button> --}}
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="email" class="col-form-label">Email :</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="name" class="col-form-label">Nama Lengkap :</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="">
+                                            <label for="message" class="col-form-label">Pertanyaan :</label>
+                                            <textarea class="form-control"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer mb-1">
+                                    <button type="button" class="btn btn-modal-cancel"
+                                        data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-modal-confirm">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <img class="img-question" src="{{ asset('assets/img/mailbox.png') }}" alt="">
             </div>
@@ -487,22 +527,28 @@
                 <div class="col-xl-2 col-lg-2 col-md-2 mx-auto mt-5 ">
                     <h6 class="footer-heading mb-4">Contact Us</h6>
                     <p>
-                        <a class="footer-title text-decoration-none" href="">Facebook</a>
+                        <a class="footer-title text-decoration-none"
+                            href="https://www.facebook.com/FormadiksiPolinema">Facebook</a>
                     </p>
                     <p>
-                        <a class="footer-title text-decoration-none" href="">Instagram</a>
+                        <a class="footer-title text-decoration-none"
+                            href="https://www.instagram.com/formadiksi_polinema">Instagram</a>
                     </p>
                     <p>
-                        <a class="footer-title text-decoration-none" href="">Twitter</a>
+                        <a class="footer-title text-decoration-none"
+                            href="https://twitter.com/FMDPolinema">Twitter</a>
                     </p>
                     <p>
-                        <a class="footer-title text-decoration-none" href="">Tiktok</a>
+                        <a class="footer-title text-decoration-none"
+                            href="https://www.tiktok.com/@formadiksi_polinema">Tiktok</a>
                     </p>
                     <p>
-                        <a class="footer-title text-decoration-none" href="">Youtube</a>
+                        <a class="footer-title text-decoration-none"
+                            href="https://www.youtube.com/FormadiksiPolinema">Youtube</a>
                     </p>
                     <p>
-                        <a class="footer-title text-decoration-none" href="">Email</a>
+                        <a class="footer-title text-decoration-none"
+                            href="mailto:formadiksipolinema@gmail.com">Email</a>
                     </p>
                 </div>
             </div>
