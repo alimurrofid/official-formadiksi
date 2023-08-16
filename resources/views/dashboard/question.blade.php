@@ -111,15 +111,25 @@
     <script>
         function confirmDelete() {
             Swal.fire({
-                title: 'Konfirmasi',
-                text: 'Anda yakin ingin menghapus semua pertanyaan?',
-                icon: 'warning',
+                title: 'Masukkan Kata Sandi',
+                input: 'password',
+                inputAttributes: {
+                    autocapitalize: 'off'
+                },
                 showCancelButton: true,
-                confirmButtonText: 'Ya, Saya Yakin Hapus Semua',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('delete-form').submit();
+                confirmButtonText: 'Hapus Semua Pertanyaan',
+                showLoaderOnConfirm: true,
+                preConfirm: (password) => {
+                    // Kode validasi kata sandi di sini, contoh:
+                    if (password === 'password123') {
+                        document.getElementById('delete-form').submit();
+                    } else {
+                        Swal.fire({
+                            title: 'Kata Sandi Salah',
+                            icon: 'error',
+                            confirmButtonText: 'Tutup'
+                        });
+                    }
                 }
             });
         }
