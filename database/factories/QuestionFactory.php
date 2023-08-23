@@ -17,7 +17,11 @@ class QuestionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'created_at' => now(),
+            'email' => fake()->unique()->safeEmail(),
+            'nama' => fake()->name(),
+            'pertanyaan' => fake()->text(100),
+
         ];
     }
 }

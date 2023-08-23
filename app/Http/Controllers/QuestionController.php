@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\QuestionExport;
+use App\Models\Faq;
 use App\Models\Question;
+use Illuminate\Http\Request;
+use App\Exports\QuestionExport;
+use Yajra\DataTables\Facades\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
-use App\Models\Faq;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+use Termwind\Components\Span;
 
 class QuestionController extends Controller
 {
@@ -17,21 +19,34 @@ class QuestionController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        if ($request->has('search')) {
-            $question = Question::where(function ($query) use ($request) {
-                $query->where('email', 'LIKE', '%' . $request->search . '%')
-                    ->orWhere('nama', 'LIKE', '%' . $request->search . '%')
-                    ->orWhere('pertanyaan', 'LIKE', '%' . $request->search . '%');
-            })->get();
-            return view('dashboard.question', compact('question'));
-        } else {
-            $question = Question::all();
-            return view('dashboard.question', compact('question'));
-        }
+        return view('dashboard.question');
     }
 
-    public function exportexcel(){
+    public function table()
+    {
+        $query = Question::latest();
+        return Datatables::of($query)
+            ->addIndexColumn()
+            ->addColumn('opsi', function ($data) {
+                $pertanyaan = str_replace(' ', '%20', $data->pertanyaan);
+
+                $mailLink = '<a href="mailto:' . $data->email . '?subject=Question%20from%20web%20official%20Formadiksi&body=pertanyaan%3A%20' . $pertanyaan . '%3F%0D%0Ajawaban%3A%20" class="btn icon btn-primary m-1" title="Jawab via Email"><i class="bi bi-envelope-at"></i></a>';
+
+                $deleteForm = '<form action="' . route('question.destroy', $data->id) . '" method="post" id="delete-' . $data->id . '">' .
+                    csrf_field() .
+                    method_field('delete') .
+                    '<button type="button" class="btn icon btn-danger m-1 delete-btn" data-id="' . $data->id . '" title="Hapus Data"><i class="bi bi-trash"></i></button>' .
+                    '</form>';
+
+                return $mailLink . $deleteForm;
+            })
+            ->rawColumns(['opsi'])
+            ->make(true);
+    }
+
+
+    public function exportexcel()
+    {
         return Excel::download(new QuestionExport, 'question.xlsx');
     }
 
