@@ -25,13 +25,11 @@ Route::resource('question', QuestionController::class);
 Route::get('/table', [QuestionController::class, 'table'])->name('table');
 
 Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
-Route::post('/question/delete-all', [QuestionController::class,'deleteAll'])->name('question.delete-all');
+Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');
 
 Route::get('/', [FaqController::class, 'landingpage']);
 
-Route::get('/ex', function () {
-    return view('experiment');
-});
+
 Route::get('/content', function () {
     return view('content
     ');
@@ -40,6 +38,13 @@ Route::get('/content', function () {
 Route::get('/article', function () {
     return view('article
     ');
+});
+
+Route::get('/sejarah', function () {
+    return view('sejarah');
+});
+Route::get('/visi-misi', function () {
+    return view('visiMisi');
 });
 Route::get('/so', function () {
     return view('organizationStructure

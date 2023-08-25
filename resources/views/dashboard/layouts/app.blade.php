@@ -12,8 +12,9 @@
 
 
 
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png">
+    {{-- <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon"> --}}
+    {{-- <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png"> --}}
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo-formadiksi.png') }} " type="image/png" />
 
     <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
     <link href="{{ asset('assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css') }}" rel="stylesheet">
@@ -28,7 +29,7 @@
     <div id="app">
         <!-- sidebar start -->
         <div id="sidebar" class="active">
-            @include('layouts.sidebar')
+            @include('dashboard.layouts.sidebarDashboard')
 
         </div>
         <!-- sidebar end -->
@@ -39,7 +40,7 @@
 
                 <!-- navbar start -->
                 <nav class="navbar navbar-expand navbar-light navbar-top">
-                    @include('layouts.navbar')
+                    @include('dashboard.layouts.navbarDashboard')
                 </nav>
                 <!-- navbar end -->
 
@@ -53,7 +54,7 @@
 
                 <!-- Footer start -->
                 <footer>
-                    @include('layouts.footer')
+                    @include('dashboard.layouts.footerDashboard')
                 </footer>
                 <!-- Footer end -->
 

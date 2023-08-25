@@ -22,44 +22,6 @@ html {
 body {
     font-family: "Poppins", sans-serif;
 }
-/* === Navbar === */
-
-.navbar-transparent {
-    background-color: transparent !important;
-    backdrop-filter: blur(10px);
-}
-
-.nav-item {
-    margin: 0 0.5rem;
-}
-.nav-link {
-    color: var(--black);
-    font-weight: 500;
-    font-size: 1rem;
-}
-.nav-link:hover {
-    color: var(--red);
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu {
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-}
-
-.dropdown-item {
-    color: var(--black);
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-}
-.dropdown-item:hover {
-    background-color: transparent;
-    color: var(--red);
-}
 
 /* === content === */
 
@@ -165,7 +127,7 @@ body {
     font-weight: 500;
     font-size: 1rem;
 }
-.card-article {
+.card-article-content {
     position: relative;
     min-width: 18rem;
     height: 25rem;
@@ -174,11 +136,11 @@ body {
     /* background-color: beige; */
     margin: 0 1rem 1rem;
 }
-.card-body-article {
+.card-body-article-content {
     position: absolute;
     /* background-color: wheat; */
 }
-.wrap-img-article {
+.wrap-img-article-content {
     margin: 1rem;
     min-width: 16rem;
     height: 11.5rem;
@@ -187,32 +149,32 @@ body {
     /* background-color: aqua; */
 }
 
-.img-article {
+.img-article-content {
     height: 100%;
     width: 100%;
     object-fit: cover;
     transition: 0.5s ease-in-out;
 }
-.img-article:hover {
+.img-article-content:hover {
     transform: scale(1.1);
 }
 
-.card-article .card-body-article a {
+.card-article-content .card-body-article-content a {
     text-decoration: none;
 }
-.category-article {
+.category-article-content {
     height: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     /* background-color: whitesmoke; */
 }
-.category-article .bi-grid {
+.category-article-content .bi-grid {
     margin-left: 1rem;
     font-size: 1rem;
     color: var(--purple);
 }
-.category-article .text-category {
+.category-article-content .text-category {
     font-family: poppins;
     font-size: 0.8rem;
     font-weight: 500;
@@ -220,7 +182,7 @@ body {
     padding-top: 1rem;
     margin-left: 0.5rem;
 }
-.title-article {
+.title-article-content {
     color: var(--black);
     font-family: Poppins;
     font-size: 0.9rem;
@@ -229,7 +191,7 @@ body {
     margin: 0.3rem 1rem;
     /* background-color: aliceblue; */
 }
-.text-article {
+.text-article-content {
     margin: 0 1rem 1rem;
     color: #334155;
     text-align: justify;
@@ -239,18 +201,18 @@ body {
     font-weight: 500;
     line-height: normal;
 }
-.footer-text {
+.footer-text-content {
     height: 1rem;
     margin: 0 1rem;
     display: flex;
     align-items: center;
     /* background-color: whitesmoke; */
 }
-.footer-text .bi-calendar4 {
+.footer-text-content .bi-calendar4 {
     font-size: 1rem;
     color: var(--text-gray);
 }
-.footer-text .text-footer-date {
+.footer-text-content .text-footer-date {
     font-family: Poppins;
     font-size: 0.8rem;
     font-weight: 500;
@@ -258,12 +220,12 @@ body {
     margin-left: 0.5rem;
     padding-top: 1.1rem;
 }
-.footer-text a {
+.footer-text-content a {
     margin-left: auto;
     display: flex;
     padding-top: 0.7rem;
 }
-.footer-text a .text-footer-readmore {
+.footer-text-content a .text-footer-readmore {
     color: var(--purple);
     font-family: Poppins;
     font-size: 0.8rem;
@@ -272,13 +234,13 @@ body {
     line-height: normal;
     padding-top: 0.4rem;
 }
-.footer-text a .bi-arrow-right-short {
+.footer-text-content a .bi-arrow-right-short {
     font-size: 1.5rem;
     color: var(--purple);
     transition: 0.3s ease-in-out;
     transform: translateX(0);
 }
-.footer-text a:hover .bi-arrow-right-short {
+.footer-text-content a:hover .bi-arrow-right-short {
     transform: translateX(8px);
     color: var(--red-light);
 }
@@ -292,14 +254,14 @@ body {
 /* ========== Responsive styles tablets, less than 992px ========== */
 @media (max-width: 991.98px) {
     /* === Card Article === */
-    .card-article {
+    .card-article-content {
         height: 22rem;
     }
 }
 /* ========== Responsive styles tablets, less than 768px ========== */
 @media (max-width: 767.98px) {
     /* === Card Article === */
-    .card-article {
+    .card-article-content {
         height: 24rem;
     }
 }
@@ -323,7 +285,7 @@ body {
     }
 
     /* === Card Article === */
-    .card-article {
+    .card-article-content {
         height: 24.5rem;
     }
 }

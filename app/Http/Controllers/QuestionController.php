@@ -56,7 +56,7 @@ class QuestionController extends Controller
     public function create()
     {
         //
-        return view('form.questioncreate');
+        return view('landingpage');
     }
 
     /**
