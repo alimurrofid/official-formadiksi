@@ -57,9 +57,18 @@ Route::prefix('dashboard')->group(function () {
         return view('dashboard.home');
     })->name('dashboard.home');
 
-    Route::get('/passion', function () {
-        return view('dashboard.passion');
-    })->name('dashboard.passion');
+    Route::get('/article', function () {
+        return view('dashboard.article');
+    })->name('dashboard.article');
+    Route::get('/so', function () {
+        return view('dashboard.organisationStructure');
+    })->name('dashboard.so');
+    Route::get('/divisi', function () {
+        return view('dashboard.divisi');
+    })->name('dashboard.divisi');
+    Route::get('/workplan', function () {
+        return view('dashboard.workplan');
+    })->name('dashboard.workplan');
 });
 
 

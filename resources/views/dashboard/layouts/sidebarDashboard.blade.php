@@ -2,7 +2,7 @@
     <div class="sidebar-header position-relative">
         <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-                <a href="index.html"><img src="{{asset('assets/images/logo/logo.svg')}}" alt="Logo"
+                <a href="index.html"><img src="{{asset('assets/img/logo-dashboard.png')}}" alt="Logo"
                         srcset=""></a>
             </div>
             <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -50,56 +50,42 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-
-
-            <li class="sidebar-item has-sub active">
-                <a href="#" class="sidebar-link">
-                    <i class="bi bi-collection-fill"></i>
-                    <span>Table Data</span>
+            <li class="sidebar-item ">
+                <a href="{{route('dashboard.article')}}" class='sidebar-link'>
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span>Article</span>
                 </a>
-                <ul class="submenu">
-                    <li class="submenu-item active">
-                        <a href="{{route('dashboard.passion')}}">Data</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{route('faq.index')}}">FAQ</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="{{route('question.index')}}">Question</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="#">Item</a>
-                    </li>
-                </ul>
             </li>
-
-
-{{-- 
-            <li class="sidebar-item active has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Layouts</span>
+            <li class="sidebar-item ">
+                <a href="{{route('dashboard.so')}}" class='sidebar-link'>
+                    <i class="bi bi-person-rolodex"></i>
+                    <span>Struktur Organisasi</span>
                 </a>
-                <ul class="submenu active">
-                    <li class="submenu-item active ">
-                        <a href="{{route('dashboard.passion')}}">Data</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-vertical-1-column.html">1 Column</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-vertical-navbar.html">Vertical Navbar</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-rtl.html">RTL Layout</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="layout-horizontal.html">Horizontal Menu</a>
-                    </li>
-                </ul>
-            </li> --}}
-
-
+            </li>
+            <li class="sidebar-item ">
+                <a href="{{route('dashboard.divisi')}}" class='sidebar-link'>
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Divisi</span>
+                </a>
+            </li>
+            <li class="sidebar-item ">
+                <a href="{{route('dashboard.workplan')}}" class='sidebar-link'>
+                    <i class="bi bi-hammer"></i>
+                    <span>Workplan</span>
+                </a>
+            </li>
+            <li class="sidebar-item ">
+                <a href="{{route('question.index')}}" class='sidebar-link'>
+                    <i class="bi bi-chat-right-quote-fill"></i>
+                    <span>Question</span>
+                </a>
+            </li>
+            <li class="sidebar-item ">
+                <a href="{{route('faq.index')}}" class='sidebar-link'>
+                    <i class="bi bi-chat-right-dots-fill"></i>
+                    <span>Faq</span>
+                </a>
+            </li>
 
         </ul>
     </div>

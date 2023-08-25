@@ -1,12 +1,12 @@
-@extends('layouts.custom')
+@extends('.dashboard.layouts.custom')
 @section('title', 'Form')
 @section('content')
 
 <nav class="navbar navbar-light">
     <div class="container d-block">
-        <a href="{{route('dashboard.passion')}}"><i class="bi bi-chevron-left"></i></a>
-        <a class="navbar-brand ms-4" href="{{route('dashboard.passion')}}">
-            <img src="assets/images/logo/logo.svg">
+        <a href="{{route('faq.index')}}"><i class="bi bi-chevron-left"></i></a>
+        <a class="navbar-brand ms-4" href="{{route('faq.index')}}">
+            <img src="{{asset('assets/img/logo-dashboard.png')}}">
         </a>
     </div>
 </nav>
@@ -28,7 +28,7 @@
                 <label for="name" class="form-label">Jawaban</label>
                 <textarea name="answer" type="text" class="form-control" placeholder="Jawab bang" value="{{$faq->answer}}">{{$faq->answer}}</textarea>
             </div>
-            <button type="submit">submit bang</button>
+            <button type="submit" class="btn btn-primary">submit bang</button>
         </form>
     </div>
 
