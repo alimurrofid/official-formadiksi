@@ -20,14 +20,9 @@ Route::get('/', function () {
     return view('landingpage');
 })->name('landingpage');
 
-Route::resource('faq', FaqController::class);
-Route::resource('question', QuestionController::class);
-Route::get('/table', [QuestionController::class, 'table'])->name('table');
-
-Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
-Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');
 
 Route::get('/', [FaqController::class, 'landingpage']);
+Route::resource('question', QuestionController::class);
 
 
 Route::get('/content', function () {
@@ -52,11 +47,11 @@ Route::get('/so', function () {
 });
 
 
-Route::middleware(['auth','verified'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', function () {
         return view('dashboard.home');
     })->name('dashboard.home');
-    
+
     Route::get('dashboard/article', function () {
         return view('dashboard.article');
     })->name('dashboard.article');
@@ -69,8 +64,11 @@ Route::middleware(['auth','verified'])->group(function () {
     Route::get('dashboard/workplan', function () {
         return view('dashboard.workplan');
     })->name('dashboard.workplan');
+    Route::get('/table', [QuestionController::class, 'table'])->name('table');
+    Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
+    Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');
+    Route::resource('faq', FaqController::class);
 });
-
 
 
 
