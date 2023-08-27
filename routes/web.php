@@ -52,24 +52,26 @@ Route::get('/so', function () {
 });
 
 
-Route::prefix('dashboard')->group(function () {
-    Route::get('/', function () {
+Route::middleware(['auth','verified'])->group(function () {
+    Route::get('home', function () {
         return view('dashboard.home');
     })->name('dashboard.home');
-
-    Route::get('/article', function () {
+    
+    Route::get('dashboard/article', function () {
         return view('dashboard.article');
     })->name('dashboard.article');
-    Route::get('/so', function () {
+    Route::get('dashboard/so', function () {
         return view('dashboard.organisationStructure');
     })->name('dashboard.so');
-    Route::get('/divisi', function () {
+    Route::get('dashboard/divisi', function () {
         return view('dashboard.divisi');
     })->name('dashboard.divisi');
-    Route::get('/workplan', function () {
+    Route::get('dashboard/workplan', function () {
         return view('dashboard.workplan');
     })->name('dashboard.workplan');
 });
+
+
 
 
 Route::get('/form', function () {

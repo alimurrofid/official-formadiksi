@@ -15,7 +15,7 @@ class QuestionSeeder extends Seeder
     public function run(): void
     {
         //
-        Question::factory(1000)->create();
+        Question::factory(10)->create();
         // DB::table('question')->insert([
         //     [
         //         'email' => 'example@mail.com',
