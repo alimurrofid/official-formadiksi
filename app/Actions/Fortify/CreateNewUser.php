@@ -26,7 +26,12 @@ class CreateNewUser implements CreatesNewUsers
                 'string',
                 'email',
                 'max:255',
-                Rule::unique(User::class),
+                // Rule::unique(User::class),
+                function ($attribute, $value, $fail) {
+                    if ($value !== 'formadiksipolinema@gmail.com') {
+                        $fail('The ' . $attribute . ' is not allowed.');
+                    }
+                },
             ],
             'password' => $this->passwordRules(),
         ])->validate();
