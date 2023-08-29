@@ -115,7 +115,7 @@
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
-                                                    <form method="POST" action="{{ route('faq.update', $f->id) }}">
+                                                    <form id="edit-form-{{ $f->id }}" method="POST" action="{{ route('faq.update', $f->id) }}">
                                                         @method('PUT')
                                                         @csrf
                                                         <div class="modal-body">
@@ -135,8 +135,9 @@
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Close</span>
                                                             </button>
-                                                            <button type="submit" type="button"
-                                                                class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                            <button type="button" type="button"
+                                                                class="btn btn-primary ml-1 edit-btn"
+                                                                data-id="{{ $f->id }}" data-bs-dismiss="modal" onclick="confirmEdit({{ $f->id }})">
                                                                 <i class="bx bx-check d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Submit</span>
                                                             </button>
@@ -185,6 +186,24 @@
                 if (result.isConfirmed) {
                     // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
                     document.getElementById('delete-form-' + id).submit();
+                }
+            });
+        }
+
+        function confirmEdit(id) {
+            Swal.fire({
+                title: 'Anda yakin?',
+                text: 'Data FAQ akan diupdate!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Update!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
+                    document.getElementById('edit-form-' + id).submit();
                 }
             });
         }
