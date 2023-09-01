@@ -56,6 +56,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,6 +74,15 @@
                                         @else
                                             <div class="badge rounded-pill bg-warning">Unverified</div>
                                         @endif
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn icon btn-danger m-1"
+                                                onclick="return confirm('Are you sure?')"><i class="bi bi-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @empty
