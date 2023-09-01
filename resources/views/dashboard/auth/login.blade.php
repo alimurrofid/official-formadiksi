@@ -10,15 +10,15 @@
     <form action="{{ route('login') }}" method="POST">
         @csrf
         <div class="form-group position-relative has-icon-left mb-4">
-            <input name="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror"
-                placeholder="Email" value="{{ old('email') }}">
-            @error('email')
+            <input name="name" type="text" class="form-control form-control-xl @error('name') is-invalid @enderror"
+                placeholder="Name" value="{{old('name')}}">
+            @error('name')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
             <div class="form-control-icon">
-                <i class="bi bi-envelope"></i>
+                <i class="bi bi-person"></i>
             </div>
         </div>
         <div class="form-group position-relative has-icon-left mb-4">

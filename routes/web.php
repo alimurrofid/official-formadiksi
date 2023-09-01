@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\UserController;
 use Database\Factories\FaqFactory;
 use Illuminate\Support\Facades\Route;
 
@@ -51,7 +52,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', function () {
         return view('dashboard.home');
     })->name('dashboard.home');
+Route::resource('users',UserController::class);
 
+    Route::get('profile', function () {
+        return view('dashboard.profile');
+    })->name('profile');
     Route::get('dashboard/article', function () {
         return view('dashboard.article');
     })->name('dashboard.article');
@@ -69,7 +74,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');
     Route::resource('faq', FaqController::class);
 });
-
 
 
 Route::get('/form', function () {

@@ -19,14 +19,15 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input): User
     {
-        Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
+        $validator = Validator::make($input, [
+            'name' => [
+                'required', 'string', 'max:255',
+            ],
             'email' => [
                 'required',
                 'string',
                 'email',
                 'max:255',
-                // Rule::unique(User::class),
                 function ($attribute, $value, $fail) {
                     if ($value !== 'formadiksipolinema@gmail.com') {
                         $fail('The ' . $attribute . ' is not allowed.');
@@ -34,11 +35,23 @@ class CreateNewUser implements CreatesNewUsers
                 },
             ],
             'password' => $this->passwordRules(),
-        ])->validate();
+        ]);
+
+        // Lakukan validasi role hanya jika 'name' ada dalam input
+        if (array_key_exists('name', $input)) {
+            $validator->sometimes('role', ['enum:admin,superadmin'], function ($input) {
+                return str_contains($input->name, 'admin');
+            });
+        }
+
+        $validator->validate();
+
+        $role = str_contains($input['name'], 'admin') ? 'superadmin' : 'admin';
 
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            'role' => $role,
             'password' => Hash::make($input['password']),
         ]);
     }

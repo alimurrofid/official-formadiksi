@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'test',
             'email' => 'test@gmail.com',
             'email_verified_at' => now(),
+            'role' => 'superadmin',
             'password' => Hash::make('test'),
         ]);
         $this->call([
