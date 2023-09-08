@@ -23,15 +23,15 @@
                 <div class="card-article mx-1 my-3">
                     <div class="card-body-article">
                         <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article.jpeg') }}" class="img-article" alt="...">
+                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
                         </div>
                         <a href="#">
                             <div class="category-article">
                                 <i class="bi bi-grid"></i>
-                                <p class="text-category">Pencairan</p>
+                                <p class="text-category">Article</p>
                             </div>
                         </a>
-                        <h3 class="title-article">Pencairan Semester Ganjil 2023/2024 Telah Masuk Rekening</h3>
+                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
                         <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Suspendisse non
                             finibus
@@ -39,7 +39,7 @@
                         <div class="footer-text">
                             <i class="bi bi-calendar4"></i>
                             <p class="text-footer-date">20-12-2023</p>
-                            <a href="">
+                            <a href="/content">
                                 <p class="text-footer-readmore">Readmore</p>
                                 <i class="bi bi-arrow-right-short"></i>
                             </a>
@@ -53,15 +53,15 @@
                 <div class="card-article mx-1 my-3">
                     <div class="card-body-article">
                         <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article.jpeg') }}" class="img-article" alt="...">
+                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
                         </div>
                         <a href="#">
                             <div class="category-article">
                                 <i class="bi bi-grid"></i>
-                                <p class="text-category">Pencairan</p>
+                                <p class="text-category">Article</p>
                             </div>
                         </a>
-                        <h3 class="title-article">Pencairan Semester Ganjil 2023/2024 Telah Masuk Rekening</h3>
+                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
                         <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Suspendisse non
                             finibus
@@ -69,7 +69,7 @@
                         <div class="footer-text">
                             <i class="bi bi-calendar4"></i>
                             <p class="text-footer-date">20-12-2023</p>
-                            <a href="">
+                            <a href="/content">
                                 <p class="text-footer-readmore">Readmore</p>
                                 <i class="bi bi-arrow-right-short"></i>
                             </a>
@@ -83,15 +83,15 @@
                 <div class="card-article mx-1 my-3">
                     <div class="card-body-article">
                         <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article.jpeg') }}" class="img-article" alt="...">
+                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
                         </div>
                         <a href="#">
                             <div class="category-article">
                                 <i class="bi bi-grid"></i>
-                                <p class="text-category">Pencairan</p>
+                                <p class="text-category">Article</p>
                             </div>
                         </a>
-                        <h3 class="title-article">Pencairan Semester Ganjil 2023/2024 Telah Masuk Rekening</h3>
+                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
                         <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Suspendisse non
                             finibus
@@ -99,7 +99,7 @@
                         <div class="footer-text">
                             <i class="bi bi-calendar4"></i>
                             <p class="text-footer-date">20-12-2023</p>
-                            <a href="">
+                            <a href="/content">
                                 <p class="text-footer-readmore">Readmore</p>
                                 <i class="bi bi-arrow-right-short"></i>
                             </a>
@@ -113,15 +113,15 @@
                 <div class="card-article mx-1 my-3">
                     <div class="card-body-article">
                         <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article.jpeg') }}" class="img-article" alt="...">
+                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
                         </div>
                         <a href="#">
                             <div class="category-article">
                                 <i class="bi bi-grid"></i>
-                                <p class="text-category">Pencairan</p>
+                                <p class="text-category">Article</p>
                             </div>
                         </a>
-                        <h3 class="title-article">Pencairan Semester Ganjil 2023/2024 Telah Masuk Rekening</h3>
+                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
                         <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Suspendisse non
                             finibus
@@ -129,7 +129,7 @@
                         <div class="footer-text">
                             <i class="bi bi-calendar4"></i>
                             <p class="text-footer-date">20-12-2023</p>
-                            <a href="">
+                            <a href="/content">
                                 <p class="text-footer-readmore">Readmore</p>
                                 <i class="bi bi-arrow-right-short"></i>
                             </a>
@@ -143,15 +143,15 @@
                 <div class="card-article mx-1 my-3">
                     <div class="card-body-article">
                         <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article.jpeg') }}" class="img-article" alt="...">
+                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
                         </div>
                         <a href="#">
                             <div class="category-article">
                                 <i class="bi bi-grid"></i>
-                                <p class="text-category">Pencairan</p>
+                                <p class="text-category">Article</p>
                             </div>
                         </a>
-                        <h3 class="title-article">Pencairan Semester Ganjil 2023/2024 Telah Masuk Rekening</h3>
+                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
                         <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Suspendisse non
                             finibus
@@ -159,7 +159,7 @@
                         <div class="footer-text">
                             <i class="bi bi-calendar4"></i>
                             <p class="text-footer-date">20-12-2023</p>
-                            <a href="">
+                            <a href="/content">
                                 <p class="text-footer-readmore">Readmore</p>
                                 <i class="bi bi-arrow-right-short"></i>
                             </a>
@@ -173,15 +173,15 @@
                 <div class="card-article mx-1 my-3">
                     <div class="card-body-article">
                         <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article.jpeg') }}" class="img-article" alt="...">
+                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
                         </div>
                         <a href="#">
                             <div class="category-article">
                                 <i class="bi bi-grid"></i>
-                                <p class="text-category">Pencairan</p>
+                                <p class="text-category">Article</p>
                             </div>
                         </a>
-                        <h3 class="title-article">Pencairan Semester Ganjil 2023/2024 Telah Masuk Rekening</h3>
+                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
                         <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Suspendisse non
                             finibus
@@ -189,7 +189,7 @@
                         <div class="footer-text">
                             <i class="bi bi-calendar4"></i>
                             <p class="text-footer-date">20-12-2023</p>
-                            <a href="">
+                            <a href="/content">
                                 <p class="text-footer-readmore">Readmore</p>
                                 <i class="bi bi-arrow-right-short"></i>
                             </a>
