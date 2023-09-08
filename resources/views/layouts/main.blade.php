@@ -22,6 +22,13 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/custom/css/landingpage.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/custom/css/content.css') }}">
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <style type="text/css">
+            .ck-editor__editable_inline {
+                height: 500px;
+            }
+    </style>
+
 
     <!-- Libraries CSS Files -->
     @stack('librariesCss')

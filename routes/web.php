@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 Route::resource('faq', FaqController::class);
 Route::resource('question', QuestionController::class);
+Route::post('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])->name('question.answer');
+Route::post('/question/upload', [QuestionController::class, 'upload'])->name('question.upload');
 Route::get('/table', [QuestionController::class, 'table'])->name('table');
 
 Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');

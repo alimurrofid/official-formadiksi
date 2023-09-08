@@ -32,7 +32,7 @@
 
                 <!-- table -->
                 <div class="table-responsive px-4">
-                    <table class="table table-striped  w-100" id="tableQuestion" >
+                    <table class="table table-striped  w-100" id="tableQuestion">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -47,15 +47,15 @@
                 </div>
                 <input type="hidden" id="table-url" value="{{ route('table') }}">
                 <!-- table -->
-                
+
                 <div class="d-flex justify-content-between">
-                        <form action="{{ route('question.delete-all') }}" method="POST" id="delete-form">
-                            @csrf
-                            <button type="button" onclick="confirmDeleteAll()" class="btn btn-danger m-4">Hapus
-                                Semua Pertanyaan <i class="bi bi-x-octagon"></i></button>
-                        </form>
-                        <a href="/exportexcel" class="btn btn-success m-4">
-                            Export Excel <i class="bi bi-filetype-xlsx"></i></a>
+                    <form action="{{ route('question.delete-all') }}" method="POST" id="delete-form">
+                        @csrf
+                        <button type="button" onclick="confirmDeleteAll()" class="btn btn-danger m-4">Hapus
+                            Semua Pertanyaan <i class="bi bi-x-octagon"></i></button>
+                    </form>
+                    <a href="/exportexcel" class="btn btn-success m-4">
+                        Export Excel <i class="bi bi-filetype-xlsx"></i></a>
                 </div>
 
             </div>
@@ -104,10 +104,10 @@
                     if (password === 'password123') {
                         document.getElementById('delete-form').submit();
                         Swal.fire(
-                        'Dihapus!',
-                        'Semua File Anda telah dihapus.',
-                        'success'
-                    )
+                            'Dihapus!',
+                            'Semua File Anda telah dihapus.',
+                            'success'
+                        )
                     } else {
                         Swal.fire({
                             title: 'Kata Sandi Salah',
@@ -119,6 +119,17 @@
             });
         }
     </script>
+    {{-- <script>
+        ClassicEditor
+            .create(document.querySelector("#editor{{$question->id}}"), {
+                ckfinder: {
+                    uploadUrl: "{{ route('question.upload', ['_token' => csrf_token()]) }}",
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script> --}}
 @endsection
 
 @push('librariesCss')
