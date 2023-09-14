@@ -21,6 +21,7 @@ class QuestionFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'nama' => fake()->name(),
             'pertanyaan' => fake()->text(100),
+            'answered_by' => '-'
 
         ];
     }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('nama');
             $table->text('pertanyaan');
+            $table->string('answered_by')->nullable();
             $table->timestamps();
         });
     }

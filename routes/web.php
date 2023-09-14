@@ -24,8 +24,10 @@ Route::get('/', function () {
 
 Route::get('/', [FaqController::class, 'landingpage']);
 Route::resource('question', QuestionController::class);
-Route::post('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])->name('question.answer');
+Route::put('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])->name('question.answer');
+// Route::put('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])->name('question.answer');
 Route::post('/question/upload', [QuestionController::class, 'upload'])->name('question.upload');
+Route::put('/question/{id}/update', [QuestionController::class, 'update'])->name('question.update');
 
 
 Route::get('/content', function () {

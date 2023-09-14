@@ -10,6 +10,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
 use App\Mail\SendEmail;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Mail;
 use Termwind\Components\Span;
 
@@ -30,8 +31,14 @@ class QuestionController extends Controller
         return Datatables::of($query)
             ->addIndexColumn()
             ->addColumn('opsi', function ($data) {
-                $mailLink = '<button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
-                data-bs-target="#AnswerFormModal' . $data->id . '"><i class="bi bi-envelope-at"></i></button>';
+
+                if($data->answered_by){
+                $mailLink = '<button type="button" class="btn icon icon-left btn-success" data-bs-toggle="modal" id="answer-btn'. $data->id .'"
+                data-bs-target="#AnswerFormModal' . $data->id . '" disabled><b>Answered</b></button>';
+                } else{
+                    $mailLink = '<button type="button" class="btn icon icon-left btn-warning" data-bs-toggle="modal" id="answer-btn'. $data->id .'"
+                    data-bs-target="#AnswerFormModal' . $data->id . '"><b>Unanswered</b></button>';
+                }
 
                 $modal = '<div class="modal fade text-left" id="AnswerFormModal' . $data->id . '" tabindex="-1" role="dialog"
                 aria-labelledby="questionAnswerModal' . $data->id . '" aria-hidden="true">
@@ -48,30 +55,32 @@ class QuestionController extends Controller
                         </div>
                         <form id="answer-form-' . $data->id . '" method="POST" action="' . route('question.answer', $data->id) . '">
                             ' .
-                    csrf_field() .
+                    csrf_field() . method_field('PUT') .
                     '
                             <div class="modal-body">
                                 <div class="form-group">
                                 <input type="hidden" name="nama" value="' . $data->nama . '">
                                 <input type="hidden" name="email" value="' . $data->email . '">
                                 <input type="hidden" name="pertanyaan" value="' . $data->pertanyaan . '">
+                                <input type="hidden" name="answered_by" value="' . auth()->user()->name . '">
                                 <textarea id="editor' . $data->id . '" name="description"></textarea>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
+                                </div>
+                                <div class="modal-footer">
                                 <button type="button" class="btn btn-light-secondary"
-                                    data-bs-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Close</span>
+                                data-bs-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Close</span>
                                 </button>
                                 <button type="submit"
-                                    class="btn btn-primary ml-1 answer-btn"
-                                    data-id="' . $data->id . '" data-bs-dismiss="modal">
+                                    class="btn btn-primary ml-1 answer-btn" 
+                                    data-id="' . $data->id . '" data-bs-dismiss="modal" data-target="answered_by" data-value="' . auth()->user()->name . '" >
                                     <i class="bx bx-check d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block">Submit</span>   
                                 </button>
                             </div>
                         </form>
+                        
                     </div>
                     </div>
                 </div>
@@ -122,10 +131,11 @@ class QuestionController extends Controller
     public function store(StoreQuestionRequest $request)
     {
         //
+        $faq = Faq::all();
         $data = $request->validated();
         Question::create($data);
         $question = question::all();
-        return view('landingpage', compact('question'));
+        return view('landingpage', compact('question', 'faq'));
     }
 
     /**
@@ -148,9 +158,11 @@ class QuestionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateQuestionRequest $request, Question $question)
+    public function update(Request $request, Question $question)
     {
         //
+        $question->update(['answered_by' => $request->answered_by]);
+        return redirect()->route('question.index');
     }
 
     public function deleteAll()
@@ -184,10 +196,13 @@ class QuestionController extends Controller
         }
     }
 
-    public function sendAnswer(Question $question, Request $request)
+    public function sendAnswer($id, Request $request)
     {
-        $inputData = $request->all();
-        Mail::to($question->email)->send(new SendEmail($inputData));
+        $question = Question::find($id);
+        $data = $request->all();
+        $answeredBy = $request->input('answered_by');
+        Question::where('id', $id)->update(['answered_by' => $answeredBy]);
+        Mail::to($question->email)->send(new SendEmail($data));
 
         return redirect()->route('question.index');
     }

@@ -21,6 +21,7 @@ $(document).ready(function () {
             { data: "email", name: "email" },
             { data: "nama", name: "nama" },
             { data: "pertanyaan", name: "pertanyaan" },
+            { data: "answered_by", name: "answered_by" },
             { data: "opsi", name: "opsi", orderable: false, searchable: false},
         ],
         columnDefs: [],

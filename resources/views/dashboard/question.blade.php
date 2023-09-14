@@ -40,6 +40,7 @@
                                 <th>Email</th>
                                 <th>Nama</th>
                                 <th>Pertanyaan</th>
+                                <th>Dijawab Oleh</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -118,18 +119,8 @@
                 }
             });
         }
+
     </script>
-    {{-- <script>
-        ClassicEditor
-            .create(document.querySelector("#editor{{$question->id}}"), {
-                ckfinder: {
-                    uploadUrl: "{{ route('question.upload', ['_token' => csrf_token()]) }}",
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script> --}}
 @endsection
 
 @push('librariesCss')

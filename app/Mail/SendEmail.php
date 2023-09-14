@@ -41,7 +41,7 @@ class SendEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'dashboard.layouts.answer',
+            markdown: 'dashboard.layouts.answer',
         );
     }
 
