@@ -23,7 +23,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/article">Article</a>
+                <a class="nav-link" href="/berita">Article</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/#question">Aspirasi</a>

@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\UserController;
 use Database\Factories\FaqFactory;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\QuestionController;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,15 +30,10 @@ Route::post('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])-
 Route::post('/question/upload', [QuestionController::class, 'upload'])->name('question.upload');
 
 
-Route::get('/content', function () {
-    return view('content
-    ');
-});
+Route::get('/berita',[ArticleController::class,'index']);
+Route::get('/articles/{article:slug}', [ArticleController::class,'show']);
 
-Route::get('/article', function () {
-    return view('article
-    ');
-});
+
 
 Route::get('/sejarah', function () {
     return view('sejarah');

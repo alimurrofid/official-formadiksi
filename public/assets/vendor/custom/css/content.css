@@ -110,6 +110,7 @@ body {
     font-weight: 400;
     line-height: 2rem;
     margin: 1rem auto 6rem;
+    /* background-color: aqua; */
 }
 
 /* === Card Article === */
@@ -282,6 +283,10 @@ body {
     }
     .date-content .text-date {
         font-size: 1rem;
+    }
+    .text-content {
+        font-size: 1rem;
+        line-height: 1.75rem;
     }
 
     /* === Card Article === */
