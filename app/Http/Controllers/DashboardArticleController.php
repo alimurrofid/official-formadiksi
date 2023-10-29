@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use DOMDocument;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -157,17 +158,11 @@ class DashboardArticleController extends Controller
             $image_name = "/summernote-upload/" . time() . $key . '.png';
             $path = public_path() . $image_name;
 
-            // Menghapus foto lama jika ada
-            if ($request->oldImage) {
-                Storage::delete($request->oldImage);
-            }
-
             file_put_contents($path, $data);
 
             $img->removeAttribute('src');
             $img->setAttribute('src', $image_name);
         }
-
         // Update konten 'body' dengan konten yang telah diolah
         $body = $dom->saveHTML();
         $validatedData['body'] = $body;
@@ -184,6 +179,25 @@ class DashboardArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        // $article = Article::find($article->article_id);
+        if ($article->image) {
+            Storage::delete($article->image);
+        }
+        $dom = new DOMDocument();
+        libxml_use_internal_errors(true); // Mematikan error parsing HTML yang mungkin terjadi
+
+        // Memuat konten HTML dari 'body'
+        $dom->loadHTML($article->body, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $images = $dom->getElementsByTagName('img');
+        foreach ($images as $key => $img) {
+            $src = $img->getAttribute('src');
+            $path = Str::of($src)->after('/'); // Menghapus '/' di awal string
+
+            // Menghapus foto lama jika ada
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+        }
         $article->delete();
         return redirect(route('article.index'));
     }
