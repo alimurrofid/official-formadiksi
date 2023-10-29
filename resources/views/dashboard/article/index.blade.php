@@ -29,7 +29,8 @@
                         "Welcome to our web page showcasing the Article data of our boarding house, where comfort
                         and convenience come together in one place."
                     </p>
-                    <a href="" class="btn icon icon-left btn-primary"><i class="bi bi-clipboard-plus"></i>
+                    <a href="{{ route('article.create') }}" class="btn icon icon-left btn-primary"><i
+                            class="bi bi-clipboard-plus"></i>
                         Add Article</a>
                 </div>
 
@@ -41,6 +42,7 @@
                                 <th>No</th>
                                 <th>Title</th>
                                 <th>Category</th>
+                                <th>Body</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -48,36 +50,34 @@
                         <tbody>
 
 
-                            <tr>
-                                <td>1</td>
-                                <td>Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</td>
-                                <td>Article</td>
-                                <td>Foto</td>
-                                <td>
-                                    <a href="#" class="btn icon btn-primary m-1" title="Detail"><i class="bi bi-eye"></i></a>
-                                    <a href="#" class="btn icon btn-warning m-1" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="#" class="btn icon btn-danger m-1" title="Edit"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-
-                            {{-- <tr>
-                                <td class="text-bold-500">Ashley Boul</td>
-                                <td>$15/hr</td>
-                                <td class="text-bold-500">Animation</td>
-                                <td>Remote</td>
-                                <td>Austin,Texas</td>
-                                <td>
-                                    <a href="#" class="btn icon btn-primary" title="Detail"><i class="bi bi-eye"></i></a>
-                                    <a href="#" class="btn icon btn-warning" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="#" class="btn icon btn-danger" title="Edit"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr> --}}
+                            @foreach ($articles as $article => $post)
+                                <tr>
+                                    <td>{{ $article + $articles->firstitem() }}</td>
+                                    <td>{{ $post->title }}</td>
+                                    <td>{{ $post->category->name }}</td>
+                                    <td>{!! $post->excerpt !!}</td>
+                                    <td>
+                                        <img src="{{ asset('storage/' . $post->image) }}" alt="" width="100px">
+                                    <td>
+                                        <a href="{{route('article.show', $post->slug )}}" class="btn icon btn-primary m-1" title="Detail"><i
+                                                class="bi bi-eye"></i></a>
+                                        <a href="{{route('article.edit', $post->slug )}}" class="btn icon btn-success m-1" title="Edit"><i
+                                                class="bi bi-pencil"></i></a>
+                                        <form action="{{route('article.destroy', $post->slug )}}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn icon btn-danger m-1" title="Delete"><i
+                                                    class="bi bi-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
                 <!-- table -->
                 <div class="m-3 pagination pagination-primary">
-                    {{-- {{ $rooms->links() }} --}}
+                    {{ $articles->links() }}
                 </div>
             </div>
 

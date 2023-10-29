@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\DashboardArticleController;
 use App\Http\Controllers\QuestionController;
 use App\Models\Category;
 
@@ -30,8 +31,8 @@ Route::post('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])-
 Route::post('/question/upload', [QuestionController::class, 'upload'])->name('question.upload');
 
 
-Route::get('/berita',[ArticleController::class,'index']);
-Route::get('/articles/{article:slug}', [ArticleController::class,'show']);
+Route::get('/berita', [ArticleController::class, 'index']);
+Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
 
 
@@ -51,14 +52,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', function () {
         return view('dashboard.home');
     })->name('dashboard.home');
-Route::resource('users',UserController::class);
+    Route::resource('users', UserController::class);
 
     Route::get('profile', function () {
         return view('dashboard.profile');
     })->name('profile');
-    Route::get('dashboard/article', function () {
-        return view('dashboard.article');
-    })->name('dashboard.article');
+    Route::get('/dashboard/article/check-slug', [DashboardArticleController::class, 'checkSlug']);
+    Route::resource('/dashboard/article', DashboardArticleController::class);
     Route::get('dashboard/so', function () {
         return view('dashboard.organisationStructure');
     })->name('dashboard.so');

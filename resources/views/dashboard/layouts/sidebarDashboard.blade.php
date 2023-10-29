@@ -60,7 +60,7 @@
             @endcan
             
             <li class="sidebar-item ">
-                <a href="{{ route('dashboard.article') }}" class='sidebar-link'>
+                <a href="{{ route('article.index') }}" class='sidebar-link'>
                     <i class="bi bi-file-earmark-text-fill"></i>
                     <span>Article</span>
                 </a>

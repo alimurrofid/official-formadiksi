@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 
 class Article extends Model
 {
-    use HasFactory;
-    protected $guarded = ['id'];
+    use HasFactory, Sluggable;
+    // protected $guarded = ['id'];
+    protected $fillable = ['title', 'slug', 'category_id', 'image', 'excerpt', 'body', 'published_at'];
     protected $with = ['category'];
 
     public function scopeFilter($query, array $filters)
