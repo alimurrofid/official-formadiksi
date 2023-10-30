@@ -59,11 +59,12 @@
                                     <td>
                                         <img src="{{ asset('storage/' . $post->image) }}" alt="" width="100px">
                                     <td>
-                                        <a href="{{route('article.show', $post->slug )}}" class="btn icon btn-primary m-1" title="Detail"><i
-                                                class="bi bi-eye"></i></a>
-                                        <a href="{{route('article.edit', $post->slug )}}" class="btn icon btn-success m-1" title="Edit"><i
-                                                class="bi bi-pencil"></i></a>
-                                        <form action="{{route('article.destroy', $post->slug )}}" method="POST" class="d-inline">
+                                        <a href="{{ route('article.show', $post->slug) }}" class="btn icon btn-primary m-1"
+                                            title="Detail"><i class="bi bi-eye"></i></a>
+                                        <a href="{{ route('article.edit', $post->slug) }}" class="btn icon btn-success m-1"
+                                            title="Edit"><i class="bi bi-pencil"></i></a>
+                                        <form action="{{ route('article.destroy', $post->slug) }}" method="POST"
+                                            class="d-inline">
                                             @csrf
                                             @method('delete')
                                             <button class="btn icon btn-danger m-1" title="Delete"><i
