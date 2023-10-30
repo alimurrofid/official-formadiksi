@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
             FaqSeeder::class,
             QuestionSeeder::class,
             ArticleSeeder::class,
+            JudulSOSeeder::class,
         ]);  
     }
 }

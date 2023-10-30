@@ -11,6 +11,8 @@ use DOMDocument;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
+
 
 class DashboardArticleController extends Controller
 {
@@ -145,6 +147,19 @@ class DashboardArticleController extends Controller
 
         $images = $dom->getElementsByTagName('img');
 
+        // Menghapus foto lama jika ada
+        $pattern = '/<img[^>]+src="([^">]+)"/';
+        preg_match_all($pattern, $article->body, $matches);
+        $oldImages = $matches[1];
+
+        // Hapus gambar-gambar sebelumnya
+        foreach ($oldImages as $oldImage) {
+            $filename = public_path() . $oldImage; // Sesuaikan dengan direktori penyimpanan gambar Anda
+            if (File::exists($filename)) {
+                File::delete($filename);
+            }
+        }
+
         foreach ($images as $key => $img) {
             $data = $img->getAttribute('src');
             if (strpos($data, 'summernote-upload') !== false) {
@@ -156,11 +171,6 @@ class DashboardArticleController extends Controller
 
             $image_name = "/summernote-upload/" . time() . $key . '.png';
             $path = public_path() . $image_name;
-
-            // Menghapus foto lama jika ada
-            if ($request->oldImage) {
-                Storage::delete($request->oldImage);
-            }
 
             file_put_contents($path, $data);
 

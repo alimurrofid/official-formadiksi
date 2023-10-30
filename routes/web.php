@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardArticleController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\JudulSOController;
+use App\Http\Controllers\SOController;
 use App\Models\Category;
 
 /*
@@ -59,9 +61,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('profile');
     Route::get('/dashboard/article/check-slug', [DashboardArticleController::class, 'checkSlug']);
     Route::resource('/dashboard/article', DashboardArticleController::class);
-    Route::get('dashboard/so', function () {
-        return view('dashboard.organisationStructure');
-    })->name('dashboard.so');
+    Route::get('dashboard/so', [JudulSOController::class, 'index'])->name('dashboard.so');
     Route::get('dashboard/divisi', function () {
         return view('dashboard.divisi');
     })->name('dashboard.divisi');
@@ -72,6 +72,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
     Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');
     Route::resource('faq', FaqController::class);
+    Route::resource('judulSO', JudulSOController::class);
+    Route::resource('SO', SOController::class);
 });
 
 
