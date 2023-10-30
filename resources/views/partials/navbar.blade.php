@@ -19,7 +19,7 @@
                     <li><a class="dropdown-item" href="/sejarah">Sejarah</a></li>
                     <li><a class="dropdown-item" href="/visi-misi">Visi & Misi</a></li>
                     <li><a class="dropdown-item" href="/so">Struktur Organisasi</a></li>
-                    <li><a class="dropdown-item" href="#">Divisi</a></li>
+                    <li><a class="dropdown-item" href="/divisi">Divisi</a></li>
                 </ul>
             </li>
             <li class="nav-item">

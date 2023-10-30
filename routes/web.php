@@ -6,6 +6,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardArticleController;
+use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\QuestionController;
 use App\Models\Category;
 
@@ -46,6 +47,8 @@ Route::get('/so', function () {
     return view('organizationStructure
     ');
 });
+
+Route::get('/divisi', [DivisionController::class, 'index']);
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
