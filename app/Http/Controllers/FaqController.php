@@ -12,12 +12,6 @@ class FaqController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function landingpage()
-    {
-        $faq = Faq::all();
-        return view('landingpage', compact('faq'));
-    }
-
     public function index()
     {
         //

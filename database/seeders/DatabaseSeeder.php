@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
             QuestionSeeder::class,
             ArticleSeeder::class,
             JudulSOSeeder::class,
+            WorkplanSeeder::class,
         ]);  
     }
 }

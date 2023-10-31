@@ -9,8 +9,9 @@ use App\Http\Controllers\DashboardArticleController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\JudulSOController;
+use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\SOController;
-use App\Models\Category;
+use App\Http\Controllers\WorkplanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,12 +24,9 @@ use App\Models\Category;
 |
 */
 
-Route::get('/', function () {
-    return view('landingpage');
-})->name('landingpage');
+Route::get('/', [LandingpageController::class, 'index']);
+Route::get('workplan/{workplan:slug}', [LandingpageController::class, 'show']);
 
-
-Route::get('/', [FaqController::class, 'landingpage']);
 Route::resource('question', QuestionController::class);
 Route::post('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])->name('question.answer');
 Route::post('/question/upload', [QuestionController::class, 'upload'])->name('question.upload');
