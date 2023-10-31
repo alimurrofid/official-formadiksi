@@ -219,6 +219,13 @@ body {
     font-family: Poppins;
     font-weight: 600;
     font-size: 1rem;
+    max-height: 2.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    /* background-color: aliceblue; */
 }
 .text-workplan {
     color: var(--text-gray);
@@ -227,6 +234,13 @@ body {
     font-size: 0.8rem;
     text-align: justify;
     text-justify: newspaper;
+    max-height: 5.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    /* background-color: #e2e8f0; */
 }
 .swipper-navBtn {
     color: var(--body-bg);
@@ -693,7 +707,7 @@ footer {
     .card-article {
         height: 30rem;
     }
-    .title-article{
+    .title-article {
         min-height: 2rem;
     }
 
@@ -914,7 +928,7 @@ footer {
         min-width: 17rem;
         min-height: 4rem;
     }
-    .text-article{
+    .text-article {
         max-height: 5.5rem;
     }
 
