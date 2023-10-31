@@ -18,42 +18,31 @@
     <!-- CSS Style -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/custom/css/content.css') }}">
     <link rel="icon" href="{{ asset('assets/img/logo-formadiksi.png') }} " type="image/png" />
-    <title>Show Article - Formadiksi Polinema</title>
+    <title>Show Workplan - Formadiksi Polinema</title>
 </head>
 
 <body>
     <!-- Article -->
-    <div class="wrap-back">
-        <a href="{{ route('article.index') }}">
-            <i class="bi bi-arrow-left"></i>
-        </a>
-    </div>
     <div class="container">
         <main>
-            <div class="wrap-img-content">
-                @if ($article->image)
-                    <img src="{{ asset('storage/' . $article->image) }}" class="img-content" alt="...">
-                @else
-                    <img src="https://source.unsplash.com/1920x1080?{{ $article->category->name }}" class="img-content"
-                        alt="{{ $article->category->name }}">
-                @endif
-            </div>
-            <h3 class="title-content">{{ $article->title }}</h3>
             <div class="wrap-icon">
-                <a href="#">
+                <a href="{{route('workplan.index')}}">
                     <div class="category-content">
-                        <i class="bi bi-grid"></i>
-                        <p class="text-category">{{ $article->category->name }}</p>
+                        <i class="bi bi-arrow-left fs-3 text-secondary"></i>
+                        <p class="text-category">Back</p>
                     </div>
                 </a>
-                <div class="date-content">
-                    <i class="bi bi-calendar4"></i>
-                    <p class="text-date">{{ $article->created_at->diffForHumans() }}</p>
-                </div>
             </div>
-            <article class="text-content">{!! $article->body !!}</article>
-
-            <hr>
+            <div class="wrap-img-content">
+                @if ($workplan->image)
+                    <img src="{{ asset('storage/' . $workplan->image) }}" class="img-content" alt="...">
+                @else
+                    <img src="https://source.unsplash.com/1920x1080?{{ $workplan->title }}" class="img-content"
+                        alt="{{ $workplan->title }}">
+                @endif
+            </div>
+            <h3 class="title-content">{{ $workplan->title }}</h3>
+            <article class="text-content">{!! $workplan->body !!}</article>
         </main>
     </div>
 

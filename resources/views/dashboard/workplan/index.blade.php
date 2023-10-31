@@ -29,10 +29,11 @@
                         "Welcome to our web page showcasing the Workplan data of our boarding house, where comfort
                         and convenience come together in one place."
                     </p>
-                    <a href="" class="btn icon icon-left btn-primary"><i class="bi bi-calendar2-plus"></i>
+                    <a href="{{route('workplan.create')}}" class="btn icon icon-left btn-primary"><i
+                            class="bi bi-calendar2-plus"></i>
                         Add Workplan</a>
 
-                        
+
                 </div>
 
                 <!-- table -->
@@ -42,44 +43,40 @@
                             <tr>
                                 <th>No</th>
                                 <th>Title</th>
-                                <th>Category</th>
+                                <th>Body</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-
-
-                            <tr>
-                                <td>1</td>
-                                <td>Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</td>
-                                <td>Article</td>
-                                <td>Foto</td>
-                                <td>
-                                    <a href="#" class="btn icon btn-primary m-1" title="Detail"><i class="bi bi-eye"></i></a>
-                                    <a href="#" class="btn icon btn-warning m-1" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="#" class="btn icon btn-danger m-1" title="Edit"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-
-                            {{-- <tr>
-                                <td class="text-bold-500">Ashley Boul</td>
-                                <td>$15/hr</td>
-                                <td class="text-bold-500">Animation</td>
-                                <td>Remote</td>
-                                <td>Austin,Texas</td>
-                                <td>
-                                    <a href="#" class="btn icon btn-primary" title="Detail"><i class="bi bi-eye"></i></a>
-                                    <a href="#" class="btn icon btn-warning" title="Edit"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="#" class="btn icon btn-danger" title="Edit"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr> --}}
+                            @foreach ($workplans as $programkerja => $workplan)
+                                <tr>
+                                    <td>{{ $programkerja + $workplans->firstitem() }}</td>
+                                    <td>{{ $workplan->title }}</td>
+                                    <td>{!! $workplan->excerpt !!}</td>
+                                    <td>
+                                        <img src="{{ asset('storage/' . $workplan->image) }}" alt="" width="100px">
+                                    <td>
+                                        <a href="{{ route('workplan.show', $workplan->slug) }}" class="btn icon btn-primary m-1"
+                                            title="Detail"><i class="bi bi-eye"></i></a>
+                                        <a href="{{ route('workplan.edit', $workplan->slug) }}" class="btn icon btn-success m-1"
+                                            title="Edit"><i class="bi bi-pencil"></i></a>
+                                        <form action="{{ route('workplan.destroy', $workplan->slug) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn icon btn-danger m-1" title="Delete"><i
+                                                    class="bi bi-trash"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
                 <!-- table -->
                 <div class="m-3 pagination pagination-primary">
-                    {{-- {{ $rooms->links() }} --}}
+                    {{ $workplans->links() }}
                 </div>
             </div>
 

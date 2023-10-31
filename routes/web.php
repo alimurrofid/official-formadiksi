@@ -6,12 +6,12 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardArticleController;
+use App\Http\Controllers\DashboardWorkplanController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\JudulSOController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\SOController;
-use App\Http\Controllers\WorkplanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,9 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard/divisi', function () {
         return view('dashboard.divisi');
     })->name('dashboard.divisi');
-    Route::get('dashboard/workplan', function () {
-        return view('dashboard.workplan');
-    })->name('dashboard.workplan');
+    Route::resource('workplan',DashboardWorkplanController::class);
     Route::get('/table', [QuestionController::class, 'table'])->name('table');
     Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
     Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');

@@ -23,6 +23,30 @@ body {
     font-family: "Poppins", sans-serif;
 }
 
+.wrap-back {
+    position: relative;
+    margin: 0 0 0 22.3rem;
+    background-color: beige;
+}
+.wrap-back a {
+    text-decoration: none;
+    color: var(--purple);
+}
+
+.bi-arrow-left {
+    position: absolute;
+    color: var(--purple);
+    font-size: 2.2rem;
+    margin: -4rem 0 0 0;
+    transition: 0.3s ease-in-out;
+    transform: translateX(0);
+    /* background-color: antiquewhite; */
+}
+.bi-arrow-left:hover {
+    transform: translateX(-0.8rem);
+    color: var(--text-gray);
+}
+
 /* === content === */
 
 .wrap-img-content {
@@ -248,12 +272,21 @@ body {
 
 /* ========== Responsive styles large desktops, less than 1400px ========== */
 @media (max-width: 1399.98px) {
+    .wrap-back {
+        margin: 0 0 0 15rem;
+    }
 }
 /* ========== Responsive styles desktops, less than 1200px ========== */
 @media (max-width: 1199.98px) {
+    .wrap-back {
+        margin: 0 0 0 10rem;
+    }
 }
 /* ========== Responsive styles tablets, less than 992px ========== */
 @media (max-width: 991.98px) {
+    .wrap-back {
+        margin: 0 0 0 4rem;
+    }
     /* === Card Article === */
     .card-article-content {
         height: 22rem;
@@ -268,6 +301,9 @@ body {
 }
 /* ========== Responsive styles mobiles, less than 576px ========== */
 @media (max-width: 575.98px) {
+    .wrap-back {
+        margin: 0 0 0 1rem;
+    }
     /* === Content === */
     .title-content {
         font-size: 1.8rem;

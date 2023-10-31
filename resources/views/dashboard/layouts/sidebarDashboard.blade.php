@@ -78,7 +78,7 @@
                 </a>
             </li>
             <li class="sidebar-item ">
-                <a href="{{ route('dashboard.workplan') }}" class='sidebar-link'>
+                <a href="{{ route('workplan.index') }}" class='sidebar-link'>
                     <i class="bi bi-hammer"></i>
                     <span>Workplan</span>
                 </a>
