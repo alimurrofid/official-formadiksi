@@ -51,18 +51,30 @@
             </li>
 
             @can('index-user')
-            <li class="sidebar-item ">
-                <a href="{{ route('users.index') }}" class='sidebar-link'>
-                    <i class="bi bi-people-fill"></i>
-                    <span>User List</span>
-                </a>
-            </li>
+                <li class="sidebar-item ">
+                    <a href="{{ route('users.index') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>User List</span>
+                    </a>
+                </li>
             @endcan
-            
+
             <li class="sidebar-item ">
                 <a href="{{ route('article.index') }}" class='sidebar-link'>
                     <i class="bi bi-file-earmark-text-fill"></i>
                     <span>Article</span>
+                </a>
+            </li>
+            <li class="sidebar-item ">
+                <a href="{{route('history.index')}}" class='sidebar-link'>
+                    <i class="bi bi-hourglass-split"></i>
+                    <span>History</span>
+                </a>
+            </li>
+            <li class="sidebar-item ">
+                <a href="" class='sidebar-link'>
+                    <i class="bi bi-rocket-takeoff"></i>
+                    <span>Visi & Misi</span>
                 </a>
             </li>
             <li class="sidebar-item ">

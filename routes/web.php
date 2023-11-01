@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardArticleController;
 use App\Http\Controllers\DashboardDivisionController;
 use App\Http\Controllers\DashboardWorkplanController;
 use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\JudulSOController;
 use App\Http\Controllers\LandingpageController;
@@ -37,9 +38,8 @@ Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
 
 
-Route::get('/sejarah', function () {
-    return view('sejarah');
-});
+Route::get('/sejarah',[HistoryController::class, 'sejarah']);
+
 Route::get('/visi-misi', function () {
     return view('visiMisi');
 });
@@ -65,6 +65,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard/so', [JudulSOController::class, 'index'])->name('dashboard.so');
     Route::resource('dashboard/divisi', DashboardDivisionController::class);
     Route::resource('dashboard/workplan', DashboardWorkplanController::class);
+    Route::resource('dashboard/history', HistoryController::class);
     Route::get('/table', [QuestionController::class, 'table'])->name('table');
     Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
     Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');
