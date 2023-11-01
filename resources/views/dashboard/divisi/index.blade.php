@@ -29,7 +29,7 @@
                         "Welcome to our web page showcasing the Divisi data of our boarding house, where comfort
                         and convenience come together in one place."
                     </p>
-                    <a href="{{ route('divisi.create') }}" class="btn icon icon-left btn-primary"><i
+                    <a href="{{ route('division.create') }}" class="btn icon icon-left btn-primary"><i
                             class="bi bi-person-plus"></i>
                         Add Data</a>
                 </div>
@@ -55,11 +55,11 @@
                                     <td>
                                         <img src="{{ asset('storage/' . $division->image) }}" alt="" width="100px">
                                     <td>
-                                        <a href="{{ route('divisi.show', $division->slug) }}"
+                                        <a href="{{ route('division.show', $division->slug) }}"
                                             class="btn icon btn-primary m-1" title="Detail"><i class="bi bi-eye"></i></a>
-                                        <a href="{{ route('divisi.edit', $division->slug) }}"
+                                        <a href="{{ route('division.edit', $division->slug) }}"
                                             class="btn icon btn-success m-1" title="Edit"><i class="bi bi-pencil"></i></a>
-                                        <form action="{{ route('divisi.destroy', $division->slug) }}" method="POST"
+                                        <form action="{{ route('division.destroy', $division->slug) }}" method="POST"
                                             class="d-inline">
                                             @csrf
                                             @method('delete')

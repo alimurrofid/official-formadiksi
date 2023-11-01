@@ -62,7 +62,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/article/check-slug', [DashboardArticleController::class, 'checkSlug']);
     Route::resource('/dashboard/article', DashboardArticleController::class);
     Route::get('dashboard/so', [JudulSOController::class, 'index'])->name('dashboard.so');
-    Route::resource('dashboard/divisi', DashboardDivisionController::class);
+    Route::resource('dashboard/division', DashboardDivisionController::class);
     Route::resource('dashboard/workplan', DashboardWorkplanController::class);
     Route::resource('dashboard/history', HistoryController::class);
     Route::resource('dashboard/vision', VisionController::class);
