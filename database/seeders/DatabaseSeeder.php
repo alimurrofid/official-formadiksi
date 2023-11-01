@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             JudulSOSeeder::class,
             WorkplanSeeder::class,
+            DivisionSeeder::class,
         ]);  
     }
 }

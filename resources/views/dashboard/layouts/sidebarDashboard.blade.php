@@ -72,7 +72,7 @@
                 </a>
             </li>
             <li class="sidebar-item ">
-                <a href="{{ route('dashboard.divisi') }}" class='sidebar-link'>
+                <a href="{{ route('divisi.index') }}" class='sidebar-link'>
                     <i class="bi bi-ui-checks"></i>
                     <span>Divisi</span>
                 </a>

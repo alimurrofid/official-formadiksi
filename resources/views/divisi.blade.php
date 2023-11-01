@@ -14,78 +14,25 @@
             </div>
             <div class="row">
                 <!-- Card Divisi-->
-                <a class="col-xxl-4 col-xl-6" href="">
+                @foreach ($divisions as $division)
+                <a class="col-xxl-4 col-xl-6" href="division/{{$division->slug}}">
                     <div class="card-divisi mx-1 my-3">
                         <div class="card-body-divisi">
                             <div class="wrap-img-divisi">
-                                <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-divisi" alt="...">
+                                @if ($division->image)
+                                    <img src="{{ asset('storage/' . $division->image) }}" class="img-divisi"
+                                        alt="{{ $division->title }}">
+                                @else
+                                    <img src="https://source.unsplash.com/1280x720?{{ $division->title }}"
+                                        class="img-divisi" alt="{{ $division->title }}">
+                                @endif
                             </div>
-                            <h3 class="title-divisi"> Divisi Kepenulisan dan Edukasi</h3>
+                            <h3 class="title-divisi">{{ $division->title }}</h3>
                         </div>
                     </div>
                 </a>
+                @endforeach
                 <!-- End Card Divisi-->
-                <!-- Card Divisi-->
-                <a class="col-xxl-4 col-xl-6" href="">
-                    <div class="card-divisi mx-1 my-3">
-                        <div class="card-body-divisi">
-                            <div class="wrap-img-divisi">
-                                <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-divisi" alt="...">
-                            </div>
-                            <h3 class="title-divisi"> Divisi Kepenulisan dan Edukasi</h3>
-                        </div>
-                    </div>
-                </a>
-                <!-- End Card Divisi-->
-                <!-- Card Divisi-->
-                <a class="col-xxl-4 col-xl-6" href="">
-                    <div class="card-divisi mx-1 my-3">
-                        <div class="card-body-divisi">
-                            <div class="wrap-img-divisi">
-                                <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-divisi" alt="...">
-                            </div>
-                            <h3 class="title-divisi"> Divisi Kepenulisan dan Edukasi</h3>
-                        </div>
-                    </div>
-                </a>
-                <!-- End Card Divisi-->
-                <!-- Card Divisi-->
-                <a class="col-xxl-4 col-xl-6" href="">
-                    <div class="card-divisi mx-1 my-3">
-                        <div class="card-body-divisi">
-                            <div class="wrap-img-divisi">
-                                <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-divisi" alt="...">
-                            </div>
-                            <h3 class="title-divisi"> Divisi Kepenulisan dan Edukasi</h3>
-                        </div>
-                    </div>
-                </a>
-                <!-- End Card Divisi-->
-                <!-- Card Divisi-->
-                <a class="col-xxl-4 col-xl-6" href="">
-                    <div class="card-divisi mx-1 my-3">
-                        <div class="card-body-divisi">
-                            <div class="wrap-img-divisi">
-                                <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-divisi" alt="...">
-                            </div>
-                            <h3 class="title-divisi"> Divisi Kepenulisan dan Edukasi</h3>
-                        </div>
-                    </div>
-                </a>
-                <!-- End Card Divisi-->
-                <!-- Card Divisi-->
-                <a class="col-xxl-4 col-xl-6" href="">
-                    <div class="card-divisi mx-1 my-3">
-                        <div class="card-body-divisi">
-                            <div class="wrap-img-divisi">
-                                <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-divisi" alt="...">
-                            </div>
-                            <h3 class="title-divisi"> Divisi Kepenulisan dan Edukasi</h3>
-                        </div>
-                    </div>
-                </a>
-                <!-- End Card Divisi-->
-
             </div>
         </div>
 

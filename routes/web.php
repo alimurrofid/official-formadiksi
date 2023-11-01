@@ -1,11 +1,11 @@
 <?php
 
-use Database\Factories\FaqFactory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardArticleController;
+use App\Http\Controllers\DashboardDivisionController;
 use App\Http\Controllers\DashboardWorkplanController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\QuestionController;
@@ -49,7 +49,7 @@ Route::get('/so', function () {
 });
 
 Route::get('/divisi', [DivisionController::class, 'index']);
-
+Route::get('division/{division:slug}', [DivisionController::class, 'show']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', function () {
@@ -63,10 +63,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/article/check-slug', [DashboardArticleController::class, 'checkSlug']);
     Route::resource('/dashboard/article', DashboardArticleController::class);
     Route::get('dashboard/so', [JudulSOController::class, 'index'])->name('dashboard.so');
-    Route::get('dashboard/divisi', function () {
-        return view('dashboard.divisi');
-    })->name('dashboard.divisi');
-    Route::resource('dashboard/workplan',DashboardWorkplanController::class);
+    Route::resource('dashboard/divisi', DashboardDivisionController::class);
+    Route::resource('dashboard/workplan', DashboardWorkplanController::class);
     Route::get('/table', [QuestionController::class, 'table'])->name('table');
     Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
     Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');
