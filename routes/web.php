@@ -13,6 +13,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\JudulSOController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\SOController;
+use App\Http\Controllers\VisionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,7 @@ Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
 Route::get('/sejarah',[HistoryController::class, 'sejarah']);
 
-Route::get('/visi-misi', function () {
-    return view('visiMisi');
-});
+Route::get('/visi-misi', [VisionController::class, 'visi']);
 Route::get('/so', function () {
     return view('organizationStructure
     ');
@@ -66,6 +65,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('dashboard/divisi', DashboardDivisionController::class);
     Route::resource('dashboard/workplan', DashboardWorkplanController::class);
     Route::resource('dashboard/history', HistoryController::class);
+    Route::resource('dashboard/vision', VisionController::class);
     Route::get('/table', [QuestionController::class, 'table'])->name('table');
     Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
     Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');

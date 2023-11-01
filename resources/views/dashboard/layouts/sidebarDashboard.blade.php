@@ -72,7 +72,7 @@
                 </a>
             </li>
             <li class="sidebar-item ">
-                <a href="" class='sidebar-link'>
+                <a href="{{route('vision.index')}}" class='sidebar-link'>
                     <i class="bi bi-rocket-takeoff"></i>
                     <span>Visi & Misi</span>
                 </a>
