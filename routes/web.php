@@ -66,7 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard/divisi', function () {
         return view('dashboard.divisi');
     })->name('dashboard.divisi');
-    Route::resource('workplan',DashboardWorkplanController::class);
+    Route::resource('dashboard/workplan',DashboardWorkplanController::class);
     Route::get('/table', [QuestionController::class, 'table'])->name('table');
     Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
     Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');

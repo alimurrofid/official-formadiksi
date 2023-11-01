@@ -22,17 +22,14 @@
 </head>
 
 <body>
-    <!-- Article -->
+    <!-- Workplan -->
+    <div class="wrap-back">
+        <a href="{{ route('workplan.index') }}">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+    </div>
     <div class="container">
         <main>
-            <div class="wrap-icon">
-                <a href="{{route('workplan.index')}}">
-                    <div class="category-content">
-                        <i class="bi bi-arrow-left fs-3 text-secondary"></i>
-                        <p class="text-category">Back</p>
-                    </div>
-                </a>
-            </div>
             <div class="wrap-img-content">
                 @if ($workplan->image)
                     <img src="{{ asset('storage/' . $workplan->image) }}" class="img-content" alt="...">

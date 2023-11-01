@@ -12,17 +12,18 @@
     </nav>
 
     <div class="card-header">
-        <h4 class="card-title">Workplan Create</h4>
+        <h4 class="card-title">Workplan Edit</h4>
     </div>
     <div class="card-body">
-        <p> Write Amazing Workplans Show World You Are The Best!</p>
+        <p> Write Amazing workplans Show World You Are The Best!</p>
 
-        <form action="{{ route('workplan.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('workplan.update', $workplan->slug) }}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
             @csrf
             <div class="form-group">
                 <label for="title" class="form-label">Title</label>
                 <input name="title" type="text" class="form-control @error('title') is-invalid @enderror"
-                    id="title" value="{{ old('title') }}" placeholder="Formadiksi Mroyek">
+                    id="title" value="{{ old('title', $workplan->title) }}">
                 @error('title')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -32,7 +33,7 @@
             <div class="form-group">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                    value="{{ old('slug') }}">
+                    value="{{ old('slug', $workplan->slug) }}">
                 @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -41,7 +42,13 @@
             </div>
             <div class="form-group">
                 <label for="image" class="form-label">Workplan Image</label>
-                <img class="img-preview img-fluid mb-3 col-sm-5">
+                <input type="hidden" name="oldImage" value="{{$workplan->image}}">
+                @if ($workplan->image)
+                    <img src="{{ asset($workplan->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                @endif
+
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
                     name="image" onchange="previewImage()">
                 @error('image')
@@ -52,7 +59,7 @@
             </div>
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
-                <textarea name="body" class="form-control @error('body') is-invalid @enderror" id="summernote" rows="10">{{ old('body') }}</textarea>
+                <textarea name="body" class="form-control @error('body') is-invalid @enderror" id="summernote" rows="10">{{ old('body', $workplan->body) }}</textarea>
                 @error('body')
                     <div class="invalid-feedback">
                         {{ $message }}
