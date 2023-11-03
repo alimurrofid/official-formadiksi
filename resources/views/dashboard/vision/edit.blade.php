@@ -34,7 +34,7 @@
                 <label for="image" class="form-label">vision Image</label>
                 <input type="hidden" name="oldImage" value="{{$vision->image}}">
                 @if ($vision->image)
-                    <img src="{{ asset($vision->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    <img src="{{ asset('storage/'.$vision->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
                 @else
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                 @endif

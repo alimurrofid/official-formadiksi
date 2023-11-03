@@ -44,7 +44,7 @@
                 <label for="image" class="form-label">Workplan Image</label>
                 <input type="hidden" name="oldImage" value="{{$workplan->image}}">
                 @if ($workplan->image)
-                    <img src="{{ asset($workplan->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                    <img src="{{ asset('storage/'.$workplan->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
                 @else
                     <img class="img-preview img-fluid mb-3 col-sm-5">
                 @endif

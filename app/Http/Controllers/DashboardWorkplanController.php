@@ -133,16 +133,6 @@ class DashboardWorkplanController extends Controller
         preg_match_all($pattern, $workplan->body, $matches);
         $oldImages = $matches[1];
 
-        // Hapus gambar-gambar sebelumnya yang ada di body
-        foreach ($oldImages as $oldImage) {
-            if (strpos($oldImage, 'summernote-workplan-upload') === 0) {
-                $filename = public_path() . $oldImage; // Sesuaikan dengan direktori penyimpanan gambar Anda
-                if (File::exists($filename)) {
-                    File::delete($filename);
-                }
-            }
-        }
-
         foreach ($images as $key => $img) {
             $data = $img->getAttribute('src');
             if (strpos($data, 'summernote-workplan-upload') !== false) {
@@ -159,6 +149,15 @@ class DashboardWorkplanController extends Controller
 
             $img->removeAttribute('src');
             $img->setAttribute('src', $image_name);
+            // Hapus gambar-gambar sebelumnya
+            foreach ($oldImages as $oldImage) {
+                if (strpos($request->input('body'), $oldImage) === false) {
+                    $filename = public_path() . $oldImage; // Sesuaikan dengan direktori penyimpanan gambar Anda
+                    if (File::exists($filename)) {
+                        File::delete($filename);
+                    }
+                }
+            }
         }
         // Update konten 'body' dengan konten yang telah diolah
         $body = $dom->saveHTML();
