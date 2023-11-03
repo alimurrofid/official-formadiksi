@@ -70,12 +70,12 @@ class DashboardArticleController extends Controller
             list(, $data) = explode(',', $data);
             $data = base64_decode($data);
 
-            $image_name = "/summernote-upload/" . time() . $key . '.png';
+            $image_name = "/summernote-article-upload/" . time() . $key . '.png';
             $path = public_path() . $image_name;
 
-            //buat path summernote-upload di public
-            if (!file_exists(public_path('summernote-upload'))) {
-                mkdir(public_path('summernote-upload'), 0777, true);
+            //buat path summernote-article-upload di public
+            if (!file_exists(public_path('summernote-article-upload'))) {
+                mkdir(public_path('summernote-article-upload'), 0777, true);
             }
 
             file_put_contents($path, $data);
@@ -152,30 +152,32 @@ class DashboardArticleController extends Controller
         preg_match_all($pattern, $article->body, $matches);
         $oldImages = $matches[1];
 
-        // Hapus gambar-gambar sebelumnya
-        foreach ($oldImages as $oldImage) {
-            $filename = public_path() . $oldImage; // Sesuaikan dengan direktori penyimpanan gambar Anda
-            if (File::exists($filename)) {
-                File::delete($filename);
-            }
-        }
 
         foreach ($images as $key => $img) {
             $data = $img->getAttribute('src');
-            if (strpos($data, 'summernote-upload') !== false) {
+            if (strpos($data, 'summernote-article-upload') !== false) {
                 continue;
             }
             list($type, $data) = explode(';', $data);
             list(, $data) = explode(',', $data);
             $data = base64_decode($data);
 
-            $image_name = "/summernote-upload/" . time() . $key . '.png';
+            $image_name = "/summernote-article-upload/" . time() . $key . '.png';
             $path = public_path() . $image_name;
 
             file_put_contents($path, $data);
 
             $img->removeAttribute('src');
             $img->setAttribute('src', $image_name);
+            // Hapus gambar-gambar sebelumnya
+            foreach ($oldImages as $oldImage) {
+                if (strpos($request->input('body'), $oldImage) === false) {
+                    $filename = public_path() . $oldImage; // Sesuaikan dengan direktori penyimpanan gambar Anda
+                    if (File::exists($filename)) {
+                        File::delete($filename);
+                    }
+                }
+            }
         }
         // Update konten 'body' dengan konten yang telah diolah
         $body = $dom->saveHTML();
