@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.app')
-@section('title', 'Workplan')
+@section('title', 'User')
 @section('content')
     <div class="page-heading">
         <div class="page-title">
@@ -30,10 +30,6 @@
                         and convenience come together in one place."
                     </p>
                     <div class="row">
-                        {{-- <div class="col-md-6 col-sm-4 mb-4">
-                            <a href="" class="btn icon icon-left btn-primary"><i class="bi bi-calendar2-plus"></i>
-                                Add Workplan</a>
-                        </div> --}}
                         <div class="col-md-4 col-sm-6 ms-auto">
                             <form method="GET">
                                 <div class="input-group mb-3">
@@ -76,12 +72,12 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="POST"
-                                            class="d-inline">
+                                        <button onclick="confirmDelete({{ $user->id }})"
+                                            class="btn icon btn-danger m-1"><i class="bi bi-trash"></i></button>
+                                        <form id="delete-form-{{ $user->id }}"
+                                            action="{{ route('users.destroy', $user->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn icon btn-danger m-1"
-                                                onclick="return confirm('Are you sure?')"><i class="bi bi-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -100,10 +96,31 @@
                     {{ $users->withQueryString()->links() }}
                 </div>
             </div>
-
-
-
         </section>
     </div>
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Anda yakin?',
+                text: 'Data akan dihapus permanen!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
+                    document.getElementById('delete-form-' + id).submit();
+                    Swal.fire(
+                        'Dihapus!',
+                        'File Anda telah dihapus.',
+                        'success'
+                    )
+                }
+            });
+        }
+    </script>
 
 @endsection

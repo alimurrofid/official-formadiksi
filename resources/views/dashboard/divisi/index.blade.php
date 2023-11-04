@@ -59,12 +59,15 @@
                                             class="btn icon btn-primary m-1" title="Detail"><i class="bi bi-eye"></i></a>
                                         <a href="{{ route('division.edit', $division->slug) }}"
                                             class="btn icon btn-success m-1" title="Edit"><i class="bi bi-pencil"></i></a>
-                                        <form action="{{ route('division.destroy', $division->slug) }}" method="POST"
+                                        <form id="delete-form-{{ $division->slug }}"
+                                            action="{{ route('division.destroy', $division->slug) }}" method="POST"
                                             class="d-inline">
                                             @csrf
-                                            @method('delete')
-                                            <button class="btn icon btn-danger m-1" title="Delete"><i
-                                                    class="bi bi-trash"></i></button>
+                                            @method('DELETE')
+                                            <button type="button" class="btn icon btn-danger m-1 delete-btn"
+                                                onclick="confirmDelete('{{ $division->slug }}')" title="Delete">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
@@ -77,10 +80,32 @@
                     {{ $divisions->links() }}
                 </div>
             </div>
-
-
-
         </section>
     </div>
+
+    <script>
+        function confirmDelete(slug) {
+            Swal.fire({
+                title: 'Anda yakin?',
+                text: 'Data akan dihapus permanen!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
+                    document.getElementById('delete-form-' + slug).submit();
+                    Swal.fire(
+                        'Dihapus!',
+                        'File Anda telah dihapus.',
+                        'success'
+                    )
+                }
+            });
+        }
+    </script>
 
 @endsection

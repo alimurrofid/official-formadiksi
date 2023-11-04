@@ -29,9 +29,6 @@
                         "Welcome to our web page showcasing the member data of our boarding house, where comfort
                         and convenience come together in one place."
                     </p>
-                    {{-- <a href="{{ route('faq.create') }}" class="btn icon icon-left btn-primary"><i
-                            data-feather="user-plus"></i>
-                        Add Data</a> --}}
 
                     <!-- Button trigger for Create Form Modal -->
                     <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
@@ -99,7 +96,7 @@
                                     <td>{{ $f->question }}</td>
                                     <td>{{ $f->answer }}</td>
                                     <td>
-                                        <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
+                                        <button type="button" class="btn icon icon-left btn-primary m-1" data-bs-toggle="modal"
                                             data-bs-target="#editFormModal{{ $f->id }}"><i class="bi bi-pencil-square"></i></button>
 
                                         <!-- Edit Form Modal -->
@@ -175,7 +172,7 @@
         function confirmDelete(id) {
             Swal.fire({
                 title: 'Anda yakin?',
-                text: 'Data FAQ akan dihapus permanen!',
+                text: 'Data akan dihapus permanen!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -186,6 +183,11 @@
                 if (result.isConfirmed) {
                     // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
                     document.getElementById('delete-form-' + id).submit();
+                    Swal.fire(
+                        'Dihapus!',
+                        'File Anda telah dihapus.',
+                        'success'
+                    )
                 }
             });
         }
@@ -193,7 +195,7 @@
         function confirmEdit(id) {
             Swal.fire({
                 title: 'Anda yakin?',
-                text: 'Data FAQ akan diupdate!',
+                text: 'Data akan diupdate!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -204,6 +206,11 @@
                 if (result.isConfirmed) {
                     // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
                     document.getElementById('edit-form-' + id).submit();
+                    Swal.fire(
+                        'Diupdate!',
+                        'File Anda telah diupdate.',
+                        'success'
+                    )
                 }
             });
         }

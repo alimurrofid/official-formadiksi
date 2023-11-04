@@ -58,12 +58,12 @@
                                             class="btn icon btn-primary m-1" title="Detail"><i class="bi bi-eye"></i></a>
                                         <a href="{{ route('history.edit', $history->id) }}"
                                             class="btn icon btn-success m-1" title="Edit"><i class="bi bi-pencil"></i></a>
-                                        <form action="{{ route('history.destroy', $history->id) }}" method="POST"
-                                            class="d-inline">
+                                        <button onclick="confirmDelete({{ $history->id }})"
+                                            class="btn icon btn-danger m-1"><i class="bi bi-trash"></i></button>
+                                        <form id="delete-form-{{ $history->id }}"
+                                            action="{{ route('history.destroy', $history->id) }}" method="POST">
                                             @csrf
-                                            @method('delete')
-                                            <button class="btn icon btn-danger m-1" title="Delete"><i
-                                                    class="bi bi-trash"></i></button>
+                                            @method('DELETE')
                                         </form>
                                     </td>
                                 </tr>
@@ -73,10 +73,32 @@
                 </div>
                 <!-- table -->
             </div>
-
-
-
         </section>
     </div>
+
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Anda yakin?',
+                text: 'Data akan dihapus permanen!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
+                    document.getElementById('delete-form-' + id).submit();
+                    Swal.fire(
+                        'Dihapus!',
+                        'File Anda telah dihapus.',
+                        'success'
+                    )
+                }
+            });
+        }
+    </script>
 
 @endsection
