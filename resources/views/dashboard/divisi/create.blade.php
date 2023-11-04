@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.form')
-@section('title', 'division Create')
+@section('title', 'Division Create')
 @section('content')
 
     <nav class="navbar navbar-light">
@@ -12,10 +12,10 @@
     </nav>
 
     <div class="card-header">
-        <h4 class="card-title">division Create</h4>
+        <h4 class="card-title">Division Create</h4>
     </div>
     <div class="card-body">
-        <p> Write Amazing divisions Show World You Are The Best!</p>
+        <p> Write Amazing Divisions Show World You Are The Best!</p>
 
         <form action="{{ route('division.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

@@ -1,18 +1,18 @@
 @extends('dashboard.layouts.app')
-@section('title', 'Visi Misi')
+@section('title', 'Vision & Mission')
 @section('content')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Data Visi Misi</h3>
+                    <h3>Data Vision & Mission</h3>
                     <p class="text-subtitle text-muted">Divisi data is all data from Divisis.</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data Visi Misi
+                            <li class="breadcrumb-item active" aria-current="page">Data Vision & Mission
                             </li>
                         </ol>
                     </nav>
@@ -22,12 +22,11 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Table data Visi Misi</h4>
+                    <h4 class="card-title">Table data Vision & Mission</h4>
                 </div>
                 <div class="card-body">
                     <p>
-                        "Welcome to our web page showcasing the Divisi data of our boarding house, where comfort
-                        and convenience come together in one place."
+                        "Showcasing the Vision and Mission data table, where our aspirations and purpose converge, guiding our path towards a brighter future."
                     </p>
                     <a href="{{ route('vision.create') }}" class="btn icon icon-left btn-primary"><i class="bi bi-node-plus"></i>
                         Add Data</a>

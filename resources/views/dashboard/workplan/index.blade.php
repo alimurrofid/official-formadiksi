@@ -26,8 +26,7 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        "Welcome to our web page showcasing the Workplan data of our boarding house, where comfort
-                        and convenience come together in one place."
+                        "Showcasing the Workplan data table, where strategic planning and execution intersect, paving the way for successful outcomes and achievements."
                     </p>
                     <a href="{{route('workplan.create')}}" class="btn icon icon-left btn-primary"><i
                             class="bi bi-calendar2-plus"></i>

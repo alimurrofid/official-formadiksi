@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.form')
-@section('title', 'Vision Create')
+@section('title', 'Vision Edit')
 @section('content')
 
     <nav class="navbar navbar-light">
@@ -15,7 +15,7 @@
         <h4 class="card-title">Vision Edit</h4>
     </div>
     <div class="card-body">
-        <p> Write Amazing visions Show World You Are The Best!</p>
+        <p> Write Amazing Visions Show World You Are The Best!</p>
 
         <form action="{{ route('vision.update', $vision->id) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')

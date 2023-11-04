@@ -26,8 +26,7 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        "Welcome to our web page showcasing the Workplan data of our boarding house, where comfort
-                        and convenience come together in one place."
+                        "Discover the User data hub on our web page, where individuals unite, ideas flourish, and collective growth thrives."
                     </p>
                     <div class="row">
                         <div class="col-md-4 col-sm-6 ms-auto">

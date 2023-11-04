@@ -15,7 +15,7 @@
         <h4 class="card-title">History Create</h4>
     </div>
     <div class="card-body">
-        <p> Write Amazing historys Show World You Are The Best!</p>
+        <p> Write Amazing History Show World You Are The Best!</p>
 
         <form action="{{ route('history.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.form')
-@section('title', 'History Create')
+@section('title', 'History Edit')
 @section('content')
 
     <nav class="navbar navbar-light">
@@ -15,7 +15,7 @@
         <h4 class="card-title">History Edit</h4>
     </div>
     <div class="card-body">
-        <p> Write Amazing historys Show World You Are The Best!</p>
+        <p> Write Amazing History Show World You Are The Best!</p>
 
         <form action="{{ route('history.update', $history->id) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')

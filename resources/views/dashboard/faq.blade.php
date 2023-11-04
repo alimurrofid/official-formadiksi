@@ -6,13 +6,13 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>Data FAQ</h3>
-                    {{-- <p class="text-subtitle text-muted">Member data is all data from members.</p> --}}
+                    <p class="text-subtitle text-muted">Data FAQ is all data from user FAQ.</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data member
+                            <li class="breadcrumb-item active" aria-current="page">Data FAQ
                             </li>
                         </ol>
                     </nav>
@@ -26,8 +26,7 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        "Welcome to our web page showcasing the member data of our boarding house, where comfort
-                        and convenience come together in one place."
+                        "Discover our web page's Frequently Asked Questions (FAQ) section, where we address common inquiries and provide informative answers to help you navigate through any uncertainties."
                     </p>
 
                     <!-- Button trigger for Create Form Modal -->

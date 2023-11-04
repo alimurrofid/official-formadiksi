@@ -1,18 +1,18 @@
 @extends('dashboard.layouts.app')
-@section('title', 'Divisi')
+@section('title', 'Division')
 @section('content')
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Data Divisi</h3>
-                    <p class="text-subtitle text-muted">Divisi data is all data from Divisis.</p>
+                    <h3>Data Division</h3>
+                    <p class="text-subtitle text-muted">Division data is all data from Divisions.</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Data Divisi
+                            <li class="breadcrumb-item active" aria-current="page">Data Division
                             </li>
                         </ol>
                     </nav>
@@ -22,12 +22,11 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Table data Divisi</h4>
+                    <h4 class="card-title">Table data Division</h4>
                 </div>
                 <div class="card-body">
                     <p>
-                        "Welcome to our web page showcasing the Divisi data of our boarding house, where comfort
-                        and convenience come together in one place."
+                        "Featuring the Division data table, where collaboration and specialization converge, fostering a dynamic environment for growth and innovation."
                     </p>
                     <a href="{{ route('division.create') }}" class="btn icon icon-left btn-primary"><i
                             class="bi bi-person-plus"></i>

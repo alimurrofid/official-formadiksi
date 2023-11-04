@@ -74,19 +74,19 @@
             <li class="sidebar-item ">
                 <a href="{{route('vision.index')}}" class='sidebar-link'>
                     <i class="bi bi-rocket-takeoff"></i>
-                    <span>Visi & Misi</span>
+                    <span>Vision & Mission</span>
                 </a>
             </li>
             <li class="sidebar-item ">
                 <a href="{{ route('dashboard.so') }}" class='sidebar-link'>
                     <i class="bi bi-person-rolodex"></i>
-                    <span>Struktur Organisasi</span>
+                    <span>Organisation Stucture</span>
                 </a>
             </li>
             <li class="sidebar-item ">
                 <a href="{{ route('division.index') }}" class='sidebar-link'>
                     <i class="bi bi-ui-checks"></i>
-                    <span>Divisi</span>
+                    <span>Division</span>
                 </a>
             </li>
             <li class="sidebar-item ">

@@ -26,8 +26,7 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        "Welcome to our web page showcasing the Article data of our boarding house, where comfort
-                        and convenience come together in one place."
+                        "Welcome to our web page featuring the Article data table, where knowledge and inspiration intertwine, creating a captivating narrative hub."
                     </p>
                     <a href="{{ route('article.create') }}" class="btn icon icon-left btn-primary"><i
                             class="bi bi-clipboard-plus"></i>

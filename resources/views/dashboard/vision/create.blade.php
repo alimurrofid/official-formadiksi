@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.form')
-@section('title', 'vision Create')
+@section('title', 'Vision Create')
 @section('content')
 
     <nav class="navbar navbar-light">
@@ -12,10 +12,10 @@
     </nav>
 
     <div class="card-header">
-        <h4 class="card-title">vision Create</h4>
+        <h4 class="card-title">Vision Create</h4>
     </div>
     <div class="card-body">
-        <p> Write Amazing visions Show World You Are The Best!</p>
+        <p> Write Amazing Visions Show World You Are The Best!</p>
 
         <form action="{{ route('vision.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

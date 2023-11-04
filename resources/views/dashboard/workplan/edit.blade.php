@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.form')
-@section('title', 'Workplan Create')
+@section('title', 'Workplan Edit')
 @section('content')
 
     <nav class="navbar navbar-light">
@@ -15,7 +15,7 @@
         <h4 class="card-title">Workplan Edit</h4>
     </div>
     <div class="card-body">
-        <p> Write Amazing workplans Show World You Are The Best!</p>
+        <p> Write Amazing Workplans Show World You Are The Best!</p>
 
         <form action="{{ route('workplan.update', $workplan->slug) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
