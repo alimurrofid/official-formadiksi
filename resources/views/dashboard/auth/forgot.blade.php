@@ -15,7 +15,7 @@
         @csrf
         <div class="form-group position-relative has-icon-left mb-4">
             <input name="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror"
-                placeholder="Email" value="{{old('email')}}">
+                placeholder="Email" value="{{old('email')}}" autofocus>
             @error('email')
                 <div class="invalid-feedback">
                     {{ $message }}
