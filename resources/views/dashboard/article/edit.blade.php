@@ -33,7 +33,7 @@
             <div class="form-group">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                    value="{{ old('slug', $article->slug) }}">
+                    value="{{ old('slug', $article->slug) }}" readonly>
                 @error('slug')
                     <div class="invalid-feedback">
                         {{ $message }}
