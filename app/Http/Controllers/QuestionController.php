@@ -61,6 +61,9 @@ class QuestionController extends Controller
                                 <div class="form-group">
                                 <input type="hidden" name="nama" value="' . $data->nama . '">
                                 <input type="hidden" name="email" value="' . $data->email . '">
+                                <input type="hidden" name="jurusan" value="' . $data->jurusan . '">
+                                <input type="hidden" name="prodi" value="' . $data->prodi . '">
+                                <input type="hidden" name="angkatan" value="' . $data->angkatan . '">
                                 <input type="hidden" name="pertanyaan" value="' . $data->pertanyaan . '">
                                 <input type="hidden" name="answered_by" value="' . auth()->user()->name . '">
                                 <textarea id="editor' . $data->id . '" name="description"></textarea>

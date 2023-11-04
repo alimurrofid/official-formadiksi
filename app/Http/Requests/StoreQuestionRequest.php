@@ -23,8 +23,11 @@ class StoreQuestionRequest extends FormRequest
     {
         return [
             //
-            'email' => 'required',
-            'nama' => 'required',
+            'email' => 'required|email|max:255',
+            'nama' => 'required|max:255',
+            'jurusan' => 'required|max:255',
+            'prodi' => 'required|max:255',
+            'angkatan' => 'required|numeric|digits:4',
             'pertanyaan' => 'required',
         ];
     }

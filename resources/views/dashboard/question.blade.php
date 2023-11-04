@@ -39,6 +39,9 @@
                                 <th>Tanggal</th>
                                 <th>Email</th>
                                 <th>Nama</th>
+                                <th>Jurusan</th>
+                                <th>Prodi</th>
+                                <th>Angkatan</th>
                                 <th>Pertanyaan</th>
                                 <th>Dijawab Oleh</th>
                                 <th>Action</th>

@@ -320,6 +320,18 @@
                                             <label for="nama" class="col-form-label">Nama Lengkap :</label>
                                             <input name="nama" type="text" class="form-control">
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="jurusan" class="col-form-label">Jurusan :</label>
+                                            <input name="jurusan" type="text" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="prodi" class="col-form-label">Prodi :</label>
+                                            <input name="prodi" type="text" class="form-control">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="angkatan" class="col-form-label">Angkatan :</label>
+                                            <input name="angkatan" type="text" class="form-control">
+                                        </div>
                                         <div class="mb-4">
                                             <label for="pertanyaan" class="col-form-label">Pertanyaan :</label>
                                             <textarea name="pertanyaan" type="text" class="form-control"></textarea>

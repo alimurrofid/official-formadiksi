@@ -20,9 +20,12 @@ $(document).ready(function () {
             },
             { data: "email", name: "email" },
             { data: "nama", name: "nama" },
+            { data: "jurusan", name: "jurusan" },
+            { data: "prodi", name: "prodi" },
+            { data: "angkatan", name: "angkatan" },
             { data: "pertanyaan", name: "pertanyaan" },
             { data: "answered_by", name: "answered_by" },
-            { data: "opsi", name: "opsi", orderable: false, searchable: false},
+            { data: "opsi", name: "opsi", orderable: false, searchable: false },
         ],
         columnDefs: [],
     });

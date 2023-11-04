@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('email');
             $table->string('nama');
+            $table->string('jurusan');
+            $table->string('prodi');
+            $table->integer('angkatan');
             $table->text('pertanyaan');
             $table->string('answered_by')->nullable();
             $table->timestamps();
