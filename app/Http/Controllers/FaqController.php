@@ -6,6 +6,7 @@ use App\Models\Faq;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreFaqRequest;
 use App\Http\Requests\UpdateFaqRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FaqController extends Controller
 {
@@ -35,8 +36,12 @@ class FaqController extends Controller
     {
         //
         $data = $request->validated();
-        Faq::create($data);
-        return redirect()->route('faq.index');
+        if(Faq::create($data)){
+            Alert::success('Berhasil', 'FAQ Berhasil Ditambahkan');
+            return redirect()->route('faq.index');
+        }else{
+            Alert::error('Gagal', 'FAQ Gagal Ditambahkan');
+        }
     }
 
     /**

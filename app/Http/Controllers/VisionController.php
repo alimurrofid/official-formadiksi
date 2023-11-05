@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VisionController extends Controller
 {
@@ -77,8 +78,12 @@ class VisionController extends Controller
         $body = $dom->saveHTML();
         $validatedData['body'] = $body;
 
-        Vision::create($validatedData);
-        return redirect(route('vision.index'));
+        if(Vision::create($validatedData)){
+            Alert::success('Berhasil', 'Visi berhasil ditambahkan');
+            return redirect(route('vision.index'));
+        }else{
+            Alert::error('Gagal', 'Visi gagal ditambahkan');
+        }
     }
 
     /**
@@ -165,8 +170,12 @@ class VisionController extends Controller
         $validatedData['body'] = $body;
 
 
-        $vision->update($validatedData);
-        return redirect(route('vision.index'));
+        if($vision->update($validatedData)){
+            Alert::success('Berhasil', 'Visi berhasil diubah');
+            return redirect(route('vision.index'));
+        }else{
+            Alert::error('Gagal', 'Visi gagal diubah');
+        }
     }
 
     /**

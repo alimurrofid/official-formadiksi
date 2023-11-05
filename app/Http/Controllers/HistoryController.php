@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HistoryController extends Controller
 {
@@ -79,8 +80,12 @@ class HistoryController extends Controller
         $body = $dom->saveHTML();
         $validatedData['body'] = $body;
 
-        History::create($validatedData);
-        return redirect(route('history.index'));
+        if (History::create($validatedData)) {
+            Alert::success('Berhasil', 'Sejarah berhasil ditambahkan');
+            return redirect(route('history.index'));
+        }else{
+            Alert::error('Gagal', 'Sejarah gagal ditambahkan');
+        }
     }
 
     /**
@@ -165,8 +170,12 @@ class HistoryController extends Controller
         $validatedData['body'] = $body;
 
 
-        $history->update($validatedData);
-        return redirect(route('history.index'));
+        if($history->update($validatedData)){
+            Alert::success('Berhasil', 'Sejarah berhasil diubah');
+            return redirect(route('history.index'));
+        }else{
+            Alert::error('Gagal', 'Sejarah gagal diubah');
+        }
     }
 
     /**

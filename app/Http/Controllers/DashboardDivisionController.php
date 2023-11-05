@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardDivisionController extends Controller
 {
@@ -75,8 +76,12 @@ class DashboardDivisionController extends Controller
 
         $validatedData['excerpt'] = Str::limit(strip_tags($body), 200);
 
-        division::create($validatedData);
-        return redirect(route('division.index'));
+        if(Division::create($validatedData)) {
+            Alert::success('Berhasil', 'Divisi berhasil ditambahkan');
+            return redirect(route('division.index'));
+        }else{
+            Alert::error('Gagal', 'Divisi gagal ditambahkan');
+        }
     }
 
     /**
@@ -162,8 +167,12 @@ class DashboardDivisionController extends Controller
         // Buat 'excerpt' berdasarkan konten yang telah diolah
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
-        $division->update($validatedData);
-        return redirect(route('division.index'));
+        if($division->update($validatedData)){
+            Alert::success('Berhasil', 'Divisi berhasil diubah');
+            return redirect(route('division.index'));
+        }else{
+            Alert::error('Gagal', 'Divisi gagal diubah');
+        }
     }
 
     /**

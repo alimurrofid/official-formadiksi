@@ -12,6 +12,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 
 
 class DashboardArticleController extends Controller
@@ -91,8 +94,13 @@ class DashboardArticleController extends Controller
         // Buat 'excerpt' berdasarkan konten yang telah diolah
         $validatedData['excerpt'] = Str::limit(strip_tags($body), 200);
 
-        Article::create($validatedData);
-        return redirect(route('article.index'));
+        //membuat kondisi jika berhasil dan error menambahkan data
+        if (Article::create($validatedData)) {
+            Alert::success('Berhasil', 'Article Berhasil Ditambahkan');
+            return redirect(route('article.index'));
+        } else {
+            Alert::error('Gagal', 'Article Gagal Ditambahkan');
+        }
     }
 
 
@@ -186,8 +194,12 @@ class DashboardArticleController extends Controller
         // Buat 'excerpt' berdasarkan konten yang telah diolah
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
-        $article->update($validatedData);
-        return redirect(route('article.index'));
+        if ($article->update($validatedData)) {
+            Alert::success('Berhasil', 'Article Berhasil Diubah');
+            return redirect(route('article.index'));
+        } else {
+            Alert::error('Gagal', 'Article Gagal Diubah');
+        }
     }
 
     /**

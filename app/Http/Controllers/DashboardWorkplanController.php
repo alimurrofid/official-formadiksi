@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardWorkplanController extends Controller
 {
@@ -75,8 +76,12 @@ class DashboardWorkplanController extends Controller
 
         $validatedData['excerpt'] = Str::limit(strip_tags($body), 200);
 
-        Workplan::create($validatedData);
-        return redirect(route('workplan.index'));
+        if(Workplan::create($validatedData)){
+            Alert::success('Berhasil', 'Program Kerja berhasil ditambahkan');
+            return redirect(route('workplan.index'));
+        }else{
+            Alert::error('Gagal', 'Program Kerja gagal ditambahkan');
+        }
     }
 
     /**
@@ -166,8 +171,12 @@ class DashboardWorkplanController extends Controller
         // Buat 'excerpt' berdasarkan konten yang telah diolah
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
-        $workplan->update($validatedData);
-        return redirect(route('workplan.index'));
+        if($workplan->update($validatedData)){
+            Alert::success('Berhasil', 'Program Kerja berhasil diubah');
+            return redirect(route('workplan.index'));
+        }else{
+            Alert::error('Gagal', 'Program Kerja gagal diubah');
+        }
     }
 
     /**
