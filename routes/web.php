@@ -45,7 +45,7 @@ Route::get('/sejarah', function () {
 Route::get('/visi-misi', function () {
     return view('visiMisi');
 });
-Route::get('/so', [SOController::class, 'views']);
+Route::get('/struktur-organisasi', [SOController::class, 'views']);
 
 Route::get('/divisi', [DivisionController::class, 'index']);
 
@@ -61,7 +61,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('profile');
     Route::get('/dashboard/article/check-slug', [DashboardArticleController::class, 'checkSlug']);
     Route::resource('/dashboard/article', DashboardArticleController::class);
-    Route::get('dashboard/so', [JudulSOController::class, 'index'])->name('dashboard.so');
     Route::get('dashboard/divisi', function () {
         return view('dashboard.divisi');
     })->name('dashboard.divisi');

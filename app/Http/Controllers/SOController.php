@@ -17,14 +17,14 @@ class SOController extends Controller
     public function index()
     {
         //
-        $judul_SO = Judul_SO::where('id', '=', 1)->get();
+        $judul_SO = Judul_SO::get();
         $SO = SO::all();
         return view('dashboard.organisationStructure', compact('judul_SO', 'SO'));
     }
 
     public function views()
     {
-        $judul_SO = Judul_SO::where('id', '=', 1)->get();
+        $judul_SO = Judul_SO::get();
         $SOfirst = SO::first();
         $SO = SO::all();
         return view('organizationStructure', compact('judul_SO', 'SOfirst', 'SO'));

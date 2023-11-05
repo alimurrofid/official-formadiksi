@@ -34,7 +34,7 @@
                         {{-- button triggrer --}}
                         <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
                             data-bs-target="#editJudulFormModal">
-                            <i class="bi bi-envelope-plus"></i> Edit Judul
+                            <i class="bi bi-layout-text-window-reverse"></i> Edit Judul
                         </button>
                         <!-- Create Form Modal -->
                         <div class="modal fade text-left" id="editJudulFormModal" tabindex="-1" role="dialog"
@@ -74,11 +74,11 @@
                         </div>
                         {{-- modal --}}
                     @endforeach
-                    @if (empty($judul_SO))
-                        <p>Belum ada judul</p>
+                    @if ($judul_SO->isEmpty())
+                        <p class="text-danger">Belum ada judul</p>
                         <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
                             data-bs-target="#createJudulFormModal">
-                            <i class="bi bi-envelope-plus"></i> Add Judul
+                            <i class="bi bi-text-center"></i> Tambah Judul
                         </button>
                         <!-- Create Form Modal -->
                         <div class="modal fade text-left" id="createJudulFormModal" tabindex="-1" role="dialog"
@@ -119,9 +119,9 @@
                 </div>
 
                 <!-- table -->
-                <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
+                <button type="button" class="btn icon icon-left btn-primary mx-3" data-bs-toggle="modal"
                     data-bs-target="#createFormModal">
-                    <i class="bi bi-envelope-plus"></i> Add SO
+                    <i class="bi bi-images"></i> Tambah Foto Struktur Organisasi
                 </button>
 
                 <!-- Create Form Modal -->
@@ -139,7 +139,7 @@
                                 @csrf
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="image" class="form-label">Post Image</label>
+                                        <label for="image" class="form-label">Structur Organisation Image</label>
                                         <img class="img-preview img-fluid mb-3 col-sm-5">
                                         <input class="form-control @error('image') is-invalid @enderror" type="file"
                                             id="image" name="image" onchange="previewImage()">
@@ -173,7 +173,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>SO Image</th>
+                            <th>Structur Organisation Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -181,12 +181,9 @@
                         @foreach ($SO as $so)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                @php
-                                $imgLink = str_replace('public','storage', $so->image);  
-                                @endphp
-                                <td> <img src="{{ asset($imgLink) }}"> </td>
+                                <td> <img src="{{ asset('storage/' . $so->image) }}" width="200"> </td>
                                 <td>
-                                    <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
+                                    <button type="button" class="btn icon icon-left btn-primary m-1" data-bs-toggle="modal"
                                         data-bs-target="#editFormModal{{ $so->id }}"><i
                                             class="bi bi-pencil-square"></i></button>
 
@@ -206,19 +203,17 @@
                                                     </button>
                                                 </div>
                                                 <form id="edit-form-{{ $so->id }}" method="POST"
-                                                    action="{{ route('SO.update', $so->id) }}" enctype="multipart/form-data">
+                                                    action="{{ route('SO.update', $so->id) }}"
+                                                    enctype="multipart/form-data">
                                                     @method('PUT')
                                                     @csrf
                                                     <div class="modal-body">
                                                         <div class="form-group">
-                                                            <label for="image" class="form-label">Post Image</label>
+                                                            <label for="image" class="form-label">Structur Organisation Image</label>
                                                             <input type="hidden" name="oldImage"
                                                                 value="{{ $so->image }}">
                                                             @if ($so->image)
-                                                                @php
-                                                                $imgLink = str_replace('public','storage', $so->image);  
-                                                                @endphp
-                                                                <img src="{{ asset($imgLink) }}"
+                                                                <img src="{{ asset('storage/' . $so->image) }}"
                                                                     class="img-preview img-fluid mb-3 col-sm-5 d-block">
                                                             @else
                                                                 <img class="img-preview img-fluid mb-3 col-sm-5">
@@ -284,7 +279,7 @@
         function confirmDelete(id) {
             Swal.fire({
                 title: 'Anda yakin?',
-                text: 'Data FAQ akan dihapus permanen!',
+                text: 'Data Struktur Organisasi akan dihapus permanen!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -302,7 +297,7 @@
         function confirmEdit(id) {
             Swal.fire({
                 title: 'Anda yakin?',
-                text: 'Data FAQ akan diupdate!',
+                text: 'Data Struktur Organisasi akan diupdate!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

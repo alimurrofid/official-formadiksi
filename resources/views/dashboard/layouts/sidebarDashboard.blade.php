@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li class="sidebar-item ">
-                <a href="{{ route('dashboard.so') }}" class='sidebar-link'>
+                <a href="{{ route('SO.index') }}" class='sidebar-link'>
                     <i class="bi bi-person-rolodex"></i>
                     <span>Struktur Organisasi</span>
                 </a>

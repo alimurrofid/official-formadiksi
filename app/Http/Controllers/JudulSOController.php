@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Judul_SO;
 use App\Http\Requests\StoreJudul_SORequest;
 use App\Http\Requests\UpdateJudul_SORequest;
+use App\Models\SO;
 
 class JudulSOController extends Controller
 {
@@ -14,13 +15,14 @@ class JudulSOController extends Controller
     public function index()
     {
         //
-        $judul_SO = Judul_SO::where('id', '=', 1)->get();
-        return view('dashboard.organisationStructure', compact('judul_SO'));
+        $judul_SO = Judul_SO::get();
+        $SO = SO::all();
+        return view('dashboard.organisationStructure', compact('judul_SO','SO'));
     }
 
     public function views()
     {
-        $judul_SO = Judul_SO::where('id', '=', 1)->get();
+        $judul_SO = Judul_SO::get();
         return view('organizationStructure', compact('judul_SO'));
     }
 
@@ -65,10 +67,9 @@ class JudulSOController extends Controller
     public function update(UpdateJudul_SORequest $request, Judul_SO $judul_SO)
     {
         //
-        $data = (object) $request->validated();
-        $judul_SO = Judul_SO::find(1);
-        $judul_SO->judul = $data->judul;
-        $judul_SO->save();
+        $data = $request->validated();
+        $judul_SO = Judul_SO::first();
+        $judul_SO->update($data);
         return redirect()->route('judulSO.index');
     }
 
