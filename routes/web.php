@@ -1,17 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SOController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\DashboardArticleController;
-use App\Http\Controllers\DivisionController;
-use App\Http\Controllers\HistoryController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\JudulSOController;
-use App\Http\Controllers\LandingpageController;
-use App\Http\Controllers\SOController;
 use App\Http\Controllers\VisionController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\JudulSOController;
+use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\DashboardArticleController;
+use App\Http\Controllers\DashboardDivisionController;
+use App\Http\Controllers\DashboardWorkplanController;
 
 /*
 |--------------------------------------------------------------------------
