@@ -7,6 +7,7 @@ use App\Http\Requests\StoreSORequest;
 use App\Http\Requests\UpdateSORequest;
 use App\Models\Judul_SO;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Post;
 
 class SOController extends Controller
 {
@@ -24,8 +25,9 @@ class SOController extends Controller
     public function views()
     {
         $judul_SO = Judul_SO::where('id', '=', 1)->get();
+        $SOfirst = SO::first();
         $SO = SO::all();
-        return view('dashboard.organisationStructure', compact('judul_SO', 'SO'));
+        return view('organizationStructure', compact('judul_SO', 'SOfirst', 'SO'));
     }
 
     /**
@@ -43,19 +45,19 @@ class SOController extends Controller
     {
         //
         $data = $request->validated();
-
-        if($request->file('image')){
-            $data['image'] = $request->file('image')->store('public/SO');
+        if ($request->file('image')) {
+            $filePath = $request->file('image')->store('public/so-images');
+            $data['image'] = $filePath;
         }
-
         SO::create($data);
         return redirect()->route('SO.index');
     }
 
+
     /**
      * Display the specified resource.
      */
-    public function show(SO $sO)
+    public function show(SO $SO)
     {
         //
     }
@@ -63,7 +65,7 @@ class SOController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SO $sO)
+    public function edit(SO $SO)
     {
         //
     }
@@ -71,25 +73,26 @@ class SOController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSORequest $request, SO $sO)
+    public function update(UpdateSORequest $request, SO $SO)
     {
         //
         $data = $request->validated();
-
-        if($request->file('image')){
-            Storage::delete($sO->image);
-            $data['image'] = $request->file('image')->store('public/berita');
+        if ($request->file('image')) {
+            Storage::delete($SO->image);
+            $data['image'] = $request->file('image')->store('public/so-images');
         }
-
-        $sO->update($data);
+        $SO->update($data);
         return redirect()->route('SO.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SO $sO)
+    public function destroy(SO $SO)
     {
         //
+        // Storage::delete($SO->image);
+        $SO->delete();
+        return redirect()->route('SO.index');
     }
 }

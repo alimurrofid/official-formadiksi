@@ -45,10 +45,7 @@ Route::get('/sejarah', function () {
 Route::get('/visi-misi', function () {
     return view('visiMisi');
 });
-Route::get('/so', function () {
-    return view('organizationStructure
-    ');
-});
+Route::get('/so', [SOController::class, 'views']);
 
 Route::get('/divisi', [DivisionController::class, 'index']);
 

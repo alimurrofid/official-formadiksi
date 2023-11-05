@@ -7,8 +7,9 @@
             <div class="row text-center">
                 <div class="col">
                     <h1 class="head-title">Struktur Organisasi</h1>
-                    <p class="sub-title">Forum Mahasiswa Bidikmisi/KIP Kuliah dan Afirmasi Pendidikan Politeknik Negeri
-                        Malang Periode 2023/2024</p>
+                    @foreach($judul_SO as $judul)
+                    <p class="sub-title">{{$judul->judul}}</p>
+                    @endforeach
                 </div>
             </div>
             <div class="row">
@@ -17,10 +18,25 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
                     <div class="wrap-img-so">
-                        <img src="{{ asset('assets/img/bph.png') }}" class="img-fluid my-3" alt="">
+                        @php
+                        $imgLink = str_replace('public','storage', $SOfirst->image);  
+                        @endphp
+                        <img src="{{ asset($imgLink) }}" class="img-fluid my-3" alt="">
                     </div>
                 </div>
+                @foreach ($SO as $so)
+                @if($so != $SOfirst)
                 <div class="col-xl-6 col-lg-12">
+                    <div class="wrap-img-so">
+                        @php
+                        $imgLink = str_replace('public','storage', $so->image);  
+                        @endphp
+                        <img src="{{ asset($imgLink) }}" class="img-fluid my-3" alt="">
+                    </div>
+                </div>
+                @endif
+                @endforeach
+                {{-- <div class="col-xl-6 col-lg-12">
                     <div class="wrap-img-so">
                         <img src="{{ asset('assets/img/bph.png') }}" class="img-fluid my-3" alt="">
                     </div>
@@ -34,13 +50,7 @@
                     <div class="wrap-img-so">
                         <img src="{{ asset('assets/img/bph.png') }}" class="img-fluid my-3" alt="">
                     </div>
-                </div>
-                <div class="col-xl-6 col-lg-12">
-                    <div class="wrap-img-so">
-                        <img src="{{ asset('assets/img/bph.png') }}" class="img-fluid my-3" alt="">
-                    </div>
-                </div>
-
+                </div> --}}
             </div>
 
         </div>
