@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
+use App\Mail\SendEmail;
+use App\Models\Article;
 use App\Models\Question;
+use App\Models\Workplan;
 use Illuminate\Http\Request;
+use Termwind\Components\Span;
 use App\Exports\QuestionExport;
-use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
+use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
-use App\Mail\SendEmail;
-use App\Models\Faq;
-use Illuminate\Support\Facades\Mail;
-use Termwind\Components\Span;
 
 class QuestionController extends Controller
 {
@@ -124,7 +126,6 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
         return view('landingpage');
     }
 
@@ -135,10 +136,12 @@ class QuestionController extends Controller
     {
         //
         $faq = Faq::all();
+        $workplans = Workplan::all();
+        $articles = Article::latest()->take(3)->get();
         $data = $request->validated();
         Question::create($data);
         $question = question::all();
-        return view('landingpage', compact('question', 'faq'));
+        return view('landingpage', compact('question', 'faq', 'workplans', 'articles'));
     }
 
     /**
