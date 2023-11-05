@@ -26,8 +26,7 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        "Welcome to our web page showcasing the Article data of our boarding house, where comfort
-                        and convenience come together in one place."
+                        "Welcome to our web page featuring the Article data table, where knowledge and inspiration intertwine, creating a captivating narrative hub."
                     </p>
                     <a href="{{ route('article.create') }}" class="btn icon icon-left btn-primary"><i
                             class="bi bi-clipboard-plus"></i>
@@ -63,12 +62,15 @@
                                             title="Detail"><i class="bi bi-eye"></i></a>
                                         <a href="{{ route('article.edit', $post->slug) }}" class="btn icon btn-success m-1"
                                             title="Edit"><i class="bi bi-pencil"></i></a>
-                                        <form action="{{ route('article.destroy', $post->slug) }}" method="POST"
+                                        <form id="delete-form-{{ $post->slug }}"
+                                            action="{{ route('article.destroy', $post->slug) }}" method="POST"
                                             class="d-inline">
                                             @csrf
-                                            @method('delete')
-                                            <button class="btn icon btn-danger m-1" title="Delete"><i
-                                                    class="bi bi-trash"></i></button>
+                                            @method('DELETE')
+                                            <button type="button" class="btn icon btn-danger m-1 delete-btn"
+                                                onclick="confirmDelete('{{ $post->slug }}')" title="Delete">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
@@ -81,10 +83,31 @@
                     {{ $articles->links() }}
                 </div>
             </div>
-
-
-
         </section>
     </div>
+    <script>
+        function confirmDelete(slug) {
+            Swal.fire({
+                title: 'Anda yakin?',
+                text: 'Data akan dihapus permanen!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
+                    document.getElementById('delete-form-' + slug).submit();
+                    Swal.fire(
+                        'Dihapus!',
+                        'File Anda telah dihapus.',
+                        'success'
+                    )
+                }
+            });
+        }
+    </script>
 
 @endsection

@@ -23,16 +23,13 @@
 
 <body>
     <!-- Article -->
+    <div class="wrap-back">
+        <a href="{{ route('article.index') }}">
+            <i class="bi bi-arrow-left"></i>
+        </a>
+    </div>
     <div class="container">
         <main>
-            <div class="wrap-icon">
-                <a href="{{route('article.index')}}">
-                    <div class="category-content">
-                        <i class="bi bi-arrow-left fs-3 text-secondary"></i>
-                        <p class="text-category">Back</p>
-                    </div>
-                </a>
-            </div>
             <div class="wrap-img-content">
                 @if ($article->image)
                     <img src="{{ asset('storage/' . $article->image) }}" class="img-content" alt="...">

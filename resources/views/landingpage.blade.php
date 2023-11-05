@@ -23,126 +23,23 @@
         <div class="container">
             <div class=" swiper slide-container">
                 <div class=" swiper-wrapper">
-                    <!-- Card Workplan -->
-                    <div class="card-workplan swiper-slide">
-                        <div class="card-body-workplan">
-                            <div class="wrap-img-workplan">
-                                <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
-                            </div>
-                            <a class="text-decoration-none" href="">
-                                <div class="wrap-title-workplan">
-                                    <h3 class="title-workplan">Musyawarah Kerja</h3>
-                                    <p class="text-workplan">Musyawarah Kerja atau musker merupakan wadah yang mempunyai
-                                        kewenangan tertinggi dalam menentukan langkah organisasi yang ditulis dalam</p>
+                    @foreach ($workplans as $workplan)
+                        <!-- Card Workplan -->
+                        <div class="card-workplan swiper-slide">
+                            <div class="card-body-workplan">
+                                <div class="wrap-img-workplan">
+                                    <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Card Workplan-->
-                    <!-- Card Workplan -->
-                    <div class="card-workplan swiper-slide">
-                        <div class="card-body-workplan">
-                            <div class="wrap-img-workplan">
-                                <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
+                                <a class="text-decoration-none" href="/workplan/{{ $workplan->slug }}">
+                                    <div class="wrap-title-workplan">
+                                        <h3 class="title-workplan">{{ $workplan->title }}</h3>
+                                        <p class="text-workplan">{{ $workplan->excerpt }}</p>
+                                    </div>
+                                </a>
                             </div>
-                            <a class="text-decoration-none" href="">
-                                <div class="wrap-title-workplan">
-                                    <h3 class="title-workplan">Sosial Ramadhan</h3>
-                                    <p class="text-workplan">Sosial Ramadhan adalah suatu program kerja yang di miliki
-                                        Forum
-                                        Mahasiswa Bidikmisi/KIP Kuliah dan Afirmasi Pendidikan Politeknik Negeri Malang.
-                                    </p>
-                                </div>
-                            </a>
                         </div>
-                    </div>
-                    <!-- End Card Workplan-->
-                    <!-- Card Workplan -->
-                    <div class="card-workplan swiper-slide">
-                        <div class="card-body-workplan">
-                            <div class="wrap-img-workplan">
-                                <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
-                            </div>
-                            <a class="text-decoration-none" href="">
-                                <div class="wrap-title-workplan">
-                                    <h3 class="title-workplan">Studi Banding</h3>
-                                    <p class="text-workplan">Studi Banding Forum Mahasiswa Bidikmisi/KIP Kuliah dan
-                                        Afirmasi
-                                        Pendidikan Politeknik Negeri Malang ini berharap bisa sebagai media refreshing
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Card Workplan-->
-                    <!-- Card Workplan -->
-                    <div class="card-workplan swiper-slide">
-                        <div class="card-body-workplan">
-                            <div class="wrap-img-workplan">
-                                <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
-                            </div>
-                            <a class="text-decoration-none" href="">
-                                <div class="wrap-title-workplan">
-                                    <h3 class="title-workplan">Sambut dan Motivasi Mahasiswa Baru KIP Kuliah</h3>
-                                    <p class="text-workplan">Sambut dan Motivasi Mahasiswa baru KIP Kuliah dan Afirmasi
-                                        Pendidikan oleh FORMADIKSI POLINEMA merupakan kegiatan untuk menyambut serta</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Card Workplan-->
-                    <!-- Card Workplan -->
-                    <div class="card-workplan swiper-slide">
-                        <div class="card-body-workplan">
-                            <div class="wrap-img-workplan">
-                                <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
-                            </div>
-                            <a class="text-decoration-none" href="">
-                                <div class="wrap-title-workplan">
-                                    <h3 class="title-workplan">Sarasehan PKM</h3>
-                                    <p class="text-workplan">Program Kreativitas Mahasiswa (PKM) merupakan salah satu
-                                        program
-                                        dari Direktorat Jendral Pembelajaran dan Kemahasiswaan Kementerian Riset</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Card Workplan-->
-                    <!-- Card Workplan -->
-                    <div class="card-workplan swiper-slide">
-                        <div class="card-body-workplan">
-                            <div class="wrap-img-workplan">
-                                <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
-                            </div>
-                            <a class="text-decoration-none" href="">
-                                <div class="wrap-title-workplan">
-                                    <h3 class="title-workplan">Pestadiksi</h3>
-                                    <p class="text-workplan">Kegiatan ini diadakan untuk mewujudkan kemampuan minat
-                                        bakat
-                                        para
-                                        mahasiswa Bidikmisi/KIP Kuliah dan Afirmasi Pendidikan agar mampu bersaing </p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Card Workplan-->
-                    <!-- Card Workplan -->
-                    <div class="card-workplan swiper-slide">
-                        <div class="card-body-workplan">
-                            <div class="wrap-img-workplan">
-                                <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
-                            </div>
-                            <a class="text-decoration-none" href="">
-                                <div class="wrap-title-workplan">
-                                    <h3 class="title-workplan">Dialog pembina dan mahasiswa</h3>
-                                    <p class="text-workplan">Dialog Pembina Mahasiswa adalah sebuah kegiatan sebagai
-                                        wadah
-                                        penyaluran aspirasi mahasiswa bidikmisi/kip kuliah dan afirmasi</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- End Card Workplan-->
+                        <!-- End Card Workplan-->
+                    @endforeach
                 </div>
 
                 <div class="swiper-button-next swipper-navBtn"></div>
@@ -166,99 +63,40 @@
             </div>
             <div class="row">
                 <!-- Card Article-->
-                <div class="col-xxl-4 col-xl-6">
-                    <div class="card-article mx-1 my-3">
-                        <div class="card-body-article">
-                            <div class="wrap-img-article">
-                                <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article"
-                                    alt="...">
-                            </div>
-                            <a href="#">
-                                <div class="category-article">
-                                    <i class="bi bi-grid"></i>
-                                    <p class="text-category">Article</p>
+                @foreach ($articles as $article)
+                    <div class="col-xxl-4 col-xl-6">
+                        <div class="card-article mx-1 my-3">
+                            <div class="card-body-article">
+                                <div class="wrap-img-article">
+                                    @if ($article->image)
+                                        <img src="{{ asset('storage/' . $article->image) }}" class="img-article"
+                                            alt="...">
+                                    @else
+                                        <img src="https://source.unsplash.com/1280x720?{{ $article->category->name }}"
+                                            class="img-article" alt="{{ $article->category->name }}">
+                                    @endif
                                 </div>
-                            </a>
-                            <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
-                            <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Suspendisse non
-                                finibus
-                                massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                            <div class="footer-text">
-                                <i class="bi bi-calendar4"></i>
-                                <p class="text-footer-date">20-12-2023</p>
-                                <a href="/content">
-                                    <p class="text-footer-readmore">Readmore</p>
-                                    <i class="bi bi-arrow-right-short"></i>
+                                <a href="/berita?category={{ $article->category->slug }}">
+                                    <div class="category-article">
+                                        <i class="bi bi-grid"></i>
+                                        <p class="text-category">{{ $article->category->name }}</p>
+                                    </div>
                                 </a>
+                                <h3 class="title-article">{{ $article->title }}</h3>
+                                <p class="text-article">{{ $article->excerpt }}</p>
+                                <div class="footer-text">
+                                    <i class="bi bi-calendar4"></i>
+                                    <p class="text-footer-date">{{ $article->created_at->diffForHumans() }}</p>
+                                    <a href="/articles/{{ $article->slug }}">
+                                        <p class="text-footer-readmore">Readmore</p>
+                                        <i class="bi bi-arrow-right-short"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
                 <!-- End Card Article-->
-                <!-- Card Article-->
-                <div class="col-xxl-4 col-xl-6">
-                    <div class="card-article mx-1 my-3">
-                        <div class="card-body-article">
-                            <div class="wrap-img-article">
-                                <img src="{{ asset('assets/img/article-example1.jpg') }}" class="img-article"
-                                    alt="...">
-                            </div>
-                            <a href="#">
-                                <div class="category-article">
-                                    <i class="bi bi-grid"></i>
-                                    <p class="text-category">Article</p>
-                                </div>
-                            </a>
-                            <h3 class="title-article">Dapatkan Pengalaman Menarik Dengan Ikut Kegiatan Formadiksi</h3>
-                            <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Suspendisse non
-                                finibus
-                                massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                            <div class="footer-text">
-                                <i class="bi bi-calendar4"></i>
-                                <p class="text-footer-date">20-12-2023</p>
-                                <a href="">
-                                    <p class="text-footer-readmore">Readmore</p>
-                                    <i class="bi bi-arrow-right-short"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Card Article-->
-                <!-- Card Article-->
-                <div class="col-xxl-4 col-xl-6">
-                    <div class="card-article mx-1 my-3">
-                        <div class="card-body-article">
-                            <div class="wrap-img-article">
-                                <img src="{{ asset('assets/img/article-example2.jpg') }}" class="img-article"
-                                    alt="...">
-                            </div>
-                            <a href="#">
-                                <div class="category-article">
-                                    <i class="bi bi-grid"></i>
-                                    <p class="text-category">Article</p>
-                                </div>
-                            </a>
-                            <h3 class="title-article">SKKM Aman Dengan Ikut Setiap Kegiatan Formadiksi</h3>
-                            <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Suspendisse non
-                                finibus
-                                massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                            <div class="footer-text">
-                                <i class="bi bi-calendar4"></i>
-                                <p class="text-footer-date">20-12-2023</p>
-                                <a href="">
-                                    <p class="text-footer-readmore">Readmore</p>
-                                    <i class="bi bi-arrow-right-short"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Card Article-->
-
             </div>
         </div>
         <!-- View More -->
@@ -381,9 +219,9 @@
 @endsection
 
 @push('librariesJs')
-<!-- Swiper JS Files -->
-<script src="{{ asset('assets/vendor/swiperjs/swiper-bundle.min.js') }}"></script>
+    <!-- Swiper JS Files -->
+    <script src="{{ asset('assets/vendor/swiperjs/swiper-bundle.min.js') }}"></script>
 
-<!-- Main JS File -->
-<script src="{{ asset('assets/vendor/custom/js/landingpage.js') }}"></script>
+    <!-- Main JS File -->
+    <script src="{{ asset('assets/vendor/custom/js/landingpage.js') }}"></script>
 @endpush

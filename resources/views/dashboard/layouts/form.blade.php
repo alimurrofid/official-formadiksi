@@ -14,9 +14,8 @@
     <!-- Libraries CSS File -->
     @stack('librariesFormCSS')
 </head>
-
 <body>
-
+    @include('sweetalert::alert')
     <div class="container">
         <div class="card mt-5">
             @yield('content')
@@ -26,7 +25,7 @@
 
     <!-- Libraries JS File -->
     @stack('librariesFormJS')
-    
+
 </body>
 
 </html>
