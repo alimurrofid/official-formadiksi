@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateSORequest;
 use App\Models\Judul_SO;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Post;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SOController extends Controller
 {
@@ -49,8 +50,12 @@ class SOController extends Controller
             $filePath = $request->file('image')->store('public/so-images');
             $data['image'] = $filePath;
         }
-        SO::create($data);
-        return redirect()->route('SO.index');
+        if(SO::create($data)){
+            Alert::success('Berhasil', 'Foto SO Berhasil Ditambahkan');
+            return redirect()->route('SO.index');
+        }else{
+            Alert::error('Gagal', 'Foto SO Gagal Ditambahkan');
+        }
     }
 
 
@@ -81,8 +86,12 @@ class SOController extends Controller
             Storage::delete($SO->image);
             $data['image'] = $request->file('image')->store('public/so-images');
         }
-        $SO->update($data);
-        return redirect()->route('SO.index');
+        if($SO->update($data)){
+            Alert::success('Berhasil', 'Foto SO Berhasil Diubah');
+            return redirect()->route('SO.index');
+        }else{
+            Alert::error('Gagal', 'Foto SO Gagal Diubah');
+        }
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Models\Judul_SO;
 use App\Http\Requests\StoreJudul_SORequest;
 use App\Http\Requests\UpdateJudul_SORequest;
 use App\Models\SO;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class JudulSOController extends Controller
 {
@@ -17,7 +18,7 @@ class JudulSOController extends Controller
         //
         $judul_SO = Judul_SO::get();
         $SO = SO::all();
-        return view('dashboard.organisationStructure', compact('judul_SO','SO'));
+        return view('dashboard.organisationStructure', compact('judul_SO', 'SO'));
     }
 
     public function views()
@@ -41,8 +42,12 @@ class JudulSOController extends Controller
     {
         //
         $data = $request->validated();
-        Judul_SO::create($data);
-        return redirect()->route('judulSO.index');
+        if (Judul_SO::create($data)) {
+            Alert::success('Berhasil', 'Judul SO Berhasil Ditambahkan');
+            return redirect()->route('judulSO.index');
+        } else {
+            Alert::error('Gagal', 'Judul SO Gagal Ditambahkan');
+        }
     }
 
     /**
@@ -69,8 +74,12 @@ class JudulSOController extends Controller
         //
         $data = $request->validated();
         $judul_SO = Judul_SO::first();
-        $judul_SO->update($data);
-        return redirect()->route('judulSO.index');
+        if ($judul_SO->update($data)) {
+            Alert::success('Berhasil', 'Judul SO Berhasil Diubah');
+            return redirect()->route('judulSO.index');
+        } else {
+            Alert::error('Gagal', 'Judul SO Gagal Diubah');
+        }
     }
 
     /**
