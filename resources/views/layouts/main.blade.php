@@ -38,6 +38,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow fixed-top navbar-transparent">

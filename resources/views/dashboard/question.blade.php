@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>Data Question</h3>
-                    <p class="text-subtitle text-muted">Data question is all data from user question.</p>
+                    <p class="text-subtitle text-muted">Data question is all data from user Questions.</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        {{-- "Welcome to our web page showcasing the all data asked by general students." --}}
+                        "Showing Question data table, where curiosity and insight intertwine, creating a platform for knowledge exploration and meaningful discussions."
                     </p>
                 </div>
 

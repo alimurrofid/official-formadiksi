@@ -33,6 +33,8 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     <div id="app">
         <!-- sidebar start -->
         <div id="sidebar" class="active">

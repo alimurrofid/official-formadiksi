@@ -4,201 +4,63 @@
     <div class="container">
         <div class="row text-center">
             <div class="col">
-                <h2 class="head-title mt-5">News & Article</h2>
+                <h2 class="head-title mt-5">{{ $title }}</h2>
                 <p class="sub-title">Update terus berita tentang Formadiksi Polinema agar tidak ketinggalan
                     informasi terbaru</p>
             </div>
         </div>
         <div class="row ">
             <div class="col">
-                <div class="wrap-search">
-                    <i class="bi bi-search"></i>
-                    <input type="text" class="search" placeholder="Search">
-                </div>
+                <form action="/berita">
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+                    <div class="wrap-search">
+                        <i class="bi bi-search"></i>
+                        <input name="search" type="text" class="search" placeholder="Search" value="{{request('search')}}">
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row">
             <!-- Card Article-->
-            <div class="col-xxl-4 col-xl-6">
-                <div class="card-article mx-1 my-3">
-                    <div class="card-body-article">
-                        <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
-                        </div>
-                        <a href="#">
-                            <div class="category-article">
-                                <i class="bi bi-grid"></i>
-                                <p class="text-category">Article</p>
+            @foreach ($articles as $article)
+                <div class="col-xxl-4 col-xl-6">
+                    <div class="card-article mx-1 my-3">
+                        <div class="card-body-article">
+                            <div class="wrap-img-article">
+                                @if ($article->image)
+                                    <img src="{{ asset('storage/' . $article->image) }}" class="img-article" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1280x720?{{ $article->category->name }}"
+                                        class="img-article" alt="{{ $article->category->name }}">
+                                @endif
                             </div>
-                        </a>
-                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
-                        <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse non
-                            finibus
-                            massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                        <div class="footer-text">
-                            <i class="bi bi-calendar4"></i>
-                            <p class="text-footer-date">20-12-2023</p>
-                            <a href="/content">
-                                <p class="text-footer-readmore">Readmore</p>
-                                <i class="bi bi-arrow-right-short"></i>
+                            <a href="/berita?category={{ $article->category->slug }}">
+                                <div class="category-article">
+                                    <i class="bi bi-grid"></i>
+                                    <p class="text-category">{{ $article->category->name }}</p>
+                                </div>
                             </a>
+                            <h3 class="title-article">{{ $article->title }}</h3>
+                            <p class="text-article">{{ $article->excerpt }}</p>
+                            <div class="footer-text">
+                                <i class="bi bi-calendar4"></i>
+                                <p class="text-footer-date">{{ $article->created_at->diffForHumans() }}</p>
+                                <a href="/articles/{{ $article->slug }}">
+                                    <p class="text-footer-readmore">Readmore</p>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Card Article-->
-            <!-- Card Article-->
-            <div class="col-xxl-4 col-xl-6">
-                <div class="card-article mx-1 my-3">
-                    <div class="card-body-article">
-                        <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
-                        </div>
-                        <a href="#">
-                            <div class="category-article">
-                                <i class="bi bi-grid"></i>
-                                <p class="text-category">Article</p>
-                            </div>
-                        </a>
-                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
-                        <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse non
-                            finibus
-                            massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                        <div class="footer-text">
-                            <i class="bi bi-calendar4"></i>
-                            <p class="text-footer-date">20-12-2023</p>
-                            <a href="/content">
-                                <p class="text-footer-readmore">Readmore</p>
-                                <i class="bi bi-arrow-right-short"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Card Article-->
-            <!-- Card Article-->
-            <div class="col-xxl-4 col-xl-6">
-                <div class="card-article mx-1 my-3">
-                    <div class="card-body-article">
-                        <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
-                        </div>
-                        <a href="#">
-                            <div class="category-article">
-                                <i class="bi bi-grid"></i>
-                                <p class="text-category">Article</p>
-                            </div>
-                        </a>
-                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
-                        <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse non
-                            finibus
-                            massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                        <div class="footer-text">
-                            <i class="bi bi-calendar4"></i>
-                            <p class="text-footer-date">20-12-2023</p>
-                            <a href="/content">
-                                <p class="text-footer-readmore">Readmore</p>
-                                <i class="bi bi-arrow-right-short"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Card Article-->
-            <!-- Card Article-->
-            <div class="col-xxl-4 col-xl-6">
-                <div class="card-article mx-1 my-3">
-                    <div class="card-body-article">
-                        <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
-                        </div>
-                        <a href="#">
-                            <div class="category-article">
-                                <i class="bi bi-grid"></i>
-                                <p class="text-category">Article</p>
-                            </div>
-                        </a>
-                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
-                        <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse non
-                            finibus
-                            massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                        <div class="footer-text">
-                            <i class="bi bi-calendar4"></i>
-                            <p class="text-footer-date">20-12-2023</p>
-                            <a href="/content">
-                                <p class="text-footer-readmore">Readmore</p>
-                                <i class="bi bi-arrow-right-short"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Card Article-->
-            <!-- Card Article-->
-            <div class="col-xxl-4 col-xl-6">
-                <div class="card-article mx-1 my-3">
-                    <div class="card-body-article">
-                        <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
-                        </div>
-                        <a href="#">
-                            <div class="category-article">
-                                <i class="bi bi-grid"></i>
-                                <p class="text-category">Article</p>
-                            </div>
-                        </a>
-                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
-                        <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse non
-                            finibus
-                            massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                        <div class="footer-text">
-                            <i class="bi bi-calendar4"></i>
-                            <p class="text-footer-date">20-12-2023</p>
-                            <a href="/content">
-                                <p class="text-footer-readmore">Readmore</p>
-                                <i class="bi bi-arrow-right-short"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Card Article-->
-            <!-- Card Article-->
-            <div class="col-xxl-4 col-xl-6">
-                <div class="card-article mx-1 my-3">
-                    <div class="card-body-article">
-                        <div class="wrap-img-article">
-                            <img src="{{ asset('assets/img/article-example.jpg') }}" class="img-article" alt="...">
-                        </div>
-                        <a href="#">
-                            <div class="category-article">
-                                <i class="bi bi-grid"></i>
-                                <p class="text-category">Article</p>
-                            </div>
-                        </a>
-                        <h3 class="title-article">Tips and Trik Menjadi Mahasiswa Yang Produktif Di Era 5.0</h3>
-                        <p class="text-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse non
-                            finibus
-                            massa. Pellentesque sollicitudin ornare non finibus massa. Sollicitudin ... </p>
-                        <div class="footer-text">
-                            <i class="bi bi-calendar4"></i>
-                            <p class="text-footer-date">20-12-2023</p>
-                            <a href="/content">
-                                <p class="text-footer-readmore">Readmore</p>
-                                <i class="bi bi-arrow-right-short"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
             <!-- End Card Article-->
         </div>
+    </div>
+    <div class="m-5">
+        {{ $articles->links() }}
     </div>
 @endsection
 

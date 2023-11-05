@@ -1,10 +1,19 @@
 <?php
 
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\UserController;
-use Database\Factories\FaqFactory;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SOController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VisionController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\JudulSOController;
+use App\Http\Controllers\DivisionController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\DashboardArticleController;
+use App\Http\Controllers\DashboardDivisionController;
+use App\Http\Controllers\DashboardWorkplanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +26,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landingpage');
-})->name('landingpage');
+Route::get('/', [LandingpageController::class, 'index']);
+Route::get('workplan/{workplan:slug}', [LandingpageController::class, 'show']);
 
-
-Route::get('/', [FaqController::class, 'landingpage']);
 Route::resource('question', QuestionController::class);
 Route::put('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])->name('question.answer');
 // Route::put('/question/{id}/answer', [QuestionController::class, 'sendAnswer'])->name('question.answer');
@@ -30,53 +36,40 @@ Route::post('/question/upload', [QuestionController::class, 'upload'])->name('qu
 Route::put('/question/{id}/update', [QuestionController::class, 'update'])->name('question.update');
 
 
-Route::get('/content', function () {
-    return view('content
-    ');
-});
+Route::get('/berita', [ArticleController::class, 'index']);
+Route::get('/articles/{article:slug}', [ArticleController::class, 'show']);
 
-Route::get('/article', function () {
-    return view('article
-    ');
-});
 
-Route::get('/sejarah', function () {
-    return view('sejarah');
-});
-Route::get('/visi-misi', function () {
-    return view('visiMisi');
-});
-Route::get('/so', function () {
-    return view('organizationStructure
-    ');
-});
 
+Route::get('/sejarah',[HistoryController::class, 'sejarah']);
+
+Route::get('/visi-misi', [VisionController::class, 'visi']);
+Route::get('/struktur-organisasi', [SOController::class, 'views']);
+
+Route::get('/divisi', [DivisionController::class, 'index']);
+Route::get('division/{division:slug}', [DivisionController::class, 'show']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', function () {
         return view('dashboard.home');
     })->name('dashboard.home');
-Route::resource('users',UserController::class);
+    Route::resource('users', UserController::class);
 
     Route::get('profile', function () {
         return view('dashboard.profile');
     })->name('profile');
-    Route::get('dashboard/article', function () {
-        return view('dashboard.article');
-    })->name('dashboard.article');
-    Route::get('dashboard/so', function () {
-        return view('dashboard.organisationStructure');
-    })->name('dashboard.so');
-    Route::get('dashboard/divisi', function () {
-        return view('dashboard.divisi');
-    })->name('dashboard.divisi');
-    Route::get('dashboard/workplan', function () {
-        return view('dashboard.workplan');
-    })->name('dashboard.workplan');
+    Route::get('/dashboard/article/check-slug', [DashboardArticleController::class, 'checkSlug']);
+    Route::resource('/dashboard/article', DashboardArticleController::class);
+    Route::resource('dashboard/division', DashboardDivisionController::class);
+    Route::resource('dashboard/workplan', DashboardWorkplanController::class);
+    Route::resource('dashboard/history', HistoryController::class);
+    Route::resource('dashboard/vision', VisionController::class);
     Route::get('/table', [QuestionController::class, 'table'])->name('table');
     Route::get('/exportexcel', [QuestionController::class, 'exportexcel'])->name('exportexcel');
     Route::post('/question/delete-all', [QuestionController::class, 'deleteAll'])->name('question.delete-all');
     Route::resource('faq', FaqController::class);
+    Route::resource('judulSO', JudulSOController::class);
+    Route::resource('SO', SOController::class);
 });
 
 

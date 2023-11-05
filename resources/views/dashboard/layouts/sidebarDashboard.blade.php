@@ -51,34 +51,46 @@
             </li>
 
             @can('index-user')
-            <li class="sidebar-item ">
-                <a href="{{ route('users.index') }}" class='sidebar-link'>
-                    <i class="bi bi-people-fill"></i>
-                    <span>User List</span>
-                </a>
-            </li>
+                <li class="sidebar-item ">
+                    <a href="{{ route('users.index') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>User List</span>
+                    </a>
+                </li>
             @endcan
-            
+
             <li class="sidebar-item ">
-                <a href="{{ route('dashboard.article') }}" class='sidebar-link'>
+                <a href="{{ route('article.index') }}" class='sidebar-link'>
                     <i class="bi bi-file-earmark-text-fill"></i>
                     <span>Article</span>
                 </a>
             </li>
             <li class="sidebar-item ">
-                <a href="{{ route('dashboard.so') }}" class='sidebar-link'>
+                <a href="{{route('history.index')}}" class='sidebar-link'>
+                    <i class="bi bi-hourglass-split"></i>
+                    <span>History</span>
+                </a>
+            </li>
+            <li class="sidebar-item ">
+                <a href="{{route('vision.index')}}" class='sidebar-link'>
+                    <i class="bi bi-rocket-takeoff"></i>
+                    <span>Vision & Mission</span>
+                </a>
+            </li>
+            <li class="sidebar-item ">
+                <a href="{{ route('SO.index') }}" class='sidebar-link'>
                     <i class="bi bi-person-rolodex"></i>
-                    <span>Struktur Organisasi</span>
+                    <span>Organisation Stucture</span>
                 </a>
             </li>
             <li class="sidebar-item ">
-                <a href="{{ route('dashboard.divisi') }}" class='sidebar-link'>
+                <a href="{{ route('division.index') }}" class='sidebar-link'>
                     <i class="bi bi-ui-checks"></i>
-                    <span>Divisi</span>
+                    <span>Division</span>
                 </a>
             </li>
             <li class="sidebar-item ">
-                <a href="{{ route('dashboard.workplan') }}" class='sidebar-link'>
+                <a href="{{ route('workplan.index') }}" class='sidebar-link'>
                     <i class="bi bi-hammer"></i>
                     <span>Workplan</span>
                 </a>
