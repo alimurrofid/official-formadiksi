@@ -42,6 +42,7 @@
                                 <th>Jurusan</th>
                                 <th>Prodi</th>
                                 <th>Angkatan</th>
+                                <th>Untuk</th>
                                 <th>Pertanyaan</th>
                                 <th>Dijawab Oleh</th>
                                 <th>Action</th>

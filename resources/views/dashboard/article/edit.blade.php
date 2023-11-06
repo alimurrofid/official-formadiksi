@@ -1,6 +1,8 @@
 @extends('dashboard.layouts.form')
 @section('title', 'Article Create')
 @section('content')
+@include('sweetalert::alert')
+
 
     <nav class="navbar navbar-light">
         <div class="container d-block">
@@ -16,6 +18,103 @@
     </div>
     <div class="card-body">
         <p> Write Amazing Articles Show World You Are The Best!</p>
+        <!-- Button trigger for Create Form Modal -->
+        <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
+        data-bs-target="#createFormModal">
+        <i class="bi bi-envelope-plus"></i> Add Category
+        </button>
+
+        <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
+        data-bs-target="#deleteFormModal" btn-danger m-1 delete-btn>
+        <i class="bi bi-trash"></i> Delete Category
+        </button>
+
+        <!-- Create Form Modal -->
+        <div class="modal fade text-left" id="createFormModal" tabindex="-1" role="dialog"
+            aria-labelledby="categoryCreateModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="categoryCreateModal">Create category </h4>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <form method="POST" action="{{ route('category.store') }}" id="categoryForm">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Nama Kategori</label>
+                                <input name="name" type="text" class="form-control"
+                                    placeholder="Kategori">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Close</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary ml-1"
+                                data-bs-dismiss="modal" id="submitButton">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Submit</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade text-left" id="deleteFormModal" tabindex="-1" role="dialog"
+            aria-labelledby="categoryDeleteModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="categoryDeleteModal">Delete category </h4>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Kategori</th>
+                                    <th>Slug</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($categories as $category)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->slug }}</td>
+                                        <td>
+                                            <form id="delete-form-{{ $category->id }}"
+                                                action="{{ route('category.destroy', $category->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="button" class="btn icon btn-danger m-1 delete-btn"
+                                                    data-id="{{ $category->id }}"
+                                                    onclick="confirmDelete({{ $category->id }})">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Close</span>
+                        </button>
+                    </div>   
+                </div>
+            </div>
+        </div>
 
         <form action="{{ route('article.update', $article->slug) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
@@ -84,6 +183,32 @@
         </form>
 
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Anda yakin?',
+                text: 'Data akan dihapus permanen!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
+                    document.getElementById('delete-form-' + id).submit();
+                    Swal.fire(
+                        'Dihapus!',
+                        'Category telah dihapus.',
+                        'success'
+                    )
+                }
+            });
+        }
+    </script>
 
 
 @endsection

@@ -15,14 +15,17 @@ $(document).ready(function () {
             },
             {
                 data: "created_at",
-                render: DataTable.render.datetime("DD MMMM YYYY HH:mm:ss"),
+                render: function (data) {
+                    return moment(data).format('DD MMMM YYYY HH:mm:ss');
+                },
                 name: "created_at",
-            },
+            },          
             { data: "email", name: "email" },
             { data: "nama", name: "nama" },
             { data: "jurusan", name: "jurusan" },
             { data: "prodi", name: "prodi" },
             { data: "angkatan", name: "angkatan" },
+            { data: "untuk", name: "untuk" },
             { data: "pertanyaan", name: "pertanyaan" },
             { data: "answered_by", name: "answered_by" },
             { data: "opsi", name: "opsi", orderable: false, searchable: false },

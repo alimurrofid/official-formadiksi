@@ -170,6 +170,14 @@
                                             <label for="angkatan" class="col-form-label">Angkatan :</label>
                                             <input name="angkatan" type="text" class="form-control">
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="untuk">Pertanyaan ditujukan untuk:</label>
+                                            <select class="form-select" aria-label="Default select example" name="untuk">
+                                              <option selected>Pilih Tujuan</option>
+                                              <option value="forum">Forum</option>
+                                              <option value="pembina">Pembina</option>
+                                            </select>
+                                        </div>
                                         <div class="mb-4">
                                             <label for="pertanyaan" class="col-form-label">Pertanyaan :</label>
                                             <textarea name="pertanyaan" type="text" class="form-control"></textarea>

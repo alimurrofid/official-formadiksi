@@ -10,6 +10,7 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\JudulSOController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\DashboardArticleController;
 use App\Http\Controllers\DashboardDivisionController;
@@ -68,6 +69,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('faq', FaqController::class);
     Route::resource('judulSO', JudulSOController::class);
     Route::resource('SO', SOController::class);
+    Route::resource('category', CategoryController::class);
 });
 
 

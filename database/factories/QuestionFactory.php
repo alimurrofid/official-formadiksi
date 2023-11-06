@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,6 +24,7 @@ class QuestionFactory extends Factory
             'jurusan' => fake()->text(10),
             'prodi' => fake()->text(10),
             'angkatan' => fake()->numberBetween(2021, 2024),
+            'untuk' => $this->faker->randomElement(['forum', 'pembina']),
             'pertanyaan' => fake()->text(100),
             'answered_by' => '-'
 

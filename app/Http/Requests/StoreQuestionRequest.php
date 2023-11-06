@@ -28,6 +28,7 @@ class StoreQuestionRequest extends FormRequest
             'jurusan' => 'required|max:255',
             'prodi' => 'required|max:255',
             'angkatan' => 'required|numeric|digits:4',
+            'untuk' => 'required',
             'pertanyaan' => 'required',
         ];
     }
