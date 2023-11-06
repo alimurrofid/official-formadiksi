@@ -174,8 +174,8 @@
                                             <label for="untuk">Pertanyaan ditujukan untuk:</label>
                                             <select class="form-select" aria-label="Default select example" name="untuk">
                                               <option selected>Pilih Tujuan</option>
-                                              <option value="forum">Forum</option>
-                                              <option value="pembina">Pembina</option>
+                                              <option value="Forum">Forum</option>
+                                              <option value="Pembina">Pembina</option>
                                             </select>
                                         </div>
                                         <div class="mb-4">

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('jurusan');
             $table->string('prodi');
             $table->integer('angkatan');
-            $table->enum('untuk', ['forum', 'pembina']);
+            $table->enum('untuk', ['Forum', 'Pembina']);
             $table->text('pertanyaan');
             $table->string('answered_by')->nullable();
             $table->timestamps();
