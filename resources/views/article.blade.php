@@ -59,8 +59,10 @@
             <!-- End Card Article-->
         </div>
     </div>
-    <div class="m-5">
-        {{ $articles->links() }}
+    <div class="container pagination p-4">
+        <div class="page-item active ms-auto">
+            {{ $articles->links() }}
+        </div>
     </div>
 @endsection
 
