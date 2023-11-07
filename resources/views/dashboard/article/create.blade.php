@@ -19,12 +19,12 @@
         <p> Write Amazing Articles Show World You Are The Best!</p>
 
         <!-- Button trigger for Create Form Modal -->
-        <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
+        <button type="button" class="btn icon icon-left btn-primary mb-3" data-bs-toggle="modal"
         data-bs-target="#createFormModal">
-        <i class="bi bi-envelope-plus"></i> Add Category
+        <i class="bi bi-bookmark-plus"></i> Add Category
         </button>
 
-        <button type="button" class="btn icon icon-left btn-primary" data-bs-toggle="modal"
+        <button type="button" class="btn icon icon-left btn-primary mb-3" data-bs-toggle="modal"
         data-bs-target="#deleteFormModal" btn-danger m-1 delete-btn>
         <i class="bi bi-trash"></i> Delete Category
         </button>
@@ -64,7 +64,9 @@
                 </div>
             </div>
         </div>
+        <!--End Create Form Modal -->
 
+        <!-- Delete Form Modal -->
         <div class="modal fade text-left" id="deleteFormModal" tabindex="-1" role="dialog"
             aria-labelledby="categoryDeleteModal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
@@ -115,7 +117,9 @@
                 </div>
             </div>
         </div>
+        <!--End Delete Form Modal -->
 
+        <!-- Create Article -->
         <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -174,6 +178,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <!-- End Create Article -->
 
     </div>
     

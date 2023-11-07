@@ -20,6 +20,7 @@ class QuestionFactory extends Factory
         return [
             'created_at' => now(),
             'email' => fake()->unique()->safeEmail(),
+            'nim' => fake()->numberBetween(1000000000, 9999999999),
             'nama' => fake()->name(),
             'jurusan' => fake()->text(10),
             'prodi' => fake()->text(10),

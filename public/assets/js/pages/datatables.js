@@ -22,6 +22,7 @@ $(document).ready(function () {
             },          
             { data: "email", name: "email" },
             { data: "nama", name: "nama" },
+            { data: "nim", name: "nim" },
             { data: "jurusan", name: "jurusan" },
             { data: "prodi", name: "prodi" },
             { data: "angkatan", name: "angkatan" },

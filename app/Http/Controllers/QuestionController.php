@@ -15,6 +15,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\StoreQuestionRequest;
 use App\Http\Requests\UpdateQuestionRequest;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class QuestionController extends Controller
 {
@@ -34,11 +35,11 @@ class QuestionController extends Controller
             ->addIndexColumn()
             ->addColumn('opsi', function ($data) {
 
-                if($data->answered_by){
-                $mailLink = '<button type="button" class="btn icon icon-left btn-success" data-bs-toggle="modal" id="answer-btn'. $data->id .'"
+                if ($data->answered_by) {
+                    $mailLink = '<button type="button" class="btn icon icon-left btn-success" data-bs-toggle="modal" id="answer-btn' . $data->id . '"
                 data-bs-target="#AnswerFormModal' . $data->id . '" disabled><b>Answered</b></button>';
-                } else{
-                    $mailLink = '<button type="button" class="btn icon icon-left btn-warning" data-bs-toggle="modal" id="answer-btn'. $data->id .'"
+                } else {
+                    $mailLink = '<button type="button" class="btn icon icon-left btn-warning" data-bs-toggle="modal" id="answer-btn' . $data->id . '"
                     data-bs-target="#AnswerFormModal' . $data->id . '"><b>Unanswered</b></button>';
                 }
 
@@ -63,6 +64,7 @@ class QuestionController extends Controller
                                 <div class="form-group">
                                 <input type="hidden" name="nama" value="' . $data->nama . '">
                                 <input type="hidden" name="email" value="' . $data->email . '">
+                                <input type="hidden" name="nim" value="' . $data->nim . '">
                                 <input type="hidden" name="jurusan" value="' . $data->jurusan . '">
                                 <input type="hidden" name="prodi" value="' . $data->prodi . '">
                                 <input type="hidden" name="angkatan" value="' . $data->angkatan . '">
@@ -138,11 +140,15 @@ class QuestionController extends Controller
         //
         $faq = Faq::all();
         $workplans = Workplan::all();
+        $question = question::all();
         $articles = Article::latest()->take(3)->get();
         $data = $request->validated();
-        Question::create($data);
-        $question = question::all();
-        return view('landingpage', compact('question', 'faq', 'workplans', 'articles'));
+        if(Question::create($data)){
+            Alert::success('Success', 'Pertanyaan berhasil dikirim');
+            return view('landingpage', compact('faq', 'workplans', 'articles', 'question'));
+        }else{
+            Alert::error('Error', 'Pertanyaan gagal dikirim');
+        }
     }
 
     /**
@@ -213,5 +219,4 @@ class QuestionController extends Controller
 
         return redirect()->route('question.index');
     }
-
 }

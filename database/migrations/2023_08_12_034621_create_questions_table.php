@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('email');
             $table->string('nama');
+            $table->string('nim');
             $table->string('jurusan');
             $table->string('prodi');
             $table->integer('angkatan');

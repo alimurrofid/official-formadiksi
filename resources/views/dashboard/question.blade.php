@@ -39,6 +39,7 @@
                                 <th>Tanggal</th>
                                 <th>Email</th>
                                 <th>Nama</th>
+                                <th>NIM</th>
                                 <th>Jurusan</th>
                                 <th>Prodi</th>
                                 <th>Angkatan</th>

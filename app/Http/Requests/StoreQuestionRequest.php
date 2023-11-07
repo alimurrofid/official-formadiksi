@@ -25,6 +25,7 @@ class StoreQuestionRequest extends FormRequest
             //
             'email' => 'required|email|max:255',
             'nama' => 'required|max:255',
+            'nim' => 'required|numeric|digits:10',
             'jurusan' => 'required|max:255',
             'prodi' => 'required|max:255',
             'angkatan' => 'required|numeric|digits:4',

@@ -14,9 +14,11 @@ class Question extends Model
     protected $fillable = [
         'email',
         'nama',
+        'nim',
         'jurusan',
         'prodi',
         'angkatan',
+        'untuk',
         'pertanyaan',
         'answered_by'
     ];
