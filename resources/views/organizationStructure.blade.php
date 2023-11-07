@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="row">
-                <img src="{{ asset('assets/img/so-web.svg') }}" class="bagan-so" alt="">
+                <img src="{{ asset('assets/img/so-web.png') }}" class="bagan-so" alt="">
             </div>
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
@@ -21,7 +21,7 @@
                         @isset($SOfirst->image)
                             <img src="{{ asset('storage/' . $SOfirst->image) }}" class="img-fluid my-3" alt="">
                         @else
-                            <img src="{{ asset('assets/img/bph.png') }}" class="img-fluid my-3" alt="">
+                            <img src="{{ asset('assets/img/so-dummy.png') }}" class="img-fluid my-3" alt="">
                         @endisset
                     </div>
                 </div>
