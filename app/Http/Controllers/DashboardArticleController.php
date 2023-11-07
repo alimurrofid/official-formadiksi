@@ -25,7 +25,7 @@ class DashboardArticleController extends Controller
     public function index()
     {
         return view('dashboard.article.index', [
-            'articles' => Article::latest()->paginate(5), // 'latest()' untuk mengurutkan berdasarkan tanggal terbaru
+            'articles' => Article::all(),
             'categories' => Category::all()
         ]);
     }

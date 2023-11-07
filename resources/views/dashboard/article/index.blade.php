@@ -26,7 +26,8 @@
                 </div>
                 <div class="card-body">
                     <p>
-                        "Welcome to our web page featuring the Article data table, where knowledge and inspiration intertwine, creating a captivating narrative hub."
+                        "Welcome to our web page featuring the Article data table, where knowledge and inspiration
+                        intertwine, creating a captivating narrative hub."
                     </p>
                     <a href="{{ route('article.create') }}" class="btn icon icon-left btn-primary"><i
                             class="bi bi-clipboard-plus"></i>
@@ -34,8 +35,8 @@
                 </div>
 
                 <!-- table -->
-                <div class="table-responsive px-4">
-                    <table class="table table-striped mb-0">
+                <div class="table-responsive p-4">
+                    <table class="table table-striped mb-0" id="tableArticle">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -49,9 +50,9 @@
                         <tbody>
 
 
-                            @foreach ($articles as $article => $post)
+                            @foreach ($articles as $post)
                                 <tr>
-                                    <td>{{ $article + $articles->firstitem() }}</td>
+                                    <td>{{ $loop->iteration}}</td>
                                     <td>{{ $post->title }}</td>
                                     <td>{{ $post->category->name }}</td>
                                     <td>{!! $post->excerpt !!}</td>
@@ -79,9 +80,9 @@
                     </table>
                 </div>
                 <!-- table -->
-                <div class="m-3 pagination pagination-primary">
+                {{-- <div class="m-3 pagination pagination-primary">
                     {{ $articles->links() }}
-                </div>
+                </div> --}}
             </div>
         </section>
     </div>
@@ -111,3 +112,15 @@
     </script>
 
 @endsection
+
+@push('librariesCss')
+    <link rel="stylesheet" href="{{ asset('assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/datatables.css') }}">
+@endpush
+@push('librariesJs')
+    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+    <script>
+        let jquery_datatable = $("#tableArticle").DataTable();
+    </script>
+@endpush
