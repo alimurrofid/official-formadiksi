@@ -34,7 +34,7 @@
                 </div>
 
                 <!-- table -->
-                <div class="table-responsive">
+                <div class="table-responsive px-4">
                     <table class="table table-striped mb-0">
                         <thead>
                             <tr>
