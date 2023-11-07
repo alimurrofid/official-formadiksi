@@ -12,17 +12,23 @@ class QuestionExport implements FromCollection
      */
     public function collection()
     {
-        return Question::select('id','created_at', 'email', 'nama', 'pertanyaan')->get();
+        return Question::select('id','created_at', 'email', 'nama', 'nim','jurusan','prodi','angkatan','untuk','pertanyaan','answered_by')->get();
     }
 
     public function headings(): array
     {
         return [
-            'id',
-            'Created at',
-            'Email',
-            'Nama',
-            'Pertanyaan',
+            "id",
+            "Created at",
+            "Email",
+            "Nama",
+            "NIM",
+            "Jurusan",
+            "Prodi",
+            "Angkatan",
+            "Untuk",
+            "Pertanyaan",
+            "Answered by"
         ];
     }
 }
