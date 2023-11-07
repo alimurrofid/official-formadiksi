@@ -2,14 +2,14 @@
 @section('title', 'Article')
 @section('content')
     <div class="container">
-        <div class="row text-center">
+        <div class="row text-center" data-aos="fade-down" data-aos-duration="1000">
             <div class="col">
                 <h2 class="head-title mt-5">{{ $title }}</h2>
                 <p class="sub-title">Update terus berita tentang Formadiksi Polinema agar tidak ketinggalan
                     informasi terbaru</p>
             </div>
         </div>
-        <div class="row ">
+        <div class="row" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
             <div class="col">
                 <form action="/berita">
                     @if (request('category'))
@@ -26,7 +26,7 @@
             <!-- Card Article-->
             @foreach ($articles as $article)
                 <div class="col-xxl-4 col-xl-6">
-                    <div class="card-article mx-1 my-3">
+                    <div class="card-article mx-1 my-3" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
                         <div class="card-body-article">
                             <div class="wrap-img-article">
                                 @if ($article->image)

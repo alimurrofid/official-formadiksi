@@ -17,6 +17,7 @@
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/bootstrap-icons-1.10.5/font/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/swiperjs/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('assets/vendor/aos/aos.css')}}">
 
     <!-- CSS Style -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/custom/css/landingpage.css') }}">
@@ -55,7 +56,10 @@
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+    <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
+    <script>
+        AOS.init();
+    </script>
     <!-- Libraries JS File -->
     @stack('librariesJs')
 
