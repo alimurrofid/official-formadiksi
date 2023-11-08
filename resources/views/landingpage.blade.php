@@ -125,15 +125,15 @@
             </div>
 
             <div class="row mt-5 wrap-question">
-                <div class="wrap-text-question" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="250">
-                    <p class="text-question">Bantu Formadiksi Polinema agar lebih baik lagi dengan mengirimkan
+                <div class="wrap-text-question">
+                    <p class="text-question" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="250">Bantu Formadiksi Polinema agar lebih baik lagi dengan mengirimkan
                         pertanyaan,
                         aspirasi, kritik, dan saran anda. Agar membantu Formadiksi Polinema untuk terus berkembang dan
                         memberikan manfaat yang lebih besar bagi mahasiswa Polinema.</p>
                     {{-- <a href="" class="btn btn-question mt-3">Send Question <i class="bi bi-send ms-1"></i></a> --}}
                     <!-- Button trigger for Form Modal -->
                     <button type="button" class="btn btn-question mt-3" data-bs-toggle="modal"
-                        data-bs-target="#questionModal">
+                        data-bs-target="#questionModal" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="250">
                         Send Question <i class="bi bi-send ms-1"></i>
                     </button>
 
