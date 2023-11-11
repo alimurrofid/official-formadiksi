@@ -71,5 +71,9 @@
     </div>
 </div>
 <div class="footer-copyright">
-    <p>© 2023 Formadiksi Polinema. All Rights Reserved.</p>
+    <p>©
+        <script>
+            document.write(new Date().getFullYear());
+        </script> Formadiksi Polinema. All Rights Reserved.
+    </p>
 </div>

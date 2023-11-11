@@ -26,7 +26,7 @@
 
         <button type="button" class="btn icon icon-left btn-primary mb-3" data-bs-toggle="modal"
         data-bs-target="#deleteFormModal" btn-danger m-1 delete-btn>
-        <i class="bi bi-trash"></i> Delete Category
+        <i class="bi bi-eye"></i> Show Category
         </button>
 
         <!-- Create Form Modal -->

@@ -8,10 +8,11 @@ use App\Http\Controllers\VisionController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\JudulSOController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardArticleController;
 use App\Http\Controllers\DashboardDivisionController;
 use App\Http\Controllers\DashboardWorkplanController;
@@ -49,9 +50,7 @@ Route::get('/divisi', [DivisionController::class, 'index']);
 Route::get('division/{division:slug}', [DivisionController::class, 'show']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('home', function () {
-        return view('dashboard.home');
-    })->name('dashboard.home');
+    Route::get('home', [DashboardController::class, 'index'])->name('dashboard.home');
     Route::resource('users', UserController::class);
 
     Route::get('profile', function () {
@@ -71,8 +70,3 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('SO', SOController::class);
     Route::resource('category', CategoryController::class);
 });
-
-
-Route::get('/form', function () {
-    return view('form.index');
-})->name('passion-create');
