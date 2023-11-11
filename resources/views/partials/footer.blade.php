@@ -22,25 +22,25 @@
         <div class="col-xl-2 col-lg-2 col-md-2 mx-auto mt-5 ">
             <h6 class="footer-heading mb-4">Menu</h6>
             <p>
-                <a class="footer-title text-decoration-none" href="">Home</a>
+                <a class="footer-title text-decoration-none" href="/">Home</a>
             </p>
             <p>
-                <a class="footer-title text-decoration-none" href="">Sejarah</a>
+                <a class="footer-title text-decoration-none" href="/sejarah">Sejarah</a>
             </p>
             <p>
-                <a class="footer-title text-decoration-none" href="">Visi & Misi</a>
+                <a class="footer-title text-decoration-none" href="/visi-misi">Visi & Misi</a>
             </p>
             <p>
-                <a class="footer-title text-decoration-none" href="">Struktur Organisasi</a>
+                <a class="footer-title text-decoration-none" href="/struktur-organisasi">Struktur Organisasi</a>
             </p>
             <p>
-                <a class="footer-title text-decoration-none" href="">Divisi</a>
+                <a class="footer-title text-decoration-none" href="/divisi">Divisi</a>
             </p>
             <p>
-                <a class="footer-title text-decoration-none" href="">Berita</a>
+                <a class="footer-title text-decoration-none" href="/berita">Berita</a>
             </p>
             <p>
-                <a class="footer-title text-decoration-none" href="">Aspirasi</a>
+                <a class="footer-title text-decoration-none" href="/#question">Aspirasi</a>
             </p>
         </div>
         <div class="col-xl-2 col-lg-2 col-md-2 mx-auto mt-5 ">
