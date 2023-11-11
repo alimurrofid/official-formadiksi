@@ -14,7 +14,7 @@
             </div>
             <h3 class="title-content">{{ $article->title }}</h3>
             <div class="wrap-icon">
-                <a href="/article?category={{ $article->category->slug }}">
+                <a href="/berita?category={{ $article->category->slug }}">
                     <div class="category-content">
                         <i class="bi bi-grid"></i>
                         <p class="text-category">{{ $article->category->name }}</p>
