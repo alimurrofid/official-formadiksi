@@ -6,9 +6,9 @@
         <main>
             <div class="wrap-img-content">
                 @if ($article->image)
-                    <img src="{{ asset('storage/' . $article->image) }}" class="img-content" alt="...">
+                    <img src="{{ asset('storage/' . $article->image) }}" class="img-content" loading="lazy" alt="{{ $article->category->name }}">
                 @else
-                    <img src="https://source.unsplash.com/1920x1080?{{ $article->category->name }}" class="img-content"
+                    <img src="https://source.unsplash.com/1920x1080?{{ $article->category->name }}" class="img-content" loading="lazy"
                         alt="{{ $article->category->name }}">
                 @endif
             </div>
@@ -47,11 +47,11 @@
                                 <div class="card-body-article-content">
                                     <div class="wrap-img-article-content">
                                         @if ($otherArticle->image)
-                                            <img src="{{ asset('storage/' . $otherArticle->image) }}" class="img-article-content"
-                                                alt="...">
+                                            <img src="{{ asset('storage/' . $otherArticle->image) }}" class="img-article-content" loading="lazy"
+                                                alt="{{ $otherArticle->category->name }}">
                                         @else
                                             <img src="https://source.unsplash.com/1280x720?{{ $otherArticle->category->name }}"
-                                                class="img-article-content" alt="{{ $otherArticle->category->name }}">
+                                                class="img-article-content" loading="lazy" alt="{{ $otherArticle->category->name }}">
                                         @endif
                                     </div>
                                     <a href="/berita?category={{ $otherArticle->category->slug }}">

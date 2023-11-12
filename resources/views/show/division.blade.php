@@ -5,9 +5,9 @@
         <main>
             <div class="wrap-img-content">
                 @if ($division->image)
-                    <img src="{{ asset('storage/' . $division->image) }}" class="img-content" alt="...">
+                    <img src="{{ asset('storage/' . $division->image) }}" class="img-content" loading="lazy" alt="{{ $division->title }}">
                 @else
-                    <img src="https://source.unsplash.com/1920x1080?{{ $division->title }}" class="img-content"
+                    <img src="https://source.unsplash.com/1920x1080?{{ $division->title }}" class="img-content" loading="lazy"
                         alt="{{ $division->title }}">
                 @endif
             </div>

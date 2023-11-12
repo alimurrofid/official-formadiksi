@@ -28,7 +28,7 @@
                         <div class="card-workplan swiper-slide">
                             <div class="card-body-workplan">
                                 <div class="wrap-img-workplan">
-                                    <img src="{{ asset('assets/img/workplan.png') }}" class="img-workplan" alt="workplan">
+                                    <img src="{{ asset('assets/img/workplan.png') }}" loading="lazy" class="img-workplan" alt="workplan">
                                 </div>
                                 <a class="text-decoration-none" href="/workplan/{{ $workplan->slug }}">
                                     <div class="wrap-title-workplan">
@@ -69,11 +69,11 @@
                             <div class="card-body-article">
                                 <div class="wrap-img-article">
                                     @if ($article->image)
-                                        <img src="{{ asset('storage/' . $article->image) }}" class="img-article"
-                                            alt="...">
+                                        <img src="{{ asset('storage/' . $article->image) }}" loading="lazy" class="img-article"
+                                            alt="{{ $article->category->name }}">
                                     @else
                                         <img src="https://source.unsplash.com/1280x720?{{ $article->category->name }}"
-                                            class="img-article" alt="{{ $article->category->name }}">
+                                            class="img-article" loading="lazy" alt="{{ $article->category->name }}">
                                     @endif
                                 </div>
                                 <a href="/berita?category={{ $article->category->slug }}">
@@ -247,7 +247,7 @@
                     </div>
 
                 </div>
-                <img class="img-question" src="{{ asset('assets/img/mailbox.png') }}" alt="" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="250">
+                <img class="img-question" loading="lazy" src="{{ asset('assets/img/mailbox.png') }}" alt="mailbox" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="250">
             </div>
         </div>
     </section>

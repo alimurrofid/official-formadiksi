@@ -20,11 +20,11 @@
                         <div class="card-body-divisi">
                             <div class="wrap-img-divisi">
                                 @if ($division->image)
-                                    <img src="{{ asset('storage/' . $division->image) }}" class="img-divisi"
+                                    <img src="{{ asset('storage/' . $division->image) }}" class="img-divisi" loading="lazy"
                                         alt="{{ $division->title }}">
                                 @else
                                     <img src="https://source.unsplash.com/1280x720?{{ $division->title }}"
-                                        class="img-divisi" alt="{{ $division->title }}">
+                                        class="img-divisi" loading="lazy" alt="{{ $division->title }}">
                                 @endif
                             </div>
                             <h3 class="title-divisi">{{ $division->title }}</h3>

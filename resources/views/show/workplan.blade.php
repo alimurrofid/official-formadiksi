@@ -5,9 +5,9 @@
         <main>
             <div class="wrap-img-content">
                 @if ($workplan->image)
-                    <img src="{{ asset('storage/' . $workplan->image) }}" class="img-content" alt="...">
+                    <img src="{{ asset('storage/' . $workplan->image) }}" class="img-content" loading="lazy" alt="{{ $workplan->title }}">
                 @else
-                    <img src="https://source.unsplash.com/1920x1080?{{ $workplan->title }}" class="img-content"
+                    <img src="https://source.unsplash.com/1920x1080?{{ $workplan->title }}" class="img-content" loading="lazy"
                         alt="{{ $workplan->title }}">
                 @endif
             </div>

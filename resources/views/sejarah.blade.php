@@ -7,9 +7,9 @@
             @foreach ($histories as $history)
             <div class="wrap-img-content">
                 @if ($history->image)
-                    <img src="{{ asset('storage/' . $history->image) }}" class="img-content" alt="...">
+                    <img src="{{ asset('storage/' . $history->image) }}" class="img-content" loading="lazy" alt="{{ $history->title }}">
                 @else
-                    <img src="https://source.unsplash.com/1920x1080?map" class="img-content"
+                    <img src="https://source.unsplash.com/1920x1080?map" class="img-content" loading="lazy"
                         alt="{{ $history->title }}">
                 @endif
             </div>

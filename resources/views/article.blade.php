@@ -30,10 +30,10 @@
                         <div class="card-body-article">
                             <div class="wrap-img-article">
                                 @if ($article->image)
-                                    <img src="{{ asset('storage/' . $article->image) }}" class="img-article" alt="...">
+                                    <img src="{{ asset('storage/' . $article->image) }}" class="img-article" loading="lazy" alt="{{ $article->category->name }}">
                                 @else
                                     <img src="https://source.unsplash.com/1280x720?{{ $article->category->name }}"
-                                        class="img-article" alt="{{ $article->category->name }}">
+                                        class="img-article" loading="lazy" alt="{{ $article->category->name }}">
                                 @endif
                             </div>
                             <a href="/berita?category={{ $article->category->slug }}">

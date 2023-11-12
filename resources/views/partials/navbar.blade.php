@@ -1,6 +1,6 @@
 <div class="container">
     <a class="navbar-brand" href="#"><img style="width: 12rem"
-            src="{{ asset('assets/img/formadiksi.png') }}" alt="Formadiksi Polinema"></a>
+            src="{{ asset('assets/img/formadiksi.png') }}" loading="lazy" alt="Formadiksi Polinema"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

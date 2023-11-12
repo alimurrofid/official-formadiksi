@@ -2,7 +2,7 @@
     <div class="row text-center text-md-start">
         <div class="col-xl-3 col-lg-3 col-md-3 mx-auto mt-5 ">
             <h6 class="mb-3">
-                <img src="{{ asset('assets/img/formadiksi.svg') }}" alt="" width="220">
+                <img src="{{ asset('assets/img/formadiksi.svg') }}" loading="lazy" alt="Formadiksi Polinema" width="220">
             </h6>
             <p class="desc-forum">
                 Forum komunikasi khusus yang mewadahi seluruh Mahasiswa Bidikmisi/KIP Kuliah dan Afirmasi
