@@ -70,16 +70,4 @@
         </form>
 
     </div>
-
-
 @endsection
-@push('librariesFormCSS')
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/summernote.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/extensions/summernote/summernote-lite.css') }}">
-@endpush
-@push('librariesFormJS')
-    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
-    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/extensions/summernote/summernote-lite.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/custom/js/create-article.js') }}"></script>
-@endpush

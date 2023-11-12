@@ -70,6 +70,21 @@
 
         </section>
     </div>
+    
+@endsection
+
+@push('librariesCss')
+    <!-- Datatables Css -->
+    <link rel="stylesheet" href="{{ asset('assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/datatables.css') }}">
+@endpush
+
+@push('librariesJs')
+    <!-- Datatables Js -->
+    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+    <script src="{{ asset('assets/js/pages/datatables.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
         $(document).on('click', '.delete-btn', function() {
             var dataId = $(this).data('id');
@@ -124,20 +139,5 @@
                 }
             });
         }
-
     </script>
-@endsection
-
-@push('librariesCss')
-    <!-- Datatables Css -->
-    <link rel="stylesheet" href="{{ asset('assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/datatables.css') }}">
-@endpush
-
-@push('librariesJs')
-    <!-- Datatables Js -->
-    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
-    <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
-    <script src="{{ asset('assets/js/pages/datatables.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 @endpush

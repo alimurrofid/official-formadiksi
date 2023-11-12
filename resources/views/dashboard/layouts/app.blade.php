@@ -9,11 +9,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}">
-
-
-
-    {{-- <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon"> --}}
-    {{-- <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png"> --}}
+    
     <link rel="shortcut icon" href="{{ asset('assets/img/logo-formadiksi.png') }} " type="image/png" />
 
     <link rel="stylesheet" href="{{ asset('assets/css/shared/iconly.css') }}">
@@ -26,9 +22,9 @@
     {{-- CKEditor5 --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <style type="text/css">
-            .ck-editor__editable_inline {
-                height: 200px;
-            }
+        .ck-editor__editable_inline {
+            height: 200px;
+        }
     </style>
 </head>
 
@@ -74,11 +70,10 @@
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
+    <!-- Sweetalerts Js -->
+    <script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.all.min.js') }}"></script>
     <!-- JS Libraies -->
     @stack('librariesJs')
-
-    <!-- Sweetalerts Js -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </body>
 

@@ -181,43 +181,31 @@
         <!-- End Create Article -->
 
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
-        function confirmDelete(id) {
-            Swal.fire({
-                title: 'Anda yakin?',
-                text: 'Data akan dihapus permanen!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
-                    document.getElementById('delete-form-' + id).submit();
-                    Swal.fire(
-                        'Dihapus!',
-                        'Category telah dihapus.',
-                        'success'
-                    )
-                }
-            });
-        }
-    </script>
-    
 @endsection
-@push('librariesFormCSS')
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/summernote.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/extensions/summernote/summernote-lite.css') }}">
-@endpush
 @push('librariesFormJS')
-    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
-    {{-- <script src="{{asset('assets/js/app.js')}}"></script> --}}
-    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/extensions/summernote/summernote-lite.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/js/pages/summernote.js') }}"></script> --}}
-    <script src="{{ asset('assets/vendor/custom/js/create-article.js') }}"></script>
+<script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<script>
+    function confirmDelete(id) {
+        Swal.fire({
+            title: 'Anda yakin?',
+            text: 'Data akan dihapus permanen!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
+                document.getElementById('delete-form-' + id).submit();
+                Swal.fire(
+                    'Dihapus!',
+                    'Category telah dihapus.',
+                    'success'
+                )
+            }
+        });
+    }
+</script>
 @endpush

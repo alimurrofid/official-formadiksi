@@ -314,6 +314,3 @@
     </script>
 
 @endsection
-@push('librariesFormJS')
-    <script src="{{ asset('assets/vendor/custom/js/create-article.js') }}"></script>
-@endpush
