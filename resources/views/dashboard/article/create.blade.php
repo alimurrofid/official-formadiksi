@@ -185,27 +185,54 @@
 @push('librariesFormJS')
 <script src="{{ asset('assets/extensions/sweetalert2/sweetalert2.all.min.js') }}"></script>
 <script>
+    // function confirmDelete(id) {
+    //     Swal.fire({
+    //         title: 'Anda yakin?',
+    //         text: 'Data akan dihapus permanen!',
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Ya, Hapus!',
+    //         cancelButtonText: 'Batal'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
+    //             document.getElementById('delete-form-' + id).submit();
+    //             Swal.fire(
+    //                 'Dihapus!',
+    //                 'Category telah dihapus.',
+    //                 'success'
+    //             )
+    //         }
+    //     });
+    // }
     function confirmDelete(id) {
-        Swal.fire({
-            title: 'Anda yakin?',
-            text: 'Data akan dihapus permanen!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Hapus!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Jika pengguna mengklik "Ya, Hapus!", kirimkan permintaan penghapusan ke server
-                document.getElementById('delete-form-' + id).submit();
-                Swal.fire(
-                    'Dihapus!',
-                    'Category telah dihapus.',
-                    'success'
-                )
-            }
-        });
-    }
+            Swal.fire({
+                title: 'Konfirmasi Hapus',
+                html: '<input type="password" id="password" class="swal2-input" placeholder="Masukkan password">',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal',
+                preConfirm: () => {
+                    const password = Swal.getPopup().querySelector('#password').value;
+                    // Ganti dengan logika yang sesuai untuk memeriksa password yang dimasukkan
+                    // Misalnya, jika password benar, kirimkan permintaan penghapusan ke server
+                    if (password === 'password123') {
+                        document.getElementById('delete-form-' + id).submit();
+                        Swal.fire(
+                            'Dihapus!',
+                            'Data telah dihapus.',
+                            'success'
+                        );
+                    } else {
+                        Swal.showValidationMessage('Password salah');
+                    }
+                }
+            });
+        }
 </script>
 @endpush
