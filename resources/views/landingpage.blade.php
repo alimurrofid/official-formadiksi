@@ -102,7 +102,7 @@
         <!-- View More -->
         <div class="row text-center mt-5" data-aos="fade-right" data-aos-duration="1200">
             <div class="col">
-                <a class="fs-5 d-inline-flex text-decoration-none fw-medium more-article" href="/article">
+                <a class="fs-5 d-inline-flex text-decoration-none fw-medium more-article" href="/berita">
                     <p class="px-3">View More Article</p>
                     <i class="bi bi-arrow-right"></i>
                 </a>
