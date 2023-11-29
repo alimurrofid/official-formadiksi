@@ -1,4 +1,4 @@
-<p align="center"><a href="#"><img src="./public/assets/images/logo-formadiksi.png" width="300" alt="Formadiksi Logo"></a></p>
+<p align="center"><a href="#"><img src="./public/assets/img/logo-formadiksi.png" width="300" alt="Formadiksi Logo"></a></p>
 
 ## Official Formadiksi
 
