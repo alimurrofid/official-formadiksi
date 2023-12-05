@@ -107,6 +107,12 @@
                     <span>Faq</span>
                 </a>
             </li>
+            <li class="sidebar-item bg-info bg-opacity-25" style="border-radius: 5px">
+                <a href="https://linktr.ee/FormadiksiMroyek" target="_blank" class='sidebar-link'>
+                    <i class="bi bi-file-text-fill"></i>
+                    <span>Documentation</span>
+                </a>
+            </li>
 
         </ul>
     </div>
